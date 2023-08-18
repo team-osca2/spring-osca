@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.app.osca.domain.CafeAdVO" alias="cafeAdVO"/>
+        <typeAlias type="com.app.osca.domain.CafeImageVO" alias="cafeImageVO"/>
+        <typeAlias type="com.app.osca.domain.CafeScrapVO" alias="cafeScrapVO"/>
+        <typeAlias type="com.app.osca.domain.CafeVO" alias="cafeVO"/>
+        <typeAlias type="com.app.osca.domain.CeoVO" alias="ceoVO"/>
+        <typeAlias type="com.app.osca.domain.GeneralVO" alias="generalVO"/>
+        <typeAlias type="com.app.osca.domain.ImageVO" alias="imageVO"/>
+        <typeAlias type="com.app.osca.domain.JobCategoryVO" alias="jobCategoryVO"/>
+        <typeAlias type="com.app.osca.domain.JobVO" alias="jobVO"/>
+        <typeAlias type="com.app.osca.domain.MemberImageVO" alias="memberImageVO"/>
+        <typeAlias type="com.app.osca.domain.MemberJobVO" alias="memberJobVO"/>
+        <typeAlias type="com.app.osca.domain.MemberSkillVO" alias="memberSkillVO"/>
+        <typeAlias type="com.app.osca.domain.MemberVO" alias="memberVO"/>
+        <typeAlias type="com.app.osca.domain.MessageVO" alias="messageVO"/>
+        <typeAlias type="com.app.osca.domain.PaymentVO" alias="paymentVO"/>
+        <typeAlias type="com.app.osca.domain.ReplyVO" alias="replyVO"/>
+        <typeAlias type="com.app.osca.domain.SkillListVO" alias="skillListVO"/>
+        <typeAlias type="com.app.osca.domain.StudyApplicantVO" alias="studyApplicantVO"/>
+        <typeAlias type="com.app.osca.domain.StudyImageVO" alias="studyImageVO"/>
+        <typeAlias type="com.app.osca.domain.StudyScrapVO" alias="studyScrapVO"/>
+        <typeAlias type="com.app.osca.domain.StudySkillVO" alias="studySkillVO"/>
+        <typeAlias type="com.app.osca.domain.StudyVO" alias="studyVO"/>
+    </typeAliases>
+</configuration>
