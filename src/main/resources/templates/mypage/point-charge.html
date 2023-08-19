@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../../static/css/header/header.css" />
     <link rel="stylesheet" href="../../static/css/mypage/mypage.css" />
     <link rel="stylesheet" href="../../static/css/mypage/point-charge.css" />
-    <link rel="icon" type="image/x-icon" href="../../static/images/favicon.png" /></head>
+    <link rel="icon" type="image/x-icon" href="../../static/images/favicon.png"/></head>
+  <script src="https://js.tosspayments.com/v1/payment-widget"></script>
   <body>
     <header class="header-wrapper">
       <section class="header-container">
@@ -78,6 +79,7 @@
         </div>
       </section>
     </header>
+
     <div class="bodyall">
       <div class="body">
         <div class="body-wrapper">
@@ -189,99 +191,18 @@
                     </div>
                    </div>
                 </div>
+
                 <div class="payment-options-select-box">
-                  <div class="options-main">
-                    <p class="se안내lectCard-options-label margin-bottom-10">결제수단</p>
-                    <ul class="payment-radioButtons">
-                      <li>
-                        <div class="awesome-radio">
-                          <label
-                            ><input type="radio" name="payment-option" value="신용카드" />
-                            <span class="awesome-radio-body"></span>
-                            <div class="awesome-radio-text">
-                              <span class="selectCard-options-label">신용카드 </span>
-                            </div></label
-                          >
-                        </div>
-                      </li>
-                      <li>
-                        <div class="awesome-radio">
-                          <label
-                            ><input type="radio" name="payment-option" value="실시간 계좌이체" />
-                            <span class="awesome-radio-body"></span>
-                            <div class="awesome-radio-text">
-                              <span class="selectCard-options-label">실시간 계좌이체 </span>
-                            </div></label
-                          >
-                        </div>
-                      </li>
-                      <li>
-                        <div class="awesome-radio">
-                          <label
-                            ><input type="radio" name="payment-option" value="무통장입금" />
-                            <span class="awesome-radio-body"></span>
-                            <div class="awesome-radio-text">
-                              <span class="selectCard-options-label">무통장입금 </span>
-                            </div></label
-                          >
-                        </div>
-                      </li>
-                    </ul>
-                    <div class="margin-top-40 credit-descriptions">
-                      <p class="selectCard-options-label margin-bottom-10">
-                        카드사별 선불충전 한도 안내
-                      </p>
-                      <div>
-                        <div class="flex-start-center credit-limit-item-set">
-                          <div class="credit-limit-item">카드사</div>
-                          <div class="credit-limit-item">결제한도(월)</div>
-                        </div>
-                        <div class="flex-start-center credit-limit-item-set">
-                          <div class="credit-limit-item">
-                            국민 / 비씨 / 우리 / 씨티 / 우체국 / 수협 <br />/ 신협체크 / MG새마을 /
-                            저축은행 / KDB산업은행 <br />
-                            / 광주 / 전북 / 제주 / 카카오뱅크
-                          </div>
-                          <div class="credit-limit-item">없음<br />( 1회 500만 원 한도 )</div>
-                        </div>
-                        <div class="flex-start-center credit-limit-item-set">
-                          <div class="credit-limit-item">하나</div>
-                          <div class="credit-limit-item">없음</div>
-                        </div>
-                        <div class="flex-start-center credit-limit-item-set">
-                          <div class="credit-limit-item">농협NH</div>
-                          <div class="credit-limit-item">
-                            없음<br />( 1회 10만 원 / 1일 10회 / 최고 50만 원 한도 )
-                          </div>
-                        </div>
-                        <div class="flex-start-center credit-limit-item-set">
-                          <div class="credit-limit-item">롯데</div>
-                          <div class="credit-limit-item">없음<br />( 1일 최고 50만 원 한도 )</div>
-                        </div>
-                        <div class="flex-start-center credit-limit-item-set">
-                          <div class="credit-limit-item">신한</div>
-                          <div class="credit-limit-item">없음<br />( 1일 최고 5만 원 한도 )</div>
-                        </div>
-                        <div class="flex-start-center credit-limit-item-set">
-                          <div class="credit-limit-item">현대</div>
-                          <div class="credit-limit-item">
-                            없음<br />( 1회 11만 원 / 1일 5회 / 최고 55만 원 한도 )
-                          </div>
-                        </div>
-                        <div class="flex-start-center credit-limit-item-set">
-                          <div class="credit-limit-item">삼성</div>
-                          <div class="credit-limit-item">50만 원</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex-center-center margin-top-50">
+                    <div class="options-main">
+                    <div class="flex-center-center">
                       <div class="Button">
                         <button
                           disabled="disabled"
-                          class="btn size-l"
+                          class="btn size-l point-payment"
+                          id="payment"
                           style="font-size: 15px; font-weight: 500"
                         >
-                          <span class="pay-button">충전하기</span>
+                          <span class="pay-button point-payment">충전하기</span>
                         </button>
                       </div>
                     </div>
@@ -289,6 +210,7 @@
                   </div>
                 </div>
               </div>
+
             </section>
             <section class="CashChargeDescriptionBox">
               <h4 class="description-title">
@@ -327,7 +249,6 @@
         </div>
       </div>
     </div>
-
     <footer class="footer">
       <div class="footer-inner">
         <ol style="width: 45%; padding: 0">

@@ -123,3 +123,33 @@ a{
     overflow: hidden;
     border-radius: 4px;
 }
+
+.fav-list{
+    padding-top: 20px;
+
+    display: flex;
+
+}
+.underline{
+    padding-bottom: 15px;
+}
+.underline:last-of-type {
+    margin-left: 20px;
+}
+.active-underline{
+    border-bottom: 3px solid #000000;
+}
+.border{
+    margin-top: 0px !important;
+}
+.fav-list a{
+    color: black;
+}
+
+.active{
+    font-weight: 700;
+
+}
+.cafe-fav{
+
+}
