@@ -151,11 +151,11 @@ textarea {
 .type-button:hover {
     box-shadow: none;
     background-color: rgb(255, 250, 209);
-    border-color: rgb(255, 212, 0);
+    border-color: #F9A01B;
 }
 
 .type-button:hover span:first-of-type {
-    color: rgb(255, 212, 0);
+    color: #F9A01B;
 }
 
 .button-icon-wrapper {
@@ -545,7 +545,7 @@ textarea {
 }
 
 .selected-checkbox {
-    background-color: rgb(255, 212, 0);
+    background-color: #F9A01B;
 }
 
 .submit-button {
