@@ -820,7 +820,7 @@ strong {
 }
 
 .signup-ad {
-    background-color: rgb(33, 34, 36);
+    background-color: #144F79;
     height: 160px;
 }
 
@@ -834,7 +834,7 @@ strong {
 .page-review {
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 212, 0);
+    background-color: #F9A01B;
     width: 100%;
     padding: 80px 0px;
 }
@@ -850,14 +850,14 @@ strong {
 .page-review-title {
     margin: 0px;
     font-size: 32px;
-    color: rgb(33, 34, 36);
+    color: #ffffff;
     font-weight: 700;
 }
 
 .page-review-subtitle {
     margin: 8px 0px 0px;
     font-size: 16px;
-    color: rgb(85, 89, 105);
+    color: #e8e8e8;
     font-weight: 400;
 }
 
@@ -894,14 +894,14 @@ strong {
 .page-review-video-title {
     margin-right: 4px;
     font-size: 15px;
-    color: rgb(33, 34, 36);
+    color: rgb(242, 243, 247);
     font-weight: bold;
 }
 
 .page-review-video-subtitle {
     margin-left: 8px;
     font-size: 15px;
-    color: rgb(85, 89, 105);
+    color: rgb(222, 222, 222);
 }
 
 .page-use {
@@ -1076,16 +1076,16 @@ strong {
     width: 450px;
     padding: 12px 0px;
     font-size: 16px;
-    color: rgb(33, 34, 36);
+    color: #ffffff;
     text-align: center;
-    background-color: rgb(255, 212, 0);
+    background-color: #F9A01B;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
 
 .page-lank-crown {
     box-shadow: rgba(48, 52, 65, 0.08) 0px 5px 23px -2px;
-    border: 1px solid rgb(255, 212, 0);
+    border: 1px solid #F9A01B;
     margin-bottom: 16px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -1182,15 +1182,6 @@ strong {
     margin: 0px auto;
     background-color: rgb(242, 243, 247);
 }
-
-
-
-
-
-
-
-
-
 /* end of main */
 
 /* footer */

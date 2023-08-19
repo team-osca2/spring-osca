@@ -12,7 +12,7 @@ public class MemberVO {
     private String memberName;
     private String memberEmail;
     private String memberPassword;
-    private String memberPhoneNumber;
+    private String memberPhonenumber;
     private String memberRole;
     private String memberBlocked;
     private String memberRegistDate;
