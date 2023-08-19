@@ -36,7 +36,7 @@
 }
 
 .footer-content-wrapper a {
-    color:#1A679E;
+    color:#F9A01B;
     margin-right: 16px;
     -webkit-text-decoration: none;
     text-decoration: none;
@@ -45,6 +45,6 @@
 .footer-content {
     -webkit-text-decoration: none;
     text-decoration: none;
-    color: #1A679E;
+    color: #F9A01B;
     cursor: pointer;
 }
