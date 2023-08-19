@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name"viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이 페이지</title>
+    <link rel="stylesheet" href="../../static/css/header/header.css" />
+    <link rel="stylesheet" href="../../static/css/mypage/edit-myprofile.css" />
+    <link rel="icon" type="image/x-icon" href="../../static/images/favicon.png" />
+  </head>
+  <body>
+    <header class="header-wrapper">
+      <section class="header-container">
+        <a href="/" aria-label="logo" class="header-logo">
+          <img src="../../static/images/logo.png" alt="오!스카 로고" style="width: 70px; height: 40px" />
+        </a>
+      </section>
+    </header>
+
+    <form action="" class="body-wrapper">
+      <div class="profile-edit-wrapper">
+        <nav class="aside-contents">
+          <div class="aside-menu">
+            <div class="menu-list selected-menu">
+              <div class="menu-number black-menu-number">1</div>
+              <span class="menu-text selected-text">자기 소개</span>
+            </div>
+            <div class="menu-list">
+              <div class="menu-number black-menu-number">2</div>
+              <span class="menu-text selected-text">전문 분야</span>
+            </div>
+            <div class="menu-list">
+              <div class="menu-number black-menu-number">3</div>
+              <span class="menu-text selected-text">보유 기술</span>
+            </div>
+          </div>
+        </nav>
+        <!-- rightside contents -->
+        <div class="edit-content-wrapper">
+          <section class="information">
+            <span class="info-title">자기 소개</span>
+            <div class="info-wrapper">
+              <div class="info-padding">
+                <div class="info-format">
+                  <div class="introduction">
+                    <div class="profile-image-wrapper">
+                      <div name"profile-thumbnail" class="profile_thumbnail">
+                      <div size="102" shape="0" role="article" class="image-box">
+                        <img
+                          src="https://d2v80xjmx68n4w.cloudfront.net/members/thumbs/QfUBa1690812432.png"
+                          alt="avatar"
+                          shape="0"
+                          loading="lazy"
+                          class="profile-image"
+                        />
+                      </div>
+                    </div>
+                    <div class="profile-img-change">
+                      <div class="dzu-dropzone" style="border: none; overflow: auto; padding: 4px">
+                        <button role="button" color="default" type="button" class="image-button">
+                          <span>
+                            <label for="file-input" class="change-image-button">
+                              프로필 변경
+                              <input
+                                id="file-input"
+                                type="file"
+                                accept="image/gif, image/jpeg, image/jpg, image/png"
+                                style="display: none"
+                              />
+                            </label>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="intro-right">
+                    <div>
+                      <div>
+                        <div class="user-nickname">
+                          <span class="user-nickname-title">닉네임</span>
+                          <div class="user-nickname-input-area">
+                            <div class="nick-input">
+                              <input
+                                type="text"
+                                placeholder="닉네임"
+                                class="nickname"
+                                value="닉네임"
+                              />
+                            </div>
+                          </div>
+                          <span class="nick-count">3/17</span>
+                        </div>
+                        <p class="nick-bottom-text">한글/영문/숫자만 사용할 수 있습니다.</p>
+                        <p class="nick-bottom-text hidden">사용 가능한 닉네임입니다.</p>
+                        <p class="red-nick-text hidden">현재 사용 중인 닉네임입니다.</p>
+                      </div>
+                    </div>
+                    <div class="margin">
+                      <div>
+                        <div class="intro-text-colomn">
+                          <span class="intro-title">자기소개</span>
+                          <textarea placeholder="자기소개" maxlength="255" class="intro-text-input">
+안녕하세요!
+영혼을 담아 개발하는 ㅁㅁㅁ입니다. 
+현재 땡땡에서 근무 2년차이며...
+                                </textarea
+                          >
+                          <span class="intro-text-count">119/255</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="location-wrapper">
+                      <span class="location-title">지역</span>
+                      <div class="location-select-wrapper">
+                        <div class="select-container">
+                          <span class="a11yText"></span>
+                          <div class="location-select-control">
+                            <div class="loc-input-area">
+                              <div class="loc-singleValue">서울</div>
+                              <input readonly="" value="" tabindex="0" class="loc-dummyInput" />
+                            </div>
+                            <div class="down-arrow-wrapper">
+                              <span display="none"></span>
+                              <div class="down-arrow">
+                                <svg
+                                  height="20"
+                                  width="20"
+                                  viewBox="0 0 20 20"
+                                  aria-hidden="true"
+                                  focusable="false"
+                                  class="down-arrow-svg"
+                                >
+                                  <path
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="location-menu-container">
+                              <div class="location-list">
+                                <div class="location-option" id="select-2-option-0" tabindex="-1">
+                                  <div class="location-text">서울</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-1" tabindex="-1">
+                                  <div class="location-text">경기 북부</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-2" tabindex="-1">
+                                  <div class="location-text">경기 남부</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-3" tabindex="-1">
+                                  <div class="location-text">부산</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-4" tabindex="-1">
+                                  <div class="location-text">대구</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-5" tabindex="-1">
+                                  <div class="location-text">인천</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-6" tabindex="-1">
+                                  <div class="location-text">광주</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-7" tabindex="-1">
+                                  <div class="location-text">대전</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-8" tabindex="-1">
+                                  <div class="location-text">울산</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-9" tabindex="-1">
+                                  <div class="location-text">세종</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-10" tabindex="-1">
+                                  <div class="location-text">강원</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-11" tabindex="-1">
+                                  <div class="location-text">충북</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-12" tabindex="-1">
+                                  <div class="location-text">충남</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-13" tabindex="-1">
+                                  <div class="location-text">전북</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-14" tabindex="-1">
+                                  <div class="location-text">전남</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-15" tabindex="-1">
+                                  <div class="location-text">경북</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-16" tabindex="-1">
+                                  <div class="location-text">경남</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-17" tabindex="-1">
+                                  <div class="location-text">제주</div>
+                                </div>
+                                <div class="location-option" id="select-2-option-18" tabindex="-1">
+                                  <div class="location-text">해외</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="area-of-expertise profile-section padding-top-list">
+            <span direction="row" class="info-title-expert">전문 분야</span>
+            <div class="expert-wrapper">
+              <div>
+                <div name="specialtiesWithCategories" class="specialtiesWithCategories">
+                <div class="category-box">
+                  <span class="category-title">전문분야</span>
+                  <div class="category-select">
+                    <div class="category-container">
+                      <span class="a11yText"></span>
+                      <div class="category-control">
+                        <div class="category-inner">
+                          <div class="category-placeholder">선택해 주세요.</div>
+                          <input readonly="" class="loc-dummyInput" value="" />
+                        </div>
+                        <div class="down-arrow-wrapper">
+                          <span display="none"></span>
+                          <div class="down-arrow">
+                            <svg
+                              height="20"
+                              width="20"
+                              viewBox="0 0 20 20"
+                              aria-hidden="true"
+                              focusable="false"
+                              class="down-arrow-svg"
+                            >
+                              <path
+                                d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                              ></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="expert-menu-container">
+                          <div class="expert-list">
+                            <div
+                              class="expert-option"
+                              id="select-5-option-0"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                웹사이트 신규 제작<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                            <div
+                              class="expert-option"
+                              id="select-5-option-1"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                웹사이트 개선·버그수정<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                            <div
+                              class="expert-option"
+                              id="select-5-option-2"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                모바일앱 신규 제작<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                            <div
+                              class="expert-option"
+                              id="select-5-option-3"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                모바일앱 개선·버그수정<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                            <div
+                              class="expert-option"
+                              id="select-5-option-4"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                프로그램 개발<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                            <div
+                              class="expert-option"
+                              id="select-5-option-5"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                임베디드 시스템<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                            <div
+                              class="expert-option"
+                              id="select-5-option-6"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                데이터 사이언스<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                            <div
+                              class="expert-option"
+                              id="select-5-option-7"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                게임∙언리얼<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                            <div
+                              class="expert-option"
+                              id="select-5-option-8"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                UX 기획<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                            <div
+                              class="expert-option"
+                              id="select-5-option-9"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                보안<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                            <div
+                              class="expert-option"
+                              id="select-5-option-10"
+                              tabindex="-1"
+                            >
+                              <div class="expert-text">
+                                QA·테스트<span
+                                  role="img"
+                                  color="#e4e5ed"
+                                  rotate="0"
+                                  class="expert-tick"
+                                  ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                    ></path></svg
+                                ></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="selected-area">
+                  <div class="delete-tag">
+                    <div color="denim" class="delete-button">
+                      <span>전체삭제</span>
+                    </div>
+                  </div>
+                  <div class="selected-expertise-list">
+                    <div>
+                  <!-- <div class="selected-expertise">
+                    <div shape="rounded" label="delete" class="selected-expertise-name">
+                      프로그램 개발
+                      <button type="button" class="button-x">
+                        <span role="img" color="#c8cad2" rotate="0" class="span-x"
+                          ><svg
+                            width="17"
+                            height="17"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            focusable="false"
+                            preserveAspectRatio="xMidYMid meet"
+                            class="svg-x"
+                          >
+                            <path
+                              xmlns="http://www.w3.org/2000/svg"
+                              d="M6.34314575,4.92893219 L12.000039,10.585039 L17.6568542,4.92893219 C18.0473785,4.5384079 18.6805435,4.5384079 19.0710678,4.92893219 C19.4615921,5.31945648 19.4615921,5.95262146 19.0710678,6.34314575 L13.415039,12.000039 L19.0710678,17.6568542 C19.4615921,18.0473785 19.4615921,18.6805435 19.0710678,19.0710678 C18.6805435,19.4615921 18.0473785,19.4615921 17.6568542,19.0710678 L12.000039,13.415039 L6.34314575,19.0710678 C5.95262146,19.4615921 5.31945648,19.4615921 4.92893219,19.0710678 C4.5384079,18.6805435 4.5384079,18.0473785 4.92893219,17.6568542 L10.585039,12.000039 L4.92893219,6.34314575 C4.5384079,5.95262146 4.5384079,5.31945648 4.92893219,4.92893219 C5.31945648,4.5384079 5.95262146,4.5384079 6.34314575,4.92893219 Z"
+                            ></path></svg
+                        ></span>
+                      </button>
+                    </div>
+                  </div> -->
+                </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="skills padding-top-list">
+            <span direction="row" class="info-title-expert">보유 기술</span>
+            <div class="skills-wrapper">
+              <div class="skills-container">
+                <div class="skills-scroll">
+                  <ul class="it-skills">
+                    <li class="skill-name-list">
+                      <div class="skill-name">워드프레스</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">JavaScript</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Java</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Python</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">PHP</div></li>
+                    <li class="skill-name-list"><div class="skill-name">C#</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Perl</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">TypeScript</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">React</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Angular</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">ASP.NET</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Bootstrap</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Flash</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">JSP</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Vue.js</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">ASP</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Node.js</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">그누보드</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">XE</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">모두</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">Wix</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">카페24</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">고도몰</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">메이크샵</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">영카트</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">식스샵</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Swift</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Android Studio</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">C#.NET</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Visual Basic</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">Lua</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Objective-C</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">Go</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Arduino</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">AVR</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Raspberry Pi</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">STM32</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Erlang</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Verilog</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">VHDL</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Excel</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">R</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Matlab</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">SPSS</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">SAS</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Scala</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Tableau</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Power BI</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">SQL</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Minitab</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Julia</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">jQuery</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Unity</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Google SDK</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Unreal Engine</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Godot</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Construct</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">GameMaker Studio</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Vuforia</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Kudan</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Visual Studio</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">HTML</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">CSS</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Ruby</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Ruby on Rails</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">C</div></li>
+                    <li class="skill-name-list"><div class="skill-name">C++</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Visual Basic.NET</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Delphi</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Object Pascal</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">A#</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">ActionScript</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Assembly</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Autohotkey</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">AutoIt</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Clojure</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Dart</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Kotlin</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">LabVIEW</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Liquid</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">LabVIEW</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Rust</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Sass</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Solidity</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">XML</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">.NET</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Bulma</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">CodeIgniter</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Django</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Electron</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Express.js</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">FastAPI</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Flask</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Flutter</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Foundation</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Framework7</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Ionic</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Laminas</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Laravel</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Material-UI</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Materialize</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Next.js</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">Qt</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Native</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Spring</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Swing</div>
+                    </li>
+                    <li class="skill-name-list"><div class="skill-name">WPF</div></li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Xamarin</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Angular JS</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Adobe Photoshop</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Adobe XD</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Axure RP</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Balsamiq Mockups</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Figma</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Framer</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Google Presentation</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Illustrator</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Invision</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Oven</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Pixate</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">PowerMockup</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Microsoft Powerpoint</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">protoNow</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">ProtoPie</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Sketch</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">UXPin</div>
+                    </li>
+                    <li class="skill-name-list">
+                      <div class="skill-name">Zeplin</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="selected-skills-list">
+                  <div class="delete-box">
+                    <button role="button" color="denim" type="button" class="delete-button2">
+                      <span>전체삭제</span>
+                    </button>
+                  </div>
+                  <div class="skills-selected-box">
+                    <!-- <div class="skills-each">
+                      <div shape="rounded" label="delete" class="selected-skills-name">
+                        Java<div type="button" class="button-x">
+                          <span role="img" color="#c8cad2" rotate="0" class="span-x"
+                            ><svg
+                              width="17"
+                              height="17"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              focusable="false"
+                              preserveAspectRatio="xMidYMid meet"
+                              class="svg-x"
+                            >
+                              <path
+                                xmlns="http://www.w3.org/2000/svg"
+                                d="M6.34314575,4.92893219 L12.000039,10.585039 L17.6568542,4.92893219 C18.0473785,4.5384079 18.6805435,4.5384079 19.0710678,4.92893219 C19.4615921,5.31945648 19.4615921,5.95262146 19.0710678,6.34314575 L13.415039,12.000039 L19.0710678,17.6568542 C19.4615921,18.0473785 19.4615921,18.6805435 19.0710678,19.0710678 C18.6805435,19.4615921 18.0473785,19.4615921 17.6568542,19.0710678 L12.000039,13.415039 L6.34314575,19.0710678 C5.95262146,19.4615921 5.31945648,19.4615921 4.92893219,19.0710678 C4.5384079,18.6805435 4.5384079,18.0473785 4.92893219,17.6568542 L10.585039,12.000039 L4.92893219,6.34314575 C4.5384079,5.95262146 4.5384079,5.31945648 4.92893219,4.92893219 C5.31945648,4.5384079 5.95262146,4.5384079 6.34314575,4.92893219 Z"
+                              ></path></svg
+                          ></span>
+                        </div>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="footer-wrapper">
+        <div class="footer-div">
+          <button role="button" color="yellow" class="save-button">
+            <span>프로필 저장</span>
+          </button>
+        </div>
+      </footer>
+    </form>
+  </body>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="../../static/js/mypage/edit-myprofile.js"></script>
+</html>
