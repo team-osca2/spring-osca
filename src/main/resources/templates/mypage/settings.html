@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/css/mypage/settings.css" />
+    <link rel="stylesheet" href="../../static/css/study/study-main/study-footer.css"/>
+    <link rel="stylesheet" href="../../static/css/header/header.css" />
+    <link rel="icon" type="image/x-icon" href="../../static/images/favicon.png" />
+    <title>계정관리</title>
+  </head>
+  <body>
+    <header class="header-wrapper">
+      <section class="header-container">
+        <a href="/" aria-label="logo" class="header-logo">
+          <img src="../../static/images/logo.png" alt="오!스카 로고" style="width: 70px; height: 40px" />        </a>
+        <div>
+          <span class="header-line"></span>
+          <a href="" class="header-menu">오늘의 스터디</a>
+          <a href="" class="header-menu">오늘의 카페</a>
+          <a href="" class="header-menu">FAQ</a>
+          <a href="" class="header-menu">Oh!스카 소개</a>
+        </div>
+        <div style="flex-grow: 1"></div>
+        <div class="header-aside">
+          <a
+            role="link"
+            color="default"
+            href="/inboxes?inbox_group_id=&amp;partner_id="
+            class="header-aside-menu"
+            aria-expanded="false"
+          >
+            <span class="aside-menu-contents">
+              <p variant="body2" class="aside-contents" color="gray900">회원가입</p>
+            </span>
+          </a>
+          <a
+            role="link"
+            color="default"
+            href="/inboxes?inbox_group_id=&amp;partner_id="
+            class="header-aside-menu"
+            aria-expanded="false"
+          >
+            <span class="aside-menu-contents">
+              <p variant="body2" class="aside-contents" color="gray900">로그인</p>
+            </span>
+          </a>
+          <a
+            role="link"
+            color="default"
+            href="/inboxes?inbox_group_id=&amp;partner_id="
+            class="header-aside-menu"
+            aria-expanded="false"
+          >
+            <span class="aside-menu-contents">
+              <p variant="body2" class="aside-contents" color="gray900">마이페이지</p>
+            </span>
+          </a>
+          <div>
+            <div class="header-profile" aria-expanded="false">
+              <a href="/buyer/order-list" class="profile-link">
+                <div class="profile-wrapper">
+                  <div size="32" shape="0" role="article" class="profile-shape">
+                    <img
+                      src="https://kmong.com/img/tools/main_user_gray.png"
+                      alt="avatar"
+                      shape="0"
+                      loading="lazy"
+                      class="profile-img"
+                      style="height: 32px; width: 32px"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <div>
+      <div class="body-div">
+        <aside class="setting-menu-box">
+          <div class="menu-title">계정 관리</div>
+          <hr class="line"/>
+          <a class="menu-list menu-selected" href="">내 정보</a>
+          <a class="menu-list" href="">비밀번호 변경</a>
+          <a class="menu-list" href="">회원 탈퇴</a>
+        </aside>
+        <hr class="line-mini">
+        <main class="body-details">
+          <div class="body-details-div">
+            <h1 class="body-details-title">내 정보</h1>
+            <section class="body-settings">
+              <section class="member-profile">
+                <div class="profile-pic-div">
+                  <img
+                    src="https://d2v80xjmx68n4w.cloudfront.net/members/thumbs/QfUBa1690812432.png"
+                    alt="프로필 사진"
+                    shape="0"
+                    loading="lazy"
+                    class="profile-pic"
+                  />
+                </div>
+                <div class="profile-change-button-div">
+                  <div class="dropzone" style="border: none; overflow: auto; padding: 4px">
+                    <button role="button" class="profile-change-button">
+                      <span>
+                        <label class="profile-label"
+                          >프로필 변경<input
+                            id="file-input"
+                            style="display: none"
+                            type="file"
+                            accept="image/gif, image/jpeg, image/jpg, image/png" /></label
+                      ></span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+              <section class="settings-myinfo">
+                <div class="info-list">
+                  <label class="info-title" for="">
+                    <span class="info-title-words"> 닉네임 </span>
+                    <div class="edit">
+                      <span class="edit-span sujung">수정</span>
+                      <span class="edit-span save displayNone">저장</span>
+                      <span class="edit-span cancel displayNone">취소</span>
+                    </div>
+                  </label>
+                  <div class="input id-input">
+                    <input class="input-value id-input" type="text" value="아이디" disabled />
+                  </div>
+                  <ul class="explanation">
+                    <li>* 한글/영문/숫자만 사용할 수 있습니다.</li>
+                  </ul>
+                </div>
+                <div class="info-list">
+                  <label class="info-title" for="">
+                    <span class="info-title-words">이메일 </span>
+                  </label>
+                  <div class="email-box">
+                    <div class="input">
+                      <input class="input-value" type="text" disabled value="123@abc.com" />
+                      <div class="suffix-wrapper tick-location">
+                        <span class="tick"
+                          ><svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                            focusable="false"
+                            preserveAspectRatio="xMidYMid meet"
+                            class="tick-svg"
+                          >
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                              d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M15.7997804,9.20767085 C15.53176,8.93186943 15.0959927,8.93062056 14.8264668,9.20488141 L14.8264668,9.20488141 L10.8145475,13.2862949 L9.18819848,11.528062 L9.11288323,11.4577095 C8.84909316,11.2455787 8.466272,11.2574579 8.21525483,11.5004627 C7.93913594,11.767768 7.92706048,12.2135121 8.18828353,12.49606 L8.18828353,12.49606 L10.2996011,14.7797344 L10.3762843,14.8511931 C10.6449585,15.0661724 11.0355012,15.0488498 11.2848524,14.7951181 L11.2848524,14.7951181 L15.7970545,10.2036467 L15.8639086,10.1248492 C16.0645771,9.84971652 16.0434353,9.4583994 15.7997804,9.20767085 Z"
+                            ></path></svg
+                        ></span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="explanation">
+                    <li>
+                      *<!-- -->
+                      <!-- -->이메일을 변경하시려면 고객센터로 문의해 주세요.
+                    </li>
+                  </ul>
+                </div>
+                <div class="info-list">
+                  <label class="info-title" for="">
+                    <span class="info-title-words">휴대폰 본인인증</span></label
+                  >
+                  <div class="phone-input-area">
+                    <div disabled class="input">
+                      <input class="input-value" disabled type="text" />
+                    </div>
+                    <button class="phone-button">
+                      <span>재인증</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <ol style="width: 45%; padding: 0">
+          <b>(주)OH!스카</b>
+          | 서울특별시 강남구 테헤란로 26길 12 제일비전타워 13층 | 대표 : 정해승<br />
+          개인정보보호책임 : 배정수 | 사업자등록번호 : 815-88-00171<br />
+          통신판매업신고 : 2015 - 서울강남 - 03148호 | 02-2135-2949<br />
+          koreais@koreaedugroup.com
+        </ol>
+        <ol>
+          <a href="">오늘의 스터디</a>
+        </ol>
+        <ol>
+          <a href="">오늘의 카페</a>
+        </ol>
+        <ol>
+          <a href="">FAQ</a>
+        </ol>
+        <ol>
+          <a href="">OH!스카 소개</a>
+        </ol>
+      </div>
+      <div class="footer-media">
+        &nbsp;&nbsp; (주)OH!스카 &nbsp;&nbsp;&nbsp;
+        <a href="">오늘의 스터디</a>&nbsp; <a href="">오늘의 카페</a>&nbsp; <a href="">FAQ</a>&nbsp;
+        <a href="">OH!스카 소개</a>&nbsp;
+      </div>
+    </footer>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="../../static/js/mypage/edit-settings.js"></script>
+</html>
