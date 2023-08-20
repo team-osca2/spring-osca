@@ -14,7 +14,7 @@
 <header class="header-wrapper" th:fragment="unlogined-header">
     <section class="header-container">
         <a href="/" aria-label="logo" class="header-logo">
-            <img src="/images/logo.png" alt="오!스카 로고" style="width:70px; height: 40px;">
+            <img src="../static/images/logo.png" alt="오!스카 로고" style="width:70px; height: 40px;">
         </a>
         <div>
             <span class="header-line"></span>
@@ -25,20 +25,20 @@
         </div>
         <div style="flex-grow:1"></div>
         <div class="header-aside">
-            <a role="link" color="default" href="/inboxes?inbox_group_id=&amp;partner_id=" class="header-aside-menu" aria-expanded="false">
-                    <span class="aside-menu-contents">
-                        <p variant="body2" class="aside-contents" color="gray900">회원가입</p>
-                    </span>
+            <a role="link" color="default" href="" class="header-aside-menu" aria-expanded="false">
+                        <span class="aside-menu-contents">
+                            <p variant="body2" class="aside-contents" color="gray900">회원가입</p>
+                        </span>
             </a>
-            <a role="link" color="default" href="/inboxes?inbox_group_id=&amp;partner_id=" class="header-aside-menu" aria-expanded="false">
-                    <span class="aside-menu-contents">
-                        <p variant="body2" class="aside-contents" color="gray900">로그인</p>
-                    </span>
+            <a id="login" role="link" color="default" class="header-aside-menu" aria-expanded="false">
+                        <span class="aside-menu-contents">
+                            <p variant="body2" class="aside-contents" color="gray900">로그인</p>
+                        </span>
             </a>
-            <a role="link" color="default" href="/inboxes?inbox_group_id=&amp;partner_id=" class="header-aside-menu" aria-expanded="false">
-                    <span class="aside-menu-contents">
-                        <p variant="body2" class="aside-contents" color="gray900">마이페이지</p>
-                    </span>
+            <a role="link" color="default" href="" class="header-aside-menu" aria-expanded="false">
+                        <span class="aside-menu-contents">
+                            <p variant="body2" class="aside-contents" color="gray900">마이페이지</p>
+                        </span>
             </a>
             <div>
                 <div class="header-profile" aria-expanded="false">
@@ -48,13 +48,13 @@
                                 <img src="https://kmong.com/img/tools/main_user_gray.png" alt="avatar" shape="0" loading="lazy" class="profile-img" style="height: 32px; width: 32px;">
                             </div>
                         </div>
+
                     </a>
                 </div>
             </div>
         </div>
     </section>
 </header>
-
 <!-- 로그인 되고 난 뒤 헤더 -->
 
 </body>
