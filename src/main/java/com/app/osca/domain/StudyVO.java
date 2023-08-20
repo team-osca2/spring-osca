@@ -13,9 +13,9 @@ public class StudyVO {
     private String studyTitle;
     private String studyContents;
     private String studyLocation;
-    private String studyRegistDate;
+    private String studyRegisterDate;
     private String studyUpdateDate;
-    private String studyTotal;
+    private Integer studyTotal;
     private String studyOpen;
     private String studyBlocked;
 }

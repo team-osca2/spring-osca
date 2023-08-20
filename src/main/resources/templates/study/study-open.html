@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -83,14 +83,16 @@
     <div class="body">
         <div class="body-wrapper">
             <main class="study-open">
+                <form action="/study/write" method="post">
+
                 <div class="study-open-top">
                     <h2 class="study-open-title">오늘의 스터디 개설하기</h2>
-                    <button class="study-register-button">
+                    <button class="study-register-button" >
                         스터디 등록하기
                     </button>
                 </div>
 
-                <div class="border">
+                <div class="border" th:object="${studyVO}">
                     <div class="study-info-wrapper">
                         <label  class="study-content-title-label">
                             <!-- 스터디 제목 입력하기 -->
@@ -98,7 +100,7 @@
                         </label>
                         <div class="study-content-wrapper">
                             <div class="study-content">
-                                <input type="text" class="study-content-input">
+                                <input type="text" class="study-content-input" th:field="*{studyTitle}">
                             </div>
                         </div>
                     </div>
@@ -110,7 +112,7 @@
                         </label>
                         <div class="study-content-wrapper">
                             <div class="study-content" style="height: 200px;">
-                          <textarea type="text" class="study-content-input" style="resize: none;">
+                          <textarea type="text" class="study-content-input" style="resize: none;" th:field="*{studyContents}">
 
                           </textarea>
                             </div>
@@ -179,7 +181,7 @@
                         </label>
                         <div class="study-content-wrapper">
                             <div class="study-content">
-                                <input type="number" min='0' class="study-content-input">
+                                <input type="number" min='0' class="study-content-input" th:field="*{studyTotal}">
                             </div>
                         </div>
                     </div>
@@ -212,6 +214,8 @@
                 <button class="media-study-register-button">
                     스터디 등록하기
                 </button>
+                </form>
+
             </main>
         </div>
     </div>
