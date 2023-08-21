@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
-@RequestMapping("/study/*")
+@RequestMapping("/study")
 @RequiredArgsConstructor
 public class StudyController {
 
     final private StudyService studyService;
 
-    @GetMapping("/")
+    @GetMapping(value = {"", "/"})
     public String studyMain(){
         return "study/study-main";
     }
