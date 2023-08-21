@@ -13,6 +13,7 @@ public class MemberVO {
     private String memberEmail;
     private String memberPassword;
     private String memberPhonenumber;
+    private String memberReportNo;
     private String memberRole;
     private String memberBlocked;
     private String memberRegistDate;

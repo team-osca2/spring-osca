@@ -13,5 +13,6 @@ public class MessageVO {
     private Long sender;
     private Long receiver;
     private String messageRegistDate;
-    private String messageContent;
+    private String messageStatus;
+    private String messageRead;
 }

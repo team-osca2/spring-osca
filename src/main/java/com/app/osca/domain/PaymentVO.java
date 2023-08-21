@@ -10,12 +10,7 @@ import org.springframework.stereotype.Component;
 public class PaymentVO {
     private Long id;
     private Long memberId;
-    private String paymentProductNumber;
-    private String paymentProductQuantity;
-    private String paymentTotalPrice;
+    private String paymentPrice;
+    private String paymentDate;
     private String paymentStatus;
-    private String paymentCardNumber;
-    private String paymentAuthorizationDate;
-    private String paymentCancellationDate;
-
 }

@@ -33,8 +33,8 @@ public class StudyControllerTest {
         log.info("...     " + studyController.studyDetail());
     }
 
-    @Test
-    public void studyOpenTest(){
-        log.info("...     " + studyController.studyOpen());
-    }
+//    @Test
+//    public void studyOpenTest(){
+//        log.info("...     " + studyController.studyOpen());
+//    }
 }

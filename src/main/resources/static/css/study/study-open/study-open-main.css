@@ -162,6 +162,7 @@ table {
 }
 
 .study-content, .study-content:hover, .study-content:focus-within {
+    background-color: #fafafc;
     border-color: #e4e5ed;
     color: #9a9ba7;
 }
@@ -180,6 +181,8 @@ table {
     -ms-flex-direction: row;
     flex-direction: row;
     cursor: text;
+    background-color: #fff;
+    color: #303441;
     height: 42px;
     font-size: 15px;
     padding: 0 14px;
@@ -197,9 +200,9 @@ table {
     font-size: inherit;
     border: none;
     font-weight: inherit;
-    background-color: #ffffff;
+    background-color: transparent;
     text-align: left;
-    color: #ffffff;
+    color: inherit;
 }
 
 .study-register-button{
@@ -311,4 +314,169 @@ input, textarea {
         margin: 40px auto 0px;
         padding: 0 16px;
     }
+
+    .selected-skills-list {
+        width: auto;
+    }
+
+    .skills {
+        flex-direction: column;
+    }
+
+}
+/* skills */
+.skills-wrapper {
+    width: 100%;
+    height: 452px;
+    border: 1px solid #f2f3f7;
+}
+
+.skills-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: calc(100% - 52px);
+}
+
+.skills-scroll {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+}
+
+.it-skills {
+    overflow: auto;
+    width: 150px;
+    height: 100%;
+    margin: 0;
+    padding: 8px;
+}
+/* 선택안한 스킬 */
+.skill-name-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #303441;
+    margin: 4px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    padding: 0 12px;
+}
+
+.skill-name {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 34px;
+    margin: 0px auto;
+}
+/* 선택한 스킬 */
+.delete-button2{
+    background-color: #144F79;
+    border-radius: 4px;
+    border-color: #144F79;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.selected-skill {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    font-size: 14px;
+    color: rgb(48, 52, 65);
+    margin: 4px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #F9A01B;
+    background-color: rgb(255, 250, 209);
+    padding: 0px 12px;
+}
+.yellow-tick {
+    display: inline-block;
+    font-style: normal;
+    line-height: 0;
+    text-align: center;
+    text-transform: none;
+    vertical-align: -0.125em;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    color: #f9a01b;
+    align-self: center;
+}
+
+.selected-skills-list {
+    height: 100%;
+    overflow: auto;
+    border-left: 1px solid #f2f3f7;
+    width: 550px;
+}
+
+.selected-skills-name {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 20px;
+    background: rgb(242, 243, 247);
+    color: rgb(85, 89, 105);
+    display: flex;
+    cursor: default;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    align-items: center;
+}
+.delete-box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: 10px 16px;
+}
+
+.skills{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #f2f3f7;
+}
+.skills-selected-box {
+    display: flex;
+    grid-gap: 8px;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+.skills-each {
+    width: fit-content;
+}
+
+.css-1h7exwy {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 20px;
+    background: rgb(242, 243, 247);
+    color: rgb(85, 89, 105);
+    display: flex;
+    cursor: default;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
 }

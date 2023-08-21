@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class StudySkillVO {
     private Long id;
-    private String skill;
+    private String skillListId;
     private String studyId;
 }
