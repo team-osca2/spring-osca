@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class StudyDAO {
-    private final StudyMapper studyMapper;
+//    private final StudyMapper studyMapper;
 
-    public void join(StudyVO studyVO){studyMapper.insert(studyVO);}
+//    public void join(StudyVO studyVO){studyMapper.insert(studyVO);}
 }
