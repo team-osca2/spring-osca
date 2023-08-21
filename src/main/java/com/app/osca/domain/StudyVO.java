@@ -12,10 +12,14 @@ public class StudyVO {
     private Long memberId;
     private String studyTitle;
     private String studyContents;
+    private String studyCurriculum;
+    private String studyPeriodDate;
+    private String studyMemberTotalNumber;
     private String studyLocation;
+    private String studyReportNo;
     private String studyRegisterDate;
     private String studyUpdateDate;
-    private Integer studyTotal;
-    private String studyOpen;
+    private String studyApplyDeadline;
+    private String studyStatus;
     private String studyBlocked;
 }

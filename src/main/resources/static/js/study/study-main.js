@@ -14,6 +14,7 @@ $(".color-style").on("click",function(){
 
 // 이미지 변경하기
 $(".bookmark-add-color").on("click",function(){
-    var src=($(this).attr('src')==='../../upload/bookmark.png')?'../../upload/bookmark-color.png':'../../upload/bookmark.png';
+    var src=($(this).attr('src')==='/images/study-images/bookmark.png')?'/images/study-images/bookmark-color.png':'/images/study-images/bookmark.png';
     $(this).attr('src',src);
+
 });

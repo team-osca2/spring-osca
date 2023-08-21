@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class JobVO {
-    private Long jobCategoryId;
-    private String job;
+public class TicketVO {
     private Long id;
+    private String name;
+    private Long point;
 }
