@@ -1,6 +1,9 @@
 package com.app.osca.service.member;
 
 import com.app.osca.domain.MemberVO;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
+
+import java.util.HashMap;
 import java.util.Optional;
 
 public class MemberServiceImpl implements MemberService {
