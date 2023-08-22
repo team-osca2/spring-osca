@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.GeneralMapper">
+    <!-- 멤버의 role에 따라 카페 사장회원과 일반 회원이 나뉘게 됨  -->
+<!-- 1.general 정보 추가하기: 일단 학교, 회사, 자기소개 까지 -->
+    <insert id="insert">
+		insert into TBL_GENERAL
+		(MEMBER_ID, GENERAL_UNIVERSITY, GENERAL_COMPANY ,GENERAL_INTRODUCTION, GENERAL_CAREER, GENERAL_SALARY)
+		values(#{memberId}, #{generalUniversity}, #{generalCompany}, #{generalIntroduction}, #{generalCareer}, #{generalSalary})
+	</insert>
 
+<!-- 2. 일반회원 정보 가져오기  -->
+    <select id="selectById" resultType="generalVO">
+		select MEMBER_ID, GENERAL_UNIVERSITY, GENERAL_COMPANY, GENERAL_INTRODUCTION , GENERAL_CAREER, GENERAL_SALARY
+		from TBL_GENERAL
+		where MEMBER_ID= #{memberId}
+	</select>
+
+<!-- 3. 일반회원 정보 수정하기  -->
+    <update id="update">
+		update TBL_GENERAL
+		set GENERAL_UNIVERSITY = #{generalUniversity}, GENERAL_COMPANY = #{generalCompany},
+		GENERAL_INTRODUCTION = #{generalIntroduction}, GENERAL_CAREER = #{generalCareer}, GENERAL_SALARY = #{generalSalary}
+		where MEMBER_ID = #{memberId}
+	</update>
 </mapper>
