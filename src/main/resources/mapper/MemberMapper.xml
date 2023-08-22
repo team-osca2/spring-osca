@@ -25,4 +25,54 @@
     <delete id="delete">
         DELETE FROM TBL_MEMBER WHERE ID = #{id}
     </delete>
+
+
+    <!--    회원가입    -->
+    <!--  시퀸스 가져오기  -->
+    <select id="selectMemberSequence" resultType="long">
+        SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
+    </select>
+    <!-- 닉네임 중복 검사  -->
+    <select id="selectForNickNameCheck" resultType="string">
+        SELECT MEMBER_NAME FROM TBL_MEMBER WHERE MEMBER_NICKNAME = #{memberNickname}
+    </select>
+    <!-- 아이디 중복 검사   -->
+    <select id="selectForIdCheck" resultType="string">
+        SELECT MEMBER_EMAIL FROM TBL_MEMBER WHERE MEMBER_EMAIL = #{memberEmail}
+    </select>
+    <!--  멤버 기본 정보 insert ( 일반계정 ) -->
+    <insert id="insertGeneral">
+        INSERT INTO TBL_MEMBER
+        (ID, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_PHONENUMBER)
+        VALUES(#{id}, #{memberName}, #{memberNickname}, #{memberEmail}, #{memberPassword}, #{memberPhonenumber})
+    </insert>
+    <!--  카페계정 가입  -->
+    <!-- 첫 계정인지 체크  -->
+    <select id="selectForCafeCheck" resultType="long">
+        SELECT COUNT(ID) FROM TBL_MEMBER WHERE #{memberPhonenumber} = MEMBER_PHONENUMBER AND MEMBER_ROLE = 1
+    </select>
+    <!--  카페 계정으로 가입 시 포인트 충전 0 OR 10000 -->
+    <insert id="insertCafe">
+        INSERT INTO TBL_MEMBER
+        (ID, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_PHONENUMBER, MEMBER_ROLE)
+        VALUES(#{id}, #{memberName}, #{memberNickname}, #{memberEmail}, #{memberPassword}, #{memberPhonenumber}, 1)
+    </insert>
+    <!--    로그인    -->
+    <select id="selectForLogin" resultType="int">
+        SELECT ID FROM TBL_MEMBER WHERE MEMBER_EMAIL = #{memberEmail} AND MEMBER_PASSWORD = #{memberPassword}  <!-- 세선에 들어갈 회원번호  -->
+    </select>
+
+    <!--    계정찾기    -->
+    <select id="selectMemberEmail" resultType="string">
+        <!--  닉네임이랑 전화번호를 가지고 멤버를 조회 성공하면 Integer로 전화번호 반환 -->
+        SELECT MEMBER_EMAIL FROM TBL_MEMBER WHERE MEMBER_NAME = #{memberName} AND MEMBER_PHONENUMBER = #{memberPhonenumber}
+    </select>
+    <!--    비밀번호 재설정    -->
+    <update id="updateMemberPassword">
+        UPDATE TBL_MEMBER
+        SET MEMBER_PASSWORD = #{memberPassword}
+        WHERE MEMBER_EMAIL = #{memberEmail}
+    </update>
+
+
 </mapper>
