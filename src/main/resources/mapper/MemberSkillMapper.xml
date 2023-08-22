@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.MemberSkillMapper">
+<!--  1. skill 추가하기  -->
+    <insert id="insert">
+        INSERT INTO TBL_MEMBER_SKILL (ID, MEMBER_ID, SKILL_LIST_ID)
+        VALUES (SEQ_MEMBER_SKILL.NEXTVAL, #{memberId}, #{skillListId})
+    </insert>
 
+<!--  2. 등록한 skill 가져오기  -->
+    <select id="selectAllByMemberId" resultType="memberSkillDTO">
+        SELECT MS.ID, MS.MEMBER_ID, MS.SKILL_LIST_ID, SL.ID, SL.SKILL
+        FROM TBL_MEMBER_SKILL MS JOIN TBL_SKILL_LIST SL
+        ON MS.SKILL_LIST_ID = SL.ID
+        WHERE MS.MEMBER_ID=#{memberId}
+    </select>
 </mapper>
