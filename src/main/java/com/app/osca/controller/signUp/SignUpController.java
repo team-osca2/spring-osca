@@ -1,29 +1,29 @@
 package com.app.osca.controller.signUp;
 
+import com.app.osca.domain.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/signUp/*")
+@RequestMapping("/sign-up")
 public class SignUpController {
 
-    @GetMapping("/signUp-type-select")
+    @GetMapping(value = {"", "/"})
+    public String signUpContent(MemberVO memberVO){
+        return "signup/signup_content";
+    }
+
+    @GetMapping("/email-type")
     public String signUpTypeSelect(){
         return "signup/signup_type";
     }
 
-
-    @GetMapping("/signUp-user-type")
+    @GetMapping("/user-type")
     public String signUpUserTypeSelect(){
         return "signup/signup_user_type";
     }
 
-    @GetMapping("signUp-content")
-    public String signUpContent(){
-        return "signup/signup_content";
-    }
-
-//  전화번호 중복검사
+    //  전화번호 중복검사
     @PostMapping("/check-tel")
     @ResponseBody
     public String checkTel(String phonenumber) { return phonenumber; }

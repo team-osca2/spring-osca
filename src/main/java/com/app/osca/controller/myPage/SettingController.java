@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/setting/*")
+@RequestMapping("/setting")
 public class SettingController {
 
-    @GetMapping("/")
+    @GetMapping(value = {"", "/"})
     public String goToSetting(){
         return "mypage/settings";
     }
