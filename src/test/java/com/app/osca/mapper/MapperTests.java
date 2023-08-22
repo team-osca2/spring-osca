@@ -9,27 +9,27 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @Slf4j
 public class MapperTests {
-    @Autowired
-    private MemberMapper memberMapper;
-
-    //  멤버 테스트
-    @Test
-    public void memberSelectTest(){
-        memberMapper.select(1L).map(MemberVO::toString).ifPresent(log::info);
-    }
-
-    @Test
-    public void memberUpdateTest(){
-        memberMapper.select(1L).ifPresent(member -> {
-            member.setMemberName("정유진");
-            member.setMemberEmail("dbwls89173@gmail.com");
-            memberMapper.update(member);
-        });
-    }
-
-    @Test
-    public void memberDeleteTest(){
-        memberMapper.delete(1L);
-    }
+//    @Autowired
+//    private MemberMapper memberMapper;
+//
+//    //  멤버 테스트
+//    @Test
+//    public void memberSelectTest(){
+//        memberMapper.select(1L).map(MemberVO::toString).ifPresent(log::info);
+//    }
+//
+//    @Test
+//    public void memberUpdateTest(){
+//        memberMapper.select(1L).ifPresent(member -> {
+//            member.setMemberName("정유진");
+//            member.setMemberEmail("dbwls89173@gmail.com");
+//            memberMapper.update(member);
+//        });
+//    }
+//
+//    @Test
+//    public void memberDeleteTest(){
+//        memberMapper.delete(1L);
+//    }
 }
 

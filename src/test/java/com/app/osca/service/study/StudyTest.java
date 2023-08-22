@@ -16,7 +16,7 @@ public class StudyTest {
         StudyVO studyVO = new StudyVO();
         studyVO.setStudyTitle("게시글1");
         studyVO.setStudyContents("게시글 내용 1");
-        studyVO.setStudyTotal(6);
+        studyVO.setStudyMemberTotalNumber("6");
         studyVO.setMemberId(1L);
         studyService.join(studyVO);
     }

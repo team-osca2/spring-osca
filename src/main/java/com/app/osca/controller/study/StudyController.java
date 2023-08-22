@@ -22,8 +22,8 @@ public class StudyController {
     }
 
     @GetMapping("/my-study")
-    public String myStudy(){
-        return "study/my-study";
+    public void myStudy(){
+        ;
     }
 
     @GetMapping("/applicant")
