@@ -13,6 +13,7 @@ public class ReplyVO {
     private Long studyId;
     private String replyContent;
     private String replyBlocked;
+    private String reportNo;
     private String replyRegistDate;
     private String replyUpdateDate;
 }

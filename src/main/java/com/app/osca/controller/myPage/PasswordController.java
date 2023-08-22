@@ -10,6 +10,6 @@ public class PasswordController {
 
     @GetMapping("/change")
     public String changePassword(){
-        return "passwordchange";
+        return "mypage/passwordchange";
     }
 }

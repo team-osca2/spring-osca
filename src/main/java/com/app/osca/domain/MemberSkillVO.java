@@ -10,5 +10,5 @@ import org.springframework.stereotype.Component;
 public class MemberSkillVO {
     private Long id;
     private Long memberId;
-    private String skill;
+    private Long skillListId;
 }

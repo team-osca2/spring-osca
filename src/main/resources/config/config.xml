@@ -24,5 +24,8 @@
         <typeAlias type="com.app.osca.domain.StudyScrapVO" alias="studyScrapVO"/>
         <typeAlias type="com.app.osca.domain.StudySkillVO" alias="studySkillVO"/>
         <typeAlias type="com.app.osca.domain.StudyVO" alias="studyVO"/>
+        <typeAlias type="com.app.osca.domain.TicketVO" alias="ticketVO"/>
+        <typeAlias type="com.app.osca.domain.TicketPurchaseVO" alias="ticketPurchaseVO"/>
+
     </typeAliases>
 </configuration>

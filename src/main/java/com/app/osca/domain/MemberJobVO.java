@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component;
 public class MemberJobVO {
     private Long id;
     private Long memberId;
-    private String category;
-    private String job;
+    private Long jobCategoryId;
+    private Long jobId;
 }
