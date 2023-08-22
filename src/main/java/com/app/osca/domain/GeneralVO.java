@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class GeneralVO {
     private Long memberId;
-    private Long generalUniversity;
-    private Long generalCompany;
-    private Long generalWorkDateBegin;
-    private Long generalWorkDateEnd;
-    private Long generalIntroduction;
-    private Long generalCareer;
-    private Long generalSalary;
+    private String generalUniversity;
+    private String generalCompany;
+    private String generalWorkDateBegin;
+    private String generalWorkDateEnd;
+    private String generalIntroduction;
+    private String generalCareer;
+    private String generalSalary;
 }
