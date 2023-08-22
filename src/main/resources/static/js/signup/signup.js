@@ -18,9 +18,8 @@ $password.on('input', validationEmailOrPassword(checkValidation)($passwordErrorM
 // passwordConfirm
 const $passwordConfirm = $('input[name="passwordConfirm"]');
 const $passwordConfirmErrorMessageBox = $(".password-confirm-input-area .input-error-message");
-const passwordConfrimErrorMessage = '비밀번호를 확인해 주세요.';
+const passwordConfrimErrorMessage = '비밀번호를 확인해 주세요';
 $passwordConfirm.on('input', validationEmailOrPassword(passwordConfirm)($passwordConfirmErrorMessageBox, passwordConfrimErrorMessage));
-
 
 Object.prototype.forEach = Array.prototype.forEach;
 const $selectMenuList = $(".input-select");
