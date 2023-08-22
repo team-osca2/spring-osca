@@ -33,10 +33,10 @@
                     <div class="number">
                         <div class="input-body">
                             <!-- 이메일 입력 -->
-                            <input type="text" required="" placeholder="전화번호를 입력해주세요" name="phoneNumber" class="input"
+                            <input id="tel" type="text" required="" placeholder="전화번호를 입력해주세요" name="phoneNumber" class="input"
                                    value="">
                         </div>
-                        <button type="button" class="verificationbtn" disabled>인증번호 받기</button>
+                        <button type="button" id="verificationbtn" class="verificationbtn" disabled>인증번호 받기</button>
                     </div>
                 </div>
                 <div class="verification">
@@ -518,7 +518,8 @@
     </main>
 </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="/js/signup/signup_func.js"></script>
 <script type="text/javascript" src="/js/signup/signup.js"></script>
+<script type="text/javascript" src="/js/signup/check-phoneNumber.js"></script>
 </html>

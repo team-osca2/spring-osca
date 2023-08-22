@@ -12,6 +12,6 @@ public class StudyServiceImpl implements StudyService {
 
     @Override
     public void join(StudyVO studyVO) {
-        studyDAO.join(studyVO);
+//        studyDAO.join(studyVO);
     }
 }
