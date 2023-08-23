@@ -1,7 +1,13 @@
 package com.app.osca.mapper;
 
+import com.app.osca.domain.CafeVO;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface CafeMapper {
+
+    public List<CafeVO> selectAll();
+
 }
