@@ -304,3 +304,142 @@ $ButtonM2.on('click', function () {
 $(document).on('click', '.school-single-close', function () {
     $(this).closest('.school-list').remove();
 });
+
+
+//모달3 자격증~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+const $certInputArea = $('.cert-input-area');
+const $modal3 = $('.mod3');
+
+$certInputArea.on('click', function () {
+    $modal3.css('display', 'block');
+});
+
+// 입력 제한~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const $InputNo10 = $('.no10');
+const $no10count = $('.no10-1');
+const $InputNo11 = $('.no11');
+const $no11count = $('.no11-1');
+
+const maxLengthM3 = 40; // 최대 길이 설정
+const maxLengthM4 = 15;
+
+$InputNo10.on('input', function () {
+    const currentLength = $(this).val().length;
+    $no10count.text(`${currentLength}/${maxLengthM3}`);
+
+    if (currentLength > maxLengthM3) {
+        $(this).val($(this).val().substring(0, maxLengthM3));
+    }
+});
+$InputNo11.on('input', function () {
+    const currentLength = $(this).val().length;
+    $no11count.text(`${currentLength}/${maxLengthM4}`);
+
+    if (currentLength > maxLengthM4) {
+        $(this).val($(this).val().substring(0, maxLengthM4));
+    }
+});
+
+// 달력 나옴
+const $calendar = $('.calender-modal');
+$calendar.on('click', function () {
+    $('.tippy-box').toggleClass('show-display-m');
+});
+
+// 년도 수정
+const $yearMin1 = $('.y-left');
+const $yearPlus1 = $('.y-right');
+const $year = $('.year');
+
+var currentYear = new Date().getFullYear();
+
+$yearMin1.on('click', function () {
+    currentYear -= 1;
+    $year.text(`${currentYear}년`);
+});
+
+$yearPlus1.on('click', function () {
+    currentYear += 1;
+    $year.text(`${currentYear}년`);
+});
+
+// 달력 클릭시 노란색, 그리고 날짜 입력
+
+const $calendarMonth = $('.date__months_text');
+const $InputNo12 = $('.no12');
+
+
+$calendarMonth.on('click', function () {
+    $calendarMonth.removeClass('yellow');
+    $(this).toggleClass('yellow');
+    $('.tippy-box').toggleClass('show-display-m');
+
+    var selectedMonth = $(this).text().trim().split("월");
+    $InputNo12.val(`${currentYear}-${selectedMonth[0]}`);
+    updateButtonState3();
+});
+
+
+// 모달 3 전부 입력시 버튼 활성화~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+const $ButtonM3 = $('.button-m3');
+
+$InputNo10.on('input', updateButtonState3);
+$InputNo11.on('input', updateButtonState3);
+
+function updateButtonState3() {
+    const input10Filled = $InputNo10.val() !== '';
+    const input11Filled = $InputNo11.val() !== '';
+    const input12Filled = $InputNo12.val() !== '';
+
+    if (input10Filled && input11Filled && input12Filled) {
+        $ButtonM3.prop('disabled', false);
+    } else {
+        $ButtonM3.prop('disabled', true);
+    }
+}
+
+// 정보 입력
+$ButtonM3.on('click', function () {
+    const certName = $InputNo10.val();
+    const certifiedDate = $InputNo12.val();
+    const certAuth= $InputNo11.val();
+
+
+    const newCertHTML = `<span class="school-list">
+    <div class="school-text">${certName}·${certifiedDate}·${certAuth}</div>
+    <button
+      type="button"
+      class="school-single-close"
+    >
+      <span
+        role="img"
+        color="#727585"
+        rotate="0"
+        class="school-close-wrap"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          class="school-close-svg"
+        >
+          <path
+            xmlns="http://www.w3.org/2000/svg"
+            d="M4.99999 6.4142C4.60946 6.02367 4.60946 5.39051 4.99999 4.99999C5.39051 4.60946 6.02368 4.60946 6.4142 4.99999L12 10.5858L17.5858 4.99999C17.9763 4.60946 18.6095 4.60946 19 4.99999C19.3905 5.39051 19.3905 6.02367 19 6.4142L13.4142 12L19 17.5858C19.3905 17.9763 19.3905 18.6095 19 19C18.6095 19.3905 17.9763 19.3905 17.5858 19L12 13.4142L6.4142 19C6.02368 19.3905 5.39051 19.3905 4.99999 19C4.60946 18.6095 4.60946 17.9763 4.99999 17.5858L10.5858 12L4.99999 6.4142Z"
+          ></path></svg
+      ></span></button></span
+  >`;
+
+    $('.certification-list').append(newCertHTML);
+
+    $modal3.css('display', 'none');
+    updateButtonState3();
+});
+
+

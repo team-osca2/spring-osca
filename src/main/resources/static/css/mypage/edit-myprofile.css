@@ -1554,10 +1554,10 @@ table {
     align-items: center;
 }
 /* 학력 */
-.school {
+.certificate-area {
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #f2f3f7;
+    border-bottom: 1px solid #f7f2f2;
 }
 
 

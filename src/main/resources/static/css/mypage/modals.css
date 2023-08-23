@@ -686,8 +686,8 @@
     flex-shrink: 0;
     box-sizing: border-box;
 }
-.no-display-m {
-    display: none;
+.show-display-m {
+    display: block !important;
 }
 .arrow-indicatorContainer {
     color: hsl(0, 0%, 80%);
@@ -1065,23 +1065,6 @@ input::placeholder {
 .date-of-issue-wrapper {
     position: relative;
 }
-.css-cdrjiy {
-    width: 100%;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    gap: 4px;
-}
 .input-box-inner {
     border: 1px solid rgb(228, 229, 237);
     border-radius: 8px;
@@ -1102,23 +1085,6 @@ input::placeholder {
 }
 .input-box-inner > input {
     cursor: pointer;
-}
-
-.css-xv0cfn {
-    outline: none;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    width: 100%;
-    background-image: none;
-    box-sizing: border-box;
-    font-size: inherit;
-    border: none;
-    font-weight: inherit;
-    background-color: transparent;
-    text-align: left;
-    color: inherit;
-    padding: 0;
 }
 .calendar-icon {
     position: absolute;
@@ -1153,8 +1119,10 @@ input::placeholder {
     gap: 16px;
     width: 100%;
 }
-
-.css-1lbhjbd {
+.date__month {
+    font-family: 'Metro Sans', sans-serif !important;
+}
+.tippy-box {
     position: relative;
     border-radius: 8px;
     font-size: 14px;
@@ -1163,21 +1131,16 @@ input::placeholder {
     transition-property: transform, visibility, opacity;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
     background-color: rgb(242, 243, 247);
+    display: none;
 }
 
-.css-1lbhjbd .tippy-content {
+.tippy-box .tippy-content {
     position: relative;
     padding: 0px;
     z-index: 1;
 }
 
-.osca-datepicker {
-    border: none;
-    display: block;
-    overflow: hidden;
-}
-.react-datepicker {
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+.date {
     font-size: 0.8rem;
     background-color: #fff;
     color: #000;
@@ -1186,21 +1149,26 @@ input::placeholder {
     display: inline-block;
     position: relative;
 }
-.react-datepicker__triangle {
+.date {
+    border: none;
+    display: block;
+    overflow: hidden;
+}
+.date__triangle {
     position: absolute;
     left: 50px;
 }
-.react-datepicker__month-container {
+.date__month-container {
     float: left;
 }
-.osca-datepicker .react-datepicker__header {
+.date .date__header {
     border-color: #e4e5ed;
     background-color: #ffffff;
 }
-.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+.date__header:not(.date__header--has-time-select) {
     border-top-right-radius: 0.3rem;
 }
-.react-datepicker__header {
+.date__header {
     text-align: center;
     background-color: #f0f0f0;
     border-bottom: 1px solid #aeaeae;
@@ -1243,42 +1211,47 @@ input::placeholder {
     border: none;
     color: rgb(33, 34, 36);
 }
-.css-a85awj span:first-of-type {
-    flex-basis: 90px;
-}
-.css-m1vghq {
+.year {
+    font-family: 'Metro Sans', sans-serif !important;
     color: rgb(33, 34, 36);
     font-weight: 500;
     font-size: 15px;
 }
 
-.osca-datepicker .react-datepicker__month {
+.date__month {
     outline: none;
     color: #212224;
 }
-.react-datepicker__month {
+.date__month {
     margin: 0.4rem;
     text-align: center;
 }
 
-.osca-datepicker .react-datepicker__month-text {
+.date__months_text:hover {
+    background-color: #f0f0f0;
+}
+
+.yellow {
+    background-color: #f9a01b;
+}
+
+.date__months_text {
     line-height: 32px;
     font-weight: 500;
 }
 
-.react-datepicker__month .react-datepicker__month-text,
-.react-datepicker__month .react-datepicker__quarter-text {
+.date__months_text {
     display: inline-block;
     width: 4rem;
     margin: 2px;
 }
-.react-datepicker__day,
-.react-datepicker__month-text,
-.react-datepicker__quarter-text,
-.react-datepicker__year-text {
+
+.date__months_text {
     cursor: pointer;
 }
 
-:hover {
-    border-color: rgb(200, 202, 210);
+.date__months-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
