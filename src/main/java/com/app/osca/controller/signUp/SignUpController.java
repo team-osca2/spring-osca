@@ -1,6 +1,8 @@
 package com.app.osca.controller.signUp;
 
 import com.app.osca.domain.MemberVO;
+import com.app.osca.service.member.MemberService;
+import com.app.osca.service.member.MemberServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,5 +28,8 @@ public class SignUpController {
     //  전화번호 중복검사
     @PostMapping("/check-tel")
     @ResponseBody
-    public String checkTel(String phonenumber) { return phonenumber; }
+    public String checkTel(String phonenumber) {
+        MemberService memberService = new MemberServiceImpl();
+        return memberService.phonenumberAuthentication(phonenumber);
+    }
 }
