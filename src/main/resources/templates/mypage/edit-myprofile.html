@@ -1,865 +1,1101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>마이 페이지</title>
-    <link rel="stylesheet" href="/css/header/header.css" />
-    <link rel="stylesheet" href="/css/mypage/edit-myprofile.css" />
-    <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
-  </head>
-  <body>
-    <header class="header-wrapper">
-      <section class="header-container">
-        <a href="/" aria-label="logo" class="header-logo">
-          <img src="/images/logo.png" alt="오!스카 로고" style="width: 70px; height: 40px" />
-        </a>
-      </section>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마이 페이지</title>
+  <link rel="stylesheet" href="/css/header/header.css" />
+  <link rel="stylesheet" href="/css/mypage/edit-myprofile.css" />
+  <link rel="stylesheet" href="/css/mypage/modals.css" />
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+</head>
+<body>
+<header class="header-wrapper">
+  <section class="header-container">
+    <a href="/" aria-label="logo" class="header-logo">
+      <img src="/images/logo.png" alt="오!스카 로고" style="width: 70px; height: 40px" />
+    </a>
+  </section>
+</header>
 
-    <form action="" class="body-wrapper">
-      <div class="profile-edit-wrapper">
-        <nav class="aside-contents">
-          <div class="aside-menu">
-            <div class="menu-list selected-menu">
-              <div class="menu-number black-menu-number">1</div>
-              <span class="menu-text selected-text">자기 소개</span>
-            </div>
-            <div class="menu-list">
-              <div class="menu-number black-menu-number">2</div>
-              <span class="menu-text selected-text">전문 분야</span>
-            </div>
-            <div class="menu-list">
-              <div class="menu-number black-menu-number">3</div>
-              <span class="menu-text selected-text">보유 기술</span>
-            </div>
-          </div>
-        </nav>
-        <!-- rightside contents -->
-        <div class="edit-content-wrapper">
-          <section class="information">
-            <span class="info-title">자기 소개</span>
-            <div class="info-wrapper">
-              <div class="info-padding">
-                <div class="info-format">
-                  <div class="introduction">
-                    <div class="profile-image-wrapper">
-                      <div name"profile-thumbnail" class="profile_thumbnail">
-                      <div size="102" shape="0" role="article" class="image-box">
-                        <img
-                          src="https://d2v80xjmx68n4w.cloudfront.net/members/thumbs/QfUBa1690812432.png"
-                          alt="avatar"
-                          shape="0"
-                          loading="lazy"
-                          class="profile-image"
-                        />
-                      </div>
-                    </div>
-                    <div class="profile-img-change">
-                      <div class="dzu-dropzone" style="border: none; overflow: auto; padding: 4px">
-                        <button role="button" color="default" type="button" class="image-button">
+<form action="" class="body-wrapper">
+  <div class="profile-edit-wrapper">
+    <nav class="aside-contents">
+      <div class="aside-menu">
+        <div class="menu-list selected-menu">
+          <div class="menu-number black-menu-number">1</div>
+          <span class="menu-text selected-text">자기 소개</span>
+        </div>
+        <div class="menu-list">
+          <div class="menu-number black-menu-number">2</div>
+          <span class="menu-text selected-text">전문 분야</span>
+        </div>
+        <div class="menu-list">
+          <div class="menu-number black-menu-number">3</div>
+          <span class="menu-text selected-text">보유 기술</span>
+        </div>
+        <div class="menu-list">
+          <div class="menu-number black-menu-number">4</div>
+          <span class="menu-text selected-text">경력 사항</span>
+        </div>
+        <div class="menu-list">
+          <div class="menu-number black-menu-number">5</div>
+          <span class="menu-text selected-text">학력 자격증</span>
+        </div>
+      </div>
+    </nav>
+    <!-- rightside contents -->
+    <div class="edit-content-wrapper">
+      <section class="information">
+        <span class="info-title">자기 소개</span>
+        <div class="info-wrapper">
+          <div class="info-padding">
+            <div class="info-format">
+              <div class="introduction">
+                <div class="profile-image-wrapper">
+                  <div name"profile-thumbnail" class="profile_thumbnail">
+                  <div size="102" shape="0" role="article" class="image-box">
+                    <img
+                            src="https://d2v80xjmx68n4w.cloudfront.net/members/thumbs/QfUBa1690812432.png"
+                            alt="avatar"
+                            shape="0"
+                            loading="lazy"
+                            class="profile-image"
+                    />
+                  </div>
+                </div>
+                <div class="profile-img-change">
+                  <div class="dzu-dropzone" style="border: none; overflow: auto; padding: 4px">
+                    <button role="button" color="default" type="button" class="image-button">
                           <span>
                             <label for="file-input" class="change-image-button">
                               프로필 변경
                               <input
-                                id="file-input"
-                                type="file"
-                                accept="image/gif, image/jpeg, image/jpg, image/png"
-                                style="display: none"
+                                      id="file-input"
+                                      type="file"
+                                      accept="image/gif, image/jpeg, image/jpg, image/png"
+                                      style="display: none"
                               />
                             </label>
                           </span>
-                        </button>
-                      </div>
-                    </div>
+                    </button>
                   </div>
-                  <div class="intro-right">
-                    <div>
-                      <div>
-                        <div class="user-nickname">
-                          <span class="user-nickname-title">닉네임</span>
-                          <div class="user-nickname-input-area">
-                            <div class="nick-input">
-                              <input
-                                type="text"
-                                placeholder="닉네임"
-                                class="nickname"
-                                value="닉네임"
-                              />
-                            </div>
-                          </div>
-                          <span class="nick-count">3/17</span>
+                </div>
+              </div>
+              <div class="intro-right">
+                <div>
+                  <div>
+                    <div class="user-nickname">
+                      <span class="user-nickname-title">닉네임</span>
+                      <div class="user-nickname-input-area">
+                        <div class="nick-input">
+                          <input
+                                  type="text"
+                                  placeholder="닉네임"
+                                  class="nickname"
+                                  value="닉네임"
+                          />
                         </div>
-                        <p class="nick-bottom-text">한글/영문/숫자만 사용할 수 있습니다.</p>
-                        <p class="nick-bottom-text hidden">사용 가능한 닉네임입니다.</p>
-                        <p class="red-nick-text hidden">현재 사용 중인 닉네임입니다.</p>
                       </div>
+                      <span class="nick-count">3/17</span>
                     </div>
-                    <div class="margin">
-                      <div>
-                        <div class="intro-text-colomn">
-                          <span class="intro-title">자기소개</span>
-                          <textarea placeholder="자기소개" maxlength="255" class="intro-text-input">
+                    <p class="nick-bottom-text">한글/영문/숫자만 사용할 수 있습니다.</p>
+                    <p class="nick-bottom-text hidden">사용 가능한 닉네임입니다.</p>
+                    <p class="red-nick-text hidden">현재 사용 중인 닉네임입니다.</p>
+                  </div>
+                </div>
+                <div class="margin">
+                  <div>
+                    <div class="intro-text-colomn">
+                      <span class="intro-title">자기소개</span>
+                      <textarea placeholder="자기소개" maxlength="255" class="intro-text-input">
                             안녕하세요!
                             영혼을 담아 개발하는 ㅁㅁㅁ입니다.
                             현재 땡땡에서 근무 2년차이며...
                           </textarea>
-                          <span class="intro-text-count">119/255</span>
-                        </div>
-                      </div>
+                      <span class="intro-text-count">119/255</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-          <section class="area-of-expertise profile-section padding-top-list">
-            <span direction="row" class="info-title-expert">전문 분야</span>
-            <div class="expert-wrapper">
-              <div>
-                <div name="specialtiesWithCategories" class="specialtiesWithCategories">
-                <div class="category-box">
-                  <span class="category-title">전문분야</span>
-                  <div class="category-select">
-                    <div class="category-container">
-                      <span class="a11yText"></span>
-                      <div class="category-control">
-                        <div class="category-inner">
-                          <div class="category-placeholder">선택해 주세요.</div>
-                          <input readonly="" class="loc-dummyInput" value="" />
-                        </div>
-                        <div class="down-arrow-wrapper">
-                          <span display="none"></span>
-                          <div class="down-arrow">
-                            <svg
-                              height="20"
-                              width="20"
-                              viewBox="0 0 20 20"
-                              aria-hidden="true"
-                              focusable="false"
-                              class="down-arrow-svg"
-                            >
-                              <path
-                                d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                              ></path>
-                            </svg>
-                          </div>
-                        </div>
-                        <div class="expert-menu-container">
-                          <div class="expert-list">
-                            <div
-                              class="expert-option"
-                              id="select-5-option-0"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                웹사이트 신규 제작<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                            <div
-                              class="expert-option"
-                              id="select-5-option-1"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                웹사이트 개선·버그수정<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                            <div
-                              class="expert-option"
-                              id="select-5-option-2"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                모바일앱 신규 제작<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                            <div
-                              class="expert-option"
-                              id="select-5-option-3"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                모바일앱 개선·버그수정<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                            <div
-                              class="expert-option"
-                              id="select-5-option-4"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                프로그램 개발<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                            <div
-                              class="expert-option"
-                              id="select-5-option-5"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                임베디드 시스템<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                            <div
-                              class="expert-option"
-                              id="select-5-option-6"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                데이터 사이언스<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                            <div
-                              class="expert-option"
-                              id="select-5-option-7"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                게임∙언리얼<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                            <div
-                              class="expert-option"
-                              id="select-5-option-8"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                UX 기획<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                            <div
-                              class="expert-option"
-                              id="select-5-option-9"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                보안<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                            <div
-                              class="expert-option"
-                              id="select-5-option-10"
-                              tabindex="-1"
-                            >
-                              <div class="expert-text">
-                                QA·테스트<span
-                                  role="img"
-                                  color="#e4e5ed"
-                                  rotate="0"
-                                  class="expert-tick"
-                                  ><svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    class="expert-tick-svg"
-                                  >
-                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                    <path
-                                      d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
-                                    ></path></svg
-                                ></span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+          </div>
+        </div>
+      </section>
+      <section class="area-of-expertise profile-section padding-top-list">
+        <span direction="row" class="info-title-expert">전문 분야</span>
+        <div class="expert-wrapper">
+          <div>
+            <div name="specialtiesWithCategories" class="specialtiesWithCategories">
+              <div class="category-box">
+                <span class="category-title">전문분야</span>
+                <div class="category-select">
+                  <div class="category-container">
+                    <span class="a11yText"></span>
+                    <div class="category-control">
+                      <div class="category-inner expert-in">
+                        <div class="category-placeholder">선택해 주세요.</div>
+                        <input readonly="" class="loc-dummyInput" value="" />
                       </div>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="selected-area">
-                  <div class="delete-tag">
-                    <div color="denim" class="delete-button">
-                      <span>전체삭제</span>
-                    </div>
-                  </div>
-                  <div class="selected-expertise-list">
-                    <div>
-                  <!-- <div class="selected-expertise">
-                    <div shape="rounded" label="delete" class="selected-expertise-name">
-                      프로그램 개발
-                      <button type="button" class="button-x">
-                        <span role="img" color="#c8cad2" rotate="0" class="span-x"
-                          ><svg
-                            width="17"
-                            height="17"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            focusable="false"
-                            preserveAspectRatio="xMidYMid meet"
-                            class="svg-x"
+                      <div class="down-arrow-wrapper">
+                        <span display="none"></span>
+                        <div class="down-arrow">
+                          <svg
+                                  height="20"
+                                  width="20"
+                                  viewBox="0 0 20 20"
+                                  aria-hidden="true"
+                                  focusable="false"
+                                  class="down-arrow-svg"
                           >
                             <path
-                              xmlns="http://www.w3.org/2000/svg"
-                              d="M6.34314575,4.92893219 L12.000039,10.585039 L17.6568542,4.92893219 C18.0473785,4.5384079 18.6805435,4.5384079 19.0710678,4.92893219 C19.4615921,5.31945648 19.4615921,5.95262146 19.0710678,6.34314575 L13.415039,12.000039 L19.0710678,17.6568542 C19.4615921,18.0473785 19.4615921,18.6805435 19.0710678,19.0710678 C18.6805435,19.4615921 18.0473785,19.4615921 17.6568542,19.0710678 L12.000039,13.415039 L6.34314575,19.0710678 C5.95262146,19.4615921 5.31945648,19.4615921 4.92893219,19.0710678 C4.5384079,18.6805435 4.5384079,18.0473785 4.92893219,17.6568542 L10.585039,12.000039 L4.92893219,6.34314575 C4.5384079,5.95262146 4.5384079,5.31945648 4.92893219,4.92893219 C5.31945648,4.5384079 5.95262146,4.5384079 6.34314575,4.92893219 Z"
-                            ></path></svg
-                        ></span>
-                      </button>
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="expert-menu-container">
+                        <div class="expert-list">
+                          <div class="expert-option" id="select-5-option-0" tabindex="-1">
+                            <div class="expert-text">
+                              웹사이트 신규 제작<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                          <div class="expert-option" id="select-5-option-1" tabindex="-1">
+                            <div class="expert-text">
+                              웹사이트 개선·버그수정<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                          <div class="expert-option" id="select-5-option-2" tabindex="-1">
+                            <div class="expert-text">
+                              모바일앱 신규 제작<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                          <div class="expert-option" id="select-5-option-3" tabindex="-1">
+                            <div class="expert-text">
+                              모바일앱 개선·버그수정<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                          <div class="expert-option" id="select-5-option-4" tabindex="-1">
+                            <div class="expert-text">
+                              프로그램 개발<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                          <div class="expert-option" id="select-5-option-5" tabindex="-1">
+                            <div class="expert-text">
+                              임베디드 시스템<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                          <div class="expert-option" id="select-5-option-6" tabindex="-1">
+                            <div class="expert-text">
+                              데이터 사이언스<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                          <div class="expert-option" id="select-5-option-7" tabindex="-1">
+                            <div class="expert-text">
+                              게임∙언리얼<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                          <div class="expert-option" id="select-5-option-8" tabindex="-1">
+                            <div class="expert-text">
+                              UX 기획<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                          <div class="expert-option" id="select-5-option-9" tabindex="-1">
+                            <div class="expert-text">
+                              보안<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                          <div class="expert-option" id="select-5-option-10" tabindex="-1">
+                            <div class="expert-text">
+                              QA·테스트<span
+                                    role="img"
+                                    color="#e4e5ed"
+                                    rotate="0"
+                                    class="expert-tick"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="expert-tick-svg"
+                            >
+                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                      <path
+                                              d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"
+                                      ></path></svg
+                            ></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
+              </div>
+              <div class="selected-area">
+                <div class="delete-tag">
+                  <div color="denim" class="delete-button">
+                    <span>전체삭제</span>
+                  </div>
                 </div>
+                <div class="selected-expertise-list">
+                  <div>
+                    <!-- <div class="selected-expertise">
+                <div shape="rounded" label="delete" class="selected-expertise-name">
+                  프로그램 개발
+                  <button type="button" class="button-x">
+                    <span role="img" color="#c8cad2" rotate="0" class="span-x"
+                      ><svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        focusable="false"
+                        preserveAspectRatio="xMidYMid meet"
+                        class="svg-x"
+                      >
+                        <path
+                          xmlns="http://www.w3.org/2000/svg"
+                          d="M6.34314575,4.92893219 L12.000039,10.585039 L17.6568542,4.92893219 C18.0473785,4.5384079 18.6805435,4.5384079 19.0710678,4.92893219 C19.4615921,5.31945648 19.4615921,5.95262146 19.0710678,6.34314575 L13.415039,12.000039 L19.0710678,17.6568542 C19.4615921,18.0473785 19.4615921,18.6805435 19.0710678,19.0710678 C18.6805435,19.4615921 18.0473785,19.4615921 17.6568542,19.0710678 L12.000039,13.415039 L6.34314575,19.0710678 C5.95262146,19.4615921 5.31945648,19.4615921 4.92893219,19.0710678 C4.5384079,18.6805435 4.5384079,18.0473785 4.92893219,17.6568542 L10.585039,12.000039 L4.92893219,6.34314575 C4.5384079,5.95262146 4.5384079,5.31945648 4.92893219,4.92893219 C5.31945648,4.5384079 5.95262146,4.5384079 6.34314575,4.92893219 Z"
+                        ></path></svg
+                    ></span>
+                  </button>
+                </div>
+              </div> -->
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <section class="skills padding-top-list">
-            <span direction="row" class="info-title-expert">보유 기술</span>
-            <div class="skills-wrapper">
-              <div class="skills-container">
-                <div class="skills-scroll">
-                  <ul class="it-skills">
-                    <li class="skill-name-list">
-                      <div class="skill-name">워드프레스</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">JavaScript</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Java</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Python</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">PHP</div></li>
-                    <li class="skill-name-list"><div class="skill-name">C#</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Perl</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">TypeScript</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">React</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Angular</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">ASP.NET</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Bootstrap</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Flash</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">JSP</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Vue.js</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">ASP</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Node.js</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">그누보드</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">XE</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">모두</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">Wix</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">카페24</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">고도몰</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">메이크샵</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">영카트</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">식스샵</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Swift</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Android Studio</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">C#.NET</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Visual Basic</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">Lua</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Objective-C</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">Go</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Arduino</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">AVR</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Raspberry Pi</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">STM32</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Erlang</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Verilog</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">VHDL</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Excel</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">R</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Matlab</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">SPSS</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">SAS</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Scala</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Tableau</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Power BI</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">SQL</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Minitab</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Julia</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">jQuery</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Unity</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Google SDK</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Unreal Engine</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Godot</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Construct</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">GameMaker Studio</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Vuforia</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Kudan</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Visual Studio</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">HTML</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">CSS</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Ruby</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Ruby on Rails</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">C</div></li>
-                    <li class="skill-name-list"><div class="skill-name">C++</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Visual Basic.NET</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Delphi</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Object Pascal</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">A#</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">ActionScript</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Assembly</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Autohotkey</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">AutoIt</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Clojure</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Dart</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Kotlin</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">LabVIEW</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Liquid</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">LabVIEW</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Rust</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Sass</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Solidity</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">XML</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">.NET</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Bulma</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">CodeIgniter</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Django</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Electron</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Express.js</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">FastAPI</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Flask</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Flutter</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Foundation</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Framework7</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Ionic</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Laminas</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Laravel</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Material-UI</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Materialize</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Next.js</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">Qt</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Native</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Spring</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Swing</div>
-                    </li>
-                    <li class="skill-name-list"><div class="skill-name">WPF</div></li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Xamarin</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Angular JS</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Adobe Photoshop</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Adobe XD</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Axure RP</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Balsamiq Mockups</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Figma</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Framer</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Google Presentation</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Illustrator</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Invision</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Oven</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Pixate</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">PowerMockup</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Microsoft Powerpoint</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">protoNow</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">ProtoPie</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Sketch</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">UXPin</div>
-                    </li>
-                    <li class="skill-name-list">
-                      <div class="skill-name">Zeplin</div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="selected-skills-list">
-                  <div class="delete-box">
-                    <button role="button" color="denim" type="button" class="delete-button2">
-                      <span>전체삭제</span>
-                    </button>
+      <section class="skills padding-top-list">
+        <span direction="row" class="info-title-expert">보유 기술</span>
+        <div class="skills-wrapper">
+          <div class="skills-container">
+            <div class="skills-scroll">
+              <ul class="it-skills">
+                <li class="skill-name-list">
+                  <div class="skill-name">워드프레스</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">JavaScript</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Java</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Python</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">PHP</div></li>
+                <li class="skill-name-list"><div class="skill-name">C#</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Perl</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">TypeScript</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">React</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Angular</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">ASP.NET</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Bootstrap</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Flash</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">JSP</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Vue.js</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">ASP</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Node.js</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">그누보드</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">XE</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">모두</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">Wix</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">카페24</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">고도몰</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">메이크샵</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">영카트</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">식스샵</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Swift</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Android Studio</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">C#.NET</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Visual Basic</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">Lua</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Objective-C</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">Go</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Arduino</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">AVR</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Raspberry Pi</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">STM32</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Erlang</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Verilog</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">VHDL</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Excel</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">R</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Matlab</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">SPSS</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">SAS</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Scala</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Tableau</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Power BI</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">SQL</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Minitab</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Julia</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">jQuery</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Unity</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Google SDK</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Unreal Engine</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Godot</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Construct</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">GameMaker Studio</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Vuforia</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Kudan</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Visual Studio</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">HTML</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">CSS</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Ruby</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Ruby on Rails</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">C</div></li>
+                <li class="skill-name-list"><div class="skill-name">C++</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Visual Basic.NET</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Delphi</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Object Pascal</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">A#</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">ActionScript</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Assembly</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Autohotkey</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">AutoIt</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Clojure</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Dart</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Kotlin</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">LabVIEW</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Liquid</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">LabVIEW</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Rust</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Sass</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Solidity</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">XML</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">.NET</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Bulma</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">CodeIgniter</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Django</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Electron</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Express.js</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">FastAPI</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Flask</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Flutter</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Foundation</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Framework7</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Ionic</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Laminas</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Laravel</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Material-UI</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Materialize</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Next.js</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">Qt</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Native</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Spring</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Swing</div>
+                </li>
+                <li class="skill-name-list"><div class="skill-name">WPF</div></li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Xamarin</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Angular JS</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Adobe Photoshop</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Adobe XD</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Axure RP</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Balsamiq Mockups</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Figma</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Framer</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Google Presentation</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Illustrator</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Invision</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Oven</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Pixate</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">PowerMockup</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Microsoft Powerpoint</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">protoNow</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">ProtoPie</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Sketch</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">UXPin</div>
+                </li>
+                <li class="skill-name-list">
+                  <div class="skill-name">Zeplin</div>
+                </li>
+              </ul>
+            </div>
+            <div class="selected-skills-list">
+              <div class="delete-box">
+                <button role="button" color="denim" type="button" class="delete-button2">
+                  <span>전체삭제</span>
+                </button>
+              </div>
+              <div class="skills-selected-box">
+                <!-- <div class="skills-each">
+                  <div shape="rounded" label="delete" class="selected-skills-name">
+                    Java<div type="button" class="button-x">
+                      <span role="img" color="#c8cad2" rotate="0" class="span-x"
+                        ><svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          focusable="false"
+                          preserveAspectRatio="xMidYMid meet"
+                          class="svg-x"
+                        >
+                          <path
+                            xmlns="http://www.w3.org/2000/svg"
+                            d="M6.34314575,4.92893219 L12.000039,10.585039 L17.6568542,4.92893219 C18.0473785,4.5384079 18.6805435,4.5384079 19.0710678,4.92893219 C19.4615921,5.31945648 19.4615921,5.95262146 19.0710678,6.34314575 L13.415039,12.000039 L19.0710678,17.6568542 C19.4615921,18.0473785 19.4615921,18.6805435 19.0710678,19.0710678 C18.6805435,19.4615921 18.0473785,19.4615921 17.6568542,19.0710678 L12.000039,13.415039 L6.34314575,19.0710678 C5.95262146,19.4615921 5.31945648,19.4615921 4.92893219,19.0710678 C4.5384079,18.6805435 4.5384079,18.0473785 4.92893219,17.6568542 L10.585039,12.000039 L4.92893219,6.34314575 C4.5384079,5.95262146 4.5384079,5.31945648 4.92893219,4.92893219 C5.31945648,4.5384079 5.95262146,4.5384079 6.34314575,4.92893219 Z"
+                          ></path></svg
+                      ></span>
+                    </div>
                   </div>
-                  <div class="skills-selected-box">
-                    <!-- <div class="skills-each">
-                      <div shape="rounded" label="delete" class="selected-skills-name">
-                        Java<div type="button" class="button-x">
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="workperiod padding-top-list">
+        <span direction="row" class="info-title-expert">경력사항</span>
+        <div class="workperiod-wrapper">
+          <div>
+            <div name="specialtiesWithCategories" class="specialtiesWithCategories">
+              <div class="category-box">
+                <span class="category-title">총 경력 기간</span>
+                <div class="workperiod-select-wrapper">
+                  <div class="select-container">
+                    <div class="location-select-control workperiod-select-control">
+                      <div class="loc-input-area workperiod-input-area">
+                        <div class="category-placeholder period-holder">선택해 주세요.</div>
+                        <div class="loc-singleValue workperiod-singleValue"></div>
+                        <input readonly="" tabindex="0" class="loc-dummyInput" />
+                      </div>
+                      <div class="down-arrow-wrapper">
+                        <span display="none"></span>
+                        <div class="down-arrow">
+                          <svg
+                                  height="20"
+                                  width="20"
+                                  viewBox="0 0 20 20"
+                                  aria-hidden="true"
+                                  focusable="false"
+                                  class="down-arrow-svg"
+                          >
+                            <path
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="workperiod-menu-container">
+                        <div class="workperiod-list">
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">신입</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">1년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">2년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">3년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">4년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">5년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">6년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">7년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">8년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">9년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">10년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">11년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">12년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">13년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">14년</div>
+                          </div>
+                          <div class="workperiod-option" tabindex="-1">
+                            <div class="workperiod-text">15년 이상</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="expert-wrapper">
+                <div>
+                  <div name="specialtiesWithCategories" class="specialtiesWithCategories">
+                    <div class="category-box">
+                      <span class="category-title">경력사항</span>
+                      <div class="category-select">
+                        <div class="category-container">
+                          <span class="a11yText"></span>
+                          <div class="category-control">
+                            <div class="category-inner period-input-area">
+                              <div class="category-placeholder">추가해 주세요.</div>
+                              <input readonly="" class="loc-dummyInput" value="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="careers">
+                          <span class="career-list">
+                            <div class="career-text">프리랜서·2년 3개월</div>
+                            <button type="button" class="career-single-close">
+                              <span role="img" color="#727585" rotate="0" class="career-close-wrap">
+                                <svg
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                        focusable="false"
+                                        preserveAspectRatio="xMidYMid meet"
+                                        class="career-close-svg"
+                                >
+                                  <path
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          d="M4.99999 6.4142C4.60946 6.02367 4.60946 5.39051 4.99999 4.99999C5.39051 4.60946 6.02368 4.60946 6.4142 4.99999L12 10.5858L17.5858 4.99999C17.9763 4.60946 18.6095 4.60946 19 4.99999C19.3905 5.39051 19.3905 6.02367 19 6.4142L13.4142 12L19 17.5858C19.3905 17.9763 19.3905 18.6095 19 19C18.6095 19.3905 17.9763 19.3905 17.5858 19L12 13.4142L6.4142 19C6.02368 19.3905 5.39051 19.3905 4.99999 19C4.60946 18.6095 4.60946 17.9763 4.99999 17.5858L10.5858 12L4.99999 6.4142Z"
+                                  ></path></svg
+                                ></span></button></span
+                          ><span class="career-list"
+                    ><div class="career-text">프리랜서·1년 5개월</div>
+                            <button type="button" class="career-single-close">
+                              <span role="img" color="#727585" rotate="0" class="career-close-wrap"
+                              ><svg
+                                      width="14"
+                                      height="14"
+                                      viewBox="0 0 24 24"
+                                      fill="currentColor"
+                                      aria-hidden="true"
+                                      focusable="false"
+                                      preserveAspectRatio="xMidYMid meet"
+                                      class="career-close-svg"
+                              >
+                                  <path
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          d="M4.99999 6.4142C4.60946 6.02367 4.60946 5.39051 4.99999 4.99999C5.39051 4.60946 6.02368 4.60946 6.4142 4.99999L12 10.5858L17.5858 4.99999C17.9763 4.60946 18.6095 4.60946 19 4.99999C19.3905 5.39051 19.3905 6.02367 19 6.4142L13.4142 12L19 17.5858C19.3905 17.9763 19.3905 18.6095 19 19C18.6095 19.3905 17.9763 19.3905 17.5858 19L12 13.4142L6.4142 19C6.02368 19.3905 5.39051 19.3905 4.99999 19C4.60946 18.6095 4.60946 17.9763 4.99999 17.5858L10.5858 12L4.99999 6.4142Z"
+                                  ></path></svg
+                              ></span></button></span
+                    ><span class="career-list"
+                    ><div class="career-text">
+                              ㄴㅁㄴㄴ·경기 북부·ㄴㄴㄴ·ㄴㄴㄴㄴ·2년 3개월
+                            </div>
+                            <button type="button" class="career-single-close">
+                              <span role="img" color="#727585" rotate="0" class="career-close-wrap"
+                              ><svg
+                                      width="14"
+                                      height="14"
+                                      viewBox="0 0 24 24"
+                                      fill="currentColor"
+                                      aria-hidden="true"
+                                      focusable="false"
+                                      preserveAspectRatio="xMidYMid meet"
+                                      class="career-close-svg"
+                              >
+                                  <path
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          d="M4.99999 6.4142C4.60946 6.02367 4.60946 5.39051 4.99999 4.99999C5.39051 4.60946 6.02368 4.60946 6.4142 4.99999L12 10.5858L17.5858 4.99999C17.9763 4.60946 18.6095 4.60946 19 4.99999C19.3905 5.39051 19.3905 6.02367 19 6.4142L13.4142 12L19 17.5858C19.3905 17.9763 19.3905 18.6095 19 19C18.6095 19.3905 17.9763 19.3905 17.5858 19L12 13.4142L6.4142 19C6.02368 19.3905 5.39051 19.3905 4.99999 19C4.60946 18.6095 4.60946 17.9763 4.99999 17.5858L10.5858 12L4.99999 6.4142Z"
+                                  ></path></svg
+                              ></span></button
+                            ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script src="../../static/js/mypage/edit-myprofile.js"></script>
+          </div>
+        </div>
+      </section>
+      <section class="school padding-top-list">
+        <span direction="row" class="info-title-expert">학력 자격증</span>
+        <div class="workperiod-wrapper">
+          <div>
+            <div name="specialtiesWithCategories" class="specialtiesWithCategories">
+              <div class="expert-wrapper bottom-padding">
+                <div>
+                  <div name="specialtiesWithCategories" class="specialtiesWithCategories">
+                    <div class="category-box">
+                      <span class="category-title">학력 · 전공</span>
+                      <div class="category-select">
+                        <div class="category-container">
+                          <span class="a11yText"></span>
+                          <div class="category-control">
+                            <div class="category-inner school-area">
+                              <div class="category-placeholder">추가해 주세요.</div>
+                              <input readonly="" class="loc-dummyInput" value="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="school-history">
+                          <span class="school-list">
+                            <div class="school-text">프리랜서·2년 3개월</div>
+                            <button type="button" class="school-single-close">
+                              <span role="img" color="#727585" rotate="0" class="school-close-wrap">
+                                <svg
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                        focusable="false"
+                                        preserveAspectRatio="xMidYMid meet"
+                                        class="school-close-svg"
+                                >
+                                  <path
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          d="M4.99999 6.4142C4.60946 6.02367 4.60946 5.39051 4.99999 4.99999C5.39051 4.60946 6.02368 4.60946 6.4142 4.99999L12 10.5858L17.5858 4.99999C17.9763 4.60946 18.6095 4.60946 19 4.99999C19.3905 5.39051 19.3905 6.02367 19 6.4142L13.4142 12L19 17.5858C19.3905 17.9763 19.3905 18.6095 19 19C18.6095 19.3905 17.9763 19.3905 17.5858 19L12 13.4142L6.4142 19C6.02368 19.3905 5.39051 19.3905 4.99999 19C4.60946 18.6095 4.60946 17.9763 4.99999 17.5858L10.5858 12L4.99999 6.4142Z"
+                                  ></path></svg
+                                ></span></button
+                            ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="expert-wrapper bottom-padding">
+                <div>
+                  <div name="specialtiesWithCategories" class="specialtiesWithCategories">
+                    <div class="category-box">
+                      <span class="category-title">자격증</span>
+                      <div class="category-select">
+                        <div class="category-container">
+                          <span class="a11yText"></span>
+                          <div class="category-control">
+                            <div class="category-inner">
+                              <div class="category-placeholder">추가해 주세요.</div>
+                              <input readonly="" class="loc-dummyInput" value="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="selected-area">
+                      <div class="selected-expertise-list">
+                        <div>
+                          <!-- <div class="selected-expertise">
+                      <div shape="rounded" label="delete" class="selected-expertise-name">
+                        프로그램 개발
+                        <button type="button" class="button-x">
                           <span role="img" color="#c8cad2" rotate="0" class="span-x"
                             ><svg
                               width="17"
@@ -875,27 +1111,874 @@
                                 d="M6.34314575,4.92893219 L12.000039,10.585039 L17.6568542,4.92893219 C18.0473785,4.5384079 18.6805435,4.5384079 19.0710678,4.92893219 C19.4615921,5.31945648 19.4615921,5.95262146 19.0710678,6.34314575 L13.415039,12.000039 L19.0710678,17.6568542 C19.4615921,18.0473785 19.4615921,18.6805435 19.0710678,19.0710678 C18.6805435,19.4615921 18.0473785,19.4615921 17.6568542,19.0710678 L12.000039,13.415039 L6.34314575,19.0710678 C5.95262146,19.4615921 5.31945648,19.4615921 4.92893219,19.0710678 C4.5384079,18.6805435 4.5384079,18.0473785 4.92893219,17.6568542 L10.585039,12.000039 L4.92893219,6.34314575 C4.5384079,5.95262146 4.5384079,5.31945648 4.92893219,4.92893219 C5.31945648,4.5384079 5.95262146,4.5384079 6.34314575,4.92893219 Z"
                               ></path></svg
                           ></span>
-                        </div>
+                        </button>
                       </div>
                     </div> -->
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
-      </div>
+      </section>
+    </div>
+  </div>
+  <footer class="footer-wrapper">
+    <div class="footer-div">
+      <button role="button" color="yellow" class="save-button">
+        <span>프로필 저장</span>
+      </button>
+    </div>
+  </footer>
+</form>
+</body>
 
-      <footer class="footer-wrapper">
-        <div class="footer-div">
-          <button role="button" color="yellow" class="save-button">
-            <span>프로필 저장</span>
+<div class="modal mod1">
+  <div tabindex="0" class="modal-wrapper">
+    <div class="modal-box">
+      <div id="modal-content" class="modal-content">
+        <div class="close-button-wrapper">
+          <button role="button" color="default" class="close-button-modal">
+              <span
+              ><span role="img" color="#303441" rotate="0" class="close-X"
+              ><svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                      preserveAspectRatio="xMidYMid meet"
+                      class="close-svg"
+              >
+                    <path
+                            xmlns="http://www.w3.org/2000/svg"
+                            d="M4.99999 6.4142C4.60946 6.02367 4.60946 5.39051 4.99999 4.99999C5.39051 4.60946 6.02368 4.60946 6.4142 4.99999L12 10.5858L17.5858 4.99999C17.9763 4.60946 18.6095 4.60946 19 4.99999C19.3905 5.39051 19.3905 6.02367 19 6.4142L13.4142 12L19 17.5858C19.3905 17.9763 19.3905 18.6095 19 19C18.6095 19.3905 17.9763 19.3905 17.5858 19L12 13.4142L6.4142 19C6.02368 19.3905 5.39051 19.3905 4.99999 19C4.60946 18.6095 4.60946 17.9763 4.99999 17.5858L10.5858 12L4.99999 6.4142Z"
+                    ></path></svg></span
+              ></span>
           </button>
         </div>
-      </footer>
-    </form>
-  </body>
+        <form>
+          <div class="career modal-wrap">
+            <h2 variant="h2" class="modal-title" align="center">경력사항</h2>
+            <div class="career-inner">
+              <div>
+                <button role="button" color="default" type="button" class="freelance">
+                    <span>프리랜서인 경우, 체크해주세요</span
+                    ><span class="button__end-icon-wrapper"
+                ><span role="img" color="#c8cad2" rotate="0" class="tick-m"
+                ><svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        focusable="false"
+                        preserveAspectRatio="xMidYMid meet"
+                        class="close-svg"
+                >
+                          <path fill="none"></path>
+                          <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M19.9245 6.41243C20.3357 6.78117 20.37 7.4134 20.0013 7.82456L11.3089 17.5169C11.1256 17.7214 10.8662 17.8415 10.5916 17.8489C10.3171 17.8564 10.0515 17.7506 9.85735 17.5564L4.20049 11.8995C3.80997 11.509 3.80997 10.8759 4.20049 10.4853C4.59102 10.0948 5.22418 10.0948 5.61471 10.4853L10.5249 15.3956L18.5124 6.48924C18.8811 6.07809 19.5133 6.0437 19.9245 6.41243Z"
+                          ></path></svg></span
+                ></span>
+                </button>
+              </div>
+              <div class="company">
+                <div class="category-box free-t">
+                  <span class="title-m">회사명</span>
+                  <div class="input-wrap-m">
+                    <div class="input-box-m">
+                      <div class="input-inner">
+                        <input
+                                type="text"
+                                placeholder="입력해 주세요"
+                                class="input-m no1"
+                                value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <span class="count-m no1-1">0/10</span>
+                </div>
+              </div>
+              <div>
+                <div class="category-box free-t">
+                  <span class="title-m">근무부서</span>
+                  <div class="input-wrap-m">
+                    <div class="input-box-m">
+                      <div class="input-inner">
+                        <input
+                                type="text"
+                                placeholder="입력해 주세요"
+                                class="input-m no2"
+                                value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <span class="count-m no2-1">0/10</span>
+                </div>
+              </div>
+              <div>
+                <div class="category-box free-t">
+                  <span class="title-m">직위</span>
+                  <div class="input-wrap-m">
+                    <div class="input-box-m">
+                      <div class="input-inner">
+                        <input
+                                type="text"
+                                placeholder="입력해 주세요"
+                                class="input-m no3"
+                                value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <span class="count-m no3-1">0/10</span>
+                </div>
+              </div>
+              <div>
+                <div class="loc-wrap free-t">
+                  <span class="title-m">근무지</span>
+                  <div class="click-m">
+                    <div class="click-container">
+                        <span
+                                aria-live="polite"
+                                aria-atomic="false"
+                                aria-relevant="additions text"
+                                class="click-a11yText"
+                        ></span>
+                      <div class="click-control">
+                        <div class="click-location">
+                          <div class="click-location-placeholder location-single-value">
+                            선택해 주세요
+                          </div>
+                          <input
+                                  id="react-select-45-input"
+                                  readonly=""
+                                  tabindex="0"
+                                  aria-autocomplete="list"
+                                  class="dummyInput"
+                                  value=""
+                          />
+                        </div>
+                        <div class="down-arrow-m">
+                          <span class="no-display-m"></span>
+                          <div class="arrow-indicatorContainer" aria-hidden="true">
+                              <span role="img" rotate="0" class="arrow-inner"
+                              ><svg
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      fill="currentColor"
+                                      aria-hidden="true"
+                                      focusable="false"
+                                      preserveAspectRatio="xMidYMid meet"
+                                      class="close-svg"
+                              >
+                                  <path
+                                          fill-rule="evenodd"
+                                          clip-rule="evenodd"
+                                          d="M4.29289 7.79289C4.68342 7.40237 5.31658 7.40237 5.70711 7.79289L12 14.0858L18.2929 7.79289C18.6834 7.40237 19.3166 7.40237 19.7071 7.79289C20.0976 8.18342 20.0976 8.81658 19.7071 9.20711L12.7071 16.2071C12.3166 16.5976 11.6834 16.5976 11.2929 16.2071L4.29289 9.20711C3.90237 8.81658 3.90237 8.18342 4.29289 7.79289Z"
+                                  ></path></svg
+                              ></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="location-menu-container">
+                      <div class="location-list">
+                        <div class="location-option" id="select-2-option-0" tabindex="-1">
+                          <div class="location-text">서울</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-1" tabindex="-1">
+                          <div class="location-text">경기 북부</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-2" tabindex="-1">
+                          <div class="location-text">경기 남부</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-3" tabindex="-1">
+                          <div class="location-text">부산</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-4" tabindex="-1">
+                          <div class="location-text">대구</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-5" tabindex="-1">
+                          <div class="location-text">인천</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-6" tabindex="-1">
+                          <div class="location-text">광주</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-7" tabindex="-1">
+                          <div class="location-text">대전</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-8" tabindex="-1">
+                          <div class="location-text">울산</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-9" tabindex="-1">
+                          <div class="location-text">세종</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-10" tabindex="-1">
+                          <div class="location-text">강원</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-11" tabindex="-1">
+                          <div class="location-text">충북</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-12" tabindex="-1">
+                          <div class="location-text">충남</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-13" tabindex="-1">
+                          <div class="location-text">전북</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-14" tabindex="-1">
+                          <div class="location-text">전남</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-15" tabindex="-1">
+                          <div class="location-text">경북</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-16" tabindex="-1">
+                          <div class="location-text">경남</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-17" tabindex="-1">
+                          <div class="location-text">제주</div>
+                        </div>
+                        <div class="location-option" id="select-2-option-18" tabindex="-1">
+                          <div class="location-text">해외</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="category-box">
+                  <span class="title-m">근무기간</span>
+                  <div class="time-wrapper">
+                    <div class="click-m">
+                      <div class="click-container">
+                          <span
+                                  aria-live="polite"
+                                  aria-atomic="false"
+                                  aria-relevant="additions text"
+                                  class="click-a11yText"
+                          ></span>
+                        <div class="click-control">
+                          <div class="input-wrap-m">
+                            <div class="input-box-m">
+                              <div class="input-inner2">
+                                <input type="text" placeholder="0 ~ 입력" class="input-m2 no5" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="down-arrow-m">
+                            <span class="date-M">년</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="click-m">
+                      <div class="click-container">
+                          <span
+                                  aria-live="polite"
+                                  aria-atomic="false"
+                                  aria-relevant="additions text"
+                                  class="click-a11yText"
+                          ></span>
+                        <div class="click-control">
+                          <div class="input-wrap-m">
+                            <div class="input-box-m">
+                              <div class="input-inner2">
+                                <input
+                                        type="text"
+                                        placeholder="0 ~ 11 입력"
+                                        class="input-m2 no6"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="down-arrow-m">
+                            <span class="date-M">개월</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="evidence">
+                <div
+                        class="dzu-dropzone"
+                        style="border: none; overflow: auto; min-height: 0px; max-height: 48px"
+                >
+                  <button role="button" color="default" type="button" class="attach">
+                      <span
+                      ><label for="file-input-for-modal" class="attach-label"
+                      >+ 증빙 자료 첨부 (선택사항)<input
+                              id="file-input-for-modal"
+                              type="file"
+                              accept="image/jpeg, image/jpg, image/png"
+                              style="display: none" /></label
+                      ></span>
+                  </button>
+                </div>
+              </div>
+              <div class="explain-wrapper">
+                <div class="explain-title">TIP</div>
+                <div class="explain-contents">
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">
+                      증빙자료를 첨부하시면 담당자 검토 후, 확인 마크<img
+                            width="12px"
+                            src="https://d2v80xjmx68n4w.cloudfront.net/assets/user-profile/ic_user_profile_certification.png"
+                            alt="인증아이콘"
+                    />를 달아드립니다.
+                    </div>
+                  </div>
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">
+                      첨부 가능 자료: 국민연금 가입증명서, 재직/경력증명서
+                    </div>
+                  </div>
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">1mb이하, jpg/png 파일 1개만 등록 가능합니다.</div>
+                  </div>
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">제출한 자료는 의뢰인에게 노출되지 않습니다.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="button-wrapper-m1">
+              <button role="button" color="yellow" disabled="" type="button" class="button-m1">
+                <span>적용</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal mod2">
+  <div tabindex="0" class="modal-wrapper">
+    <div class="modal-box">
+      <div id="modal-content" class="modal-content">
+        <div class="close-button-wrapper">
+          <button role="button" color="default" class="close-button-modal">
+              <span
+              ><span role="img" color="#303441" rotate="0" class="close-X"
+              ><svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                      preserveAspectRatio="xMidYMid meet"
+                      class="close-svg"
+              >
+                    <path
+                            xmlns="http://www.w3.org/2000/svg"
+                            d="M4.99999 6.4142C4.60946 6.02367 4.60946 5.39051 4.99999 4.99999C5.39051 4.60946 6.02368 4.60946 6.4142 4.99999L12 10.5858L17.5858 4.99999C17.9763 4.60946 18.6095 4.60946 19 4.99999C19.3905 5.39051 19.3905 6.02367 19 6.4142L13.4142 12L19 17.5858C19.3905 17.9763 19.3905 18.6095 19 19C18.6095 19.3905 17.9763 19.3905 17.5858 19L12 13.4142L6.4142 19C6.02368 19.3905 5.39051 19.3905 4.99999 19C4.60946 18.6095 4.60946 17.9763 4.99999 17.5858L10.5858 12L4.99999 6.4142Z"
+                    ></path></svg></span
+              ></span>
+          </button>
+        </div>
+        <form>
+          <div class="modal-wrap">
+            <h2 variant="h2" class="modal-title" align="center">학력 · 전공</h2>
+            <div class="career-inner">
+              <div>
+                <div class="category-box">
+                  <span class="title-m">학교명</span>
+                  <div class="input-wrap-m">
+                    <div class="input-box-m">
+                      <div class="input-inner">
+                        <input
+                                type="text"
+                                placeholder="오스카대학교"
+                                class="input-m no7"
+                                value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <span class="count-m no7-1">0/24</span>
+                </div>
+                <div></div>
+              </div>
+              <div>
+                <div class="category-box">
+                  <span class="title-m">전공</span>
+                  <div class="input-wrap-m">
+                    <div class="input-box-m">
+                      <div class="input-inner">
+                        <input type="text" placeholder="학과" class="input-m no8" value="" />
+                      </div>
+                    </div>
+                  </div>
+                  <span class="count-m no8-1">0/24</span>
+                </div>
+                <div></div>
+              </div>
+              <div class="loc-wrap">
+                <span class="title-m">상태</span>
+                <div class="click-m">
+                  <div class="click-container">
+                      <span
+                              aria-live="polite"
+                              aria-atomic="false"
+                              aria-relevant="additions text"
+                              class="click-a11yText"
+                      ></span>
+                    <div class="click-control">
+                      <div class="click-location status-open">
+                        <div class="click-location-placeholder status-single-value">
+                          선택해 주세요
+                        </div>
+                        <input
+                                id="react-select-52-input"
+                                readonly=""
+                                tabindex="0"
+                                aria-autocomplete="list"
+                                class="dummyInput"
+                                value=""
+                        />
+                      </div>
+                      <div class="down-arrow-m">
+                        <span class="no-display-m"></span>
+                        <div class="arrow-indicatorContainer" aria-hidden="true">
+                            <span role="img" rotate="0" class="arrow-inner"
+                            ><svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    class="close-svg"
+                            >
+                                <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M4.29289 7.79289C4.68342 7.40237 5.31658 7.40237 5.70711 7.79289L12 14.0858L18.2929 7.79289C18.6834 7.40237 19.3166 7.40237 19.7071 7.79289C20.0976 8.18342 20.0976 8.81658 19.7071 9.20711L12.7071 16.2071C12.3166 16.5976 11.6834 16.5976 11.2929 16.2071L4.29289 9.20711C3.90237 8.81658 3.90237 8.18342 4.29289 7.79289Z"
+                                ></path></svg
+                            ></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="status-container">
+                    <div class="status-list">
+                      <div class="status-option" tabindex="-1">
+                        <div class="status-text">재학</div>
+                      </div>
+                      <div class="status-option" tabindex="-1">
+                        <div class="status-text">휴학</div>
+                      </div>
+                      <div class="status-option" tabindex="-1">
+                        <div class="status-text">이수</div>
+                      </div>
+                      <div class="status-option" tabindex="-1">
+                        <div class="status-text">졸업</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="evidence">
+                <div
+                        class="dzu-dropzone"
+                        style="border: none; overflow: auto; min-height: 0px; max-height: 48px"
+                >
+                  <button role="button" color="default" type="button" class="attach">
+                      <span
+                      ><label for="file-input-for-modal" class="attach-label"
+                      >+ 증빙 자료 첨부 (선택사항)<input
+                              id="file-input-for-modal"
+                              type="file"
+                              accept="image/jpeg, image/jpg, image/png"
+                              style="display: none" /></label
+                      ></span>
+                  </button>
+                </div>
+              </div>
+              <div class="explain-wrapper">
+                <div class="explain-title">TIP</div>
+                <div class="explain-contents">
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">
+                      증빙자료를 첨부하시면 담당자 검토 후, 확인 마크<img
+                            width="12px"
+                            src="https://d2v80xjmx68n4w.cloudfront.net/assets/user-profile/ic_user_profile_certification.png"
+                            alt="인증아이콘"
+                    />를 달아드립니다.
+                    </div>
+                  </div>
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">
+                      첨부 가능 자료: 재학증명서, 졸업증명서 또는 성적증명서
+                    </div>
+                  </div>
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">1mb이하, jpg/png 파일 1개만 등록 가능합니다.</div>
+                  </div>
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">제출한 자료는 의뢰인에게 노출되지 않습니다.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="button-wrapper-m2">
+              <button role="button" color="yellow" disabled="" type="button" class="button-m2">
+                <span>적용</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal mod3" style="position: fixed; z-index: 9999; inset: 0px">
+  <div tabindex="0" class="modal-wrapper">
+    <div class="modal-box">
+      <div id="modal-content" class="modal-content">
+        <div class="close-button-wrapper">
+          <button role="button" color="default" class="close-button-modal">
+              <span
+              ><span role="img" color="#303441" rotate="0" class="close-X"
+              ><svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                      preserveAspectRatio="xMidYMid meet"
+                      class="close-svg"
+              >
+                    <path
+                            xmlns="http://www.w3.org/2000/svg"
+                            d="M4.99999 6.4142C4.60946 6.02367 4.60946 5.39051 4.99999 4.99999C5.39051 4.60946 6.02368 4.60946 6.4142 4.99999L12 10.5858L17.5858 4.99999C17.9763 4.60946 18.6095 4.60946 19 4.99999C19.3905 5.39051 19.3905 6.02367 19 6.4142L13.4142 12L19 17.5858C19.3905 17.9763 19.3905 18.6095 19 19C18.6095 19.3905 17.9763 19.3905 17.5858 19L12 13.4142L6.4142 19C6.02368 19.3905 5.39051 19.3905 4.99999 19C4.60946 18.6095 4.60946 17.9763 4.99999 17.5858L10.5858 12L4.99999 6.4142Z"
+                    ></path></svg></span
+              ></span>
+          </button>
+        </div>
+        <form>
+          <div class="modal-wrap">
+            <h2 variant="h2" class="modal-title" align="center">자격증</h2>
+            <div class="certificate-wrap">
+              <div>
+                <div class="category-box">
+                  <span class="title-m">자격증명</span>
+                  <div class="input-wrap-m">
+                    <div class="input-box-m">
+                      <div class="input-inner">
+                        <input type="text" placeholder="입력해 주세요" class="input-m" value="" />
+                      </div>
+                    </div>
+                  </div>
+                  <span class="count-m">0/40</span>
+                </div>
+                <div></div>
+              </div>
+              <div class="category-box">
+                <span class="title-m">발급일</span>
+                <div class="date-of-issue">
+                  <div class="date-of-issue-wrapper" aria-expanded="false">
+                    <div class="input-box-m">
+                      <div class="input-box-inner">
+                        <input
+                                type="text"
+                                readonly=""
+                                placeholder="선택해 주세요"
+                                maxlength="0"
+                                class="input-m"
+                                value=""
+                        />
+                      </div>
+                    </div>
+                    <div class="calendar-icon">
+                        <span role="img" color="#212224" rotate="0" class="calendar-icon-wrap"
+                        ><svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                aria-hidden="true"
+                                focusable="false"
+                                preserveAspectRatio="xMidYMid meet"
+                                class="close-svg"
+                        >
+                            <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M8.00001 2.09998C8.49706 2.09998 8.90001 2.50292 8.90001 2.99998V3.59998H15.1V2.99998C15.1 2.50292 15.5029 2.09998 16 2.09998C16.497 2.09998 16.9 2.50292 16.9 2.99998V3.59998H18.5C20.1016 3.59998 21.4 4.89835 21.4 6.49998V18.5C21.4 20.1016 20.1016 21.4 18.5 21.4H5.50001C3.89838 21.4 2.60001 20.1016 2.60001 18.5V6.49998C2.60001 4.89835 3.89838 3.59998 5.50001 3.59998H7.10001V2.99998C7.10001 2.50292 7.50295 2.09998 8.00001 2.09998ZM15.1 5.39998V5.99998C15.1 6.49703 15.5029 6.89998 16 6.89998C16.497 6.89998 16.9 6.49703 16.9 5.99998V5.39998H18.5C19.1075 5.39998 19.6 5.89246 19.6 6.49998V8.09998L4.40001 8.09998V6.49998C4.40001 5.89246 4.89249 5.39998 5.50001 5.39998H7.10001V5.99998C7.10001 6.49703 7.50295 6.89998 8.00001 6.89998C8.49706 6.89998 8.90001 6.49703 8.90001 5.99998V5.39998H15.1ZM4.40001 9.89998V18.5C4.40001 19.1075 4.89249 19.6 5.50001 19.6H18.5C19.1075 19.6 19.6 19.1075 19.6 18.5V9.89998L4.40001 9.89998Z"
+                            ></path></svg
+                        ></span>
+                    </div>
+                  </div>
+                  <div
+                          style="
+                        z-index: 9999;
+                        visibility: visible;
+                        position: absolute;
+                        inset: 0px auto auto 0px;
+                        margin: 0px;
+                        transform: translate(138px, 210px);
+                      "
+                  >
+                    <div
+                            class="tippy-box css-1lbhjbd e1a1kd370"
+                            data-state="visible"
+                            tabindex="-1"
+                            data-animation="shift-away"
+                            role="tooltip"
+                            data-placement="bottom"
+                            style="max-width: 350px; transition-duration: 300ms"
+                    >
+                      <div
+                              class="tippy-content"
+                              data-state="visible"
+                              style="transition-duration: 300ms"
+                      >
+                        <div>
+                          <div>
+                            <div class="react-datepicker osca-datepicker">
+                              <div class="react-datepicker__triangle"></div>
+                              <div class="react-datepicker__month-container">
+                                <div
+                                        class="react-datepicker__header react-datepicker__header--custom"
+                                >
+                                  <div class="calendar-top">
+                                    <button
+                                            role="button"
+                                            color="default"
+                                            type="button"
+                                            class="arrow-next"
+                                    >
+                                      <span class="arrow">&lt;</span>
+                                    </button>
+                                    <div class="css-m1vghq eei8x553">2023년</div>
+                                    <button
+                                            role="button"
+                                            color="default"
+                                            type="button"
+                                            class="arrow-next"
+                                    >
+                                      <span class="arrow">&gt;</span>
+                                    </button>
+                                  </div>
+                                </div>
+                                <div
+                                        class="react-datepicker__month react-datepicker__monthPicker"
+                                        aria-label="month  2023-08"
+                                >
+                                  <div class="react-datepicker__month-wrapper">
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-0"
+                                            role="button"
+                                            aria-label="Choose January 2023"
+                                    >
+                                      1월
+                                    </div>
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-1"
+                                            role="button"
+                                            aria-label="Choose February 2023"
+                                    >
+                                      2월
+                                    </div>
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-2"
+                                            role="button"
+                                            aria-label="Choose March 2023"
+                                    >
+                                      3월
+                                    </div>
+                                  </div>
+                                  <div class="react-datepicker__month-wrapper">
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-3"
+                                            role="button"
+                                            aria-label="Choose April 2023"
+                                    >
+                                      4월
+                                    </div>
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-4"
+                                            role="button"
+                                            aria-label="Choose May 2023"
+                                    >
+                                      5월
+                                    </div>
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-5"
+                                            role="button"
+                                            aria-label="Choose June 2023"
+                                    >
+                                      6월
+                                    </div>
+                                  </div>
+                                  <div class="react-datepicker__month-wrapper">
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-6"
+                                            role="button"
+                                            aria-label="Choose July 2023"
+                                    >
+                                      7월
+                                    </div>
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-7 react-datepicker__month--selected react-datepicker__month-text--keyboard-selected"
+                                            role="button"
+                                            aria-label="Choose August 2023"
+                                    >
+                                      8월
+                                    </div>
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-8"
+                                            role="button"
+                                            aria-label="Choose September 2023"
+                                    >
+                                      9월
+                                    </div>
+                                  </div>
+                                  <div class="react-datepicker__month-wrapper">
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-9"
+                                            role="button"
+                                            aria-label="Choose October 2023"
+                                    >
+                                      10월
+                                    </div>
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-10"
+                                            role="button"
+                                            aria-label="Choose November 2023"
+                                    >
+                                      11월
+                                    </div>
+                                    <div
+                                            tabindex="-1"
+                                            class="react-datepicker__month-text react-datepicker__month-11"
+                                            role="button"
+                                            aria-label="Choose December 2023"
+                                    >
+                                      12월
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                              class="tippy-arrow"
+                              style="position: absolute; left: 0px; transform: translate(109px, 0px)"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script src="/js/mypage/edit-myprofile.js"></script>
+              <div class="category-box">
+                <span class="title-m">발급 기관</span>
+                <div class="input-wrap-m">
+                  <div class="input-box-m">
+                    <div class="input-inner">
+                      <input type="text" placeholder="입력해 주세요" class="input-m" value="" />
+                    </div>
+                  </div>
+                </div>
+                <span class="count-m">0/15</span>
+              </div>
+              <div class="evidence">
+                <div
+                        class="dzu-dropzone"
+                        style="border: none; overflow: auto; min-height: 0px; max-height: 48px"
+                >
+                  <button role="button" color="default" type="button" class="attach">
+                      <span
+                      ><label for="file-input-for-modal" class="attach-label"
+                      >+ 증빙 자료 첨부 (선택사항)<input
+                              id="file-input-for-modal"
+                              type="file"
+                              accept="image/jpeg, image/jpg, image/png"
+                              style="display: none" /></label
+                      ></span>
+                  </button>
+                </div>
+              </div>
+              <div class="explain-wrapper">
+                <div class="explain-title">TIP</div>
+                <div class="explain-contents">
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">
+                      증빙자료를 첨부하시면 담당자 검토 후, 확인 마크<img
+                            width="12px"
+                            src="https://d2v80xjmx68n4w.cloudfront.net/assets/user-profile/ic_user_profile_certification.png"
+                            alt="인증아이콘"
+                    />를 달아드립니다.
+                    </div>
+                  </div>
+
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">첨부 가능 자료: 자격증 사본</div>
+                  </div>
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">1mb이하, jpg/png 파일 1개만 등록 가능합니다.</div>
+                  </div>
+                  <div class="explain-list">
+                    <div class="explain-text">•</div>
+                    <div class="explain-text">제출한 자료는 의뢰인에게 노출되지 않습니다.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="button-wrapper-m3">
+              <button role="button" color="yellow" disabled="" type="button" class="button-m3">
+                <span>적용</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/js/mypage/edit-myprofile.js"></script>
+<script src="/js/mypage/modals.js"></script>
 </html>
