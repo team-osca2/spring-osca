@@ -7,39 +7,39 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 @font-face {
@@ -151,7 +151,7 @@ table {
     font-weight: bold;
 }
 .menu-selected{
-   font-weight: bold;
+    font-weight: bold;
 }
 
 .body-details {
@@ -517,7 +517,7 @@ table {
         align-items: center;
         flex-direction: row;
     }
-    
+
 
     .line-mini {
         display: block;
@@ -537,23 +537,24 @@ table {
         padding-right: 20px;
 
     }
-   .body-settings {
-    width: auto;
-    margin-top: 20px;
-    padding: 40px;
-    border: 1px solid #e4e5ed;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: column;
-}
+    .body-settings {
+        width: auto;
+        margin-top: 20px;
+        padding: 40px;
+        border: 1px solid #e4e5ed;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 768px){
     .menu-title {
-display: none;
+        display: none;
     }
     .setting-menu-box {
-    justify-content: center;}
+        justify-content: center;}
 }
+
