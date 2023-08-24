@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.CafeAdMapper">
+    <select id="selectAll" resultType="cafeAdVO">
 
+    </select>
+
+    <select id="select" resultType="com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO">
+        SELECT CA.ID, CAFE_AD_TITLE, CAFE_AD_CONTENTS, CAFE_AD_REGISTER_DATE, CAFE_AD_UPDATE_DATE, CAFE_AD_DEADLINE_DATE, CAFE_AD_REPORT_NO,CAFE_AD_BLOCKED, CAFE_ID,
+            CAFE_LOCATION, CAFE_NAME, CAFE_CONTACT_EMAIL, CAFE_CONTACT_PHONENUMBER, CAFE_OPEN_TIME, CAFE_END_TIME
+            FROM TBL_CAFE C JOIN TBL_CAFE_AD CA ON #{id} = C.ID
+    </select>
 </mapper>
