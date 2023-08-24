@@ -79,7 +79,7 @@
                 <div class="input-area password-confirm-input-area">
                     <div class="input-body">
                         <!-- 비밀번호 확인 입력 -->
-                        <input type="password" required="" placeholder="비밀번호를 한번 더 입력해 주세요." name="passwordConfirm"
+                        <input type="password" id="confirmPasswordInput" required="" placeholder="비밀번호를 한번 더 입력해 주세요." name="passwordConfirm"
                                autocomplete="current-password" class="input" value="">
                     </div>
                     <div class="input-error">
@@ -441,7 +441,7 @@
                         모두 동의합니다.
                     </div>
                     <div class="checkbox-checkelement-box">
-                        <div class="checkbox-checkelement">
+                        <div class="checkbox-checkelement essentials">
                             <div class="checkbox-svg-wrapper"> <!-- 체크 표시 들어가는 클래스-->
                                 <span role="img" class="checkbox-svg-box">
                                         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
@@ -454,7 +454,7 @@
                             만 14세 이상입니다.
                             <span class="checkbox-content-highlight">(필수)</span>
                         </div>
-                        <div class="checkbox-checkelement">
+                        <div class="checkbox-checkelement essentials">
                             <div class="checkbox-svg-wrapper "> <!-- 체크 표시 들어가는 클래스-->
                                 <span role="img" class="checkbox-svg-box">
                                         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
@@ -467,7 +467,7 @@
                             서비스 이용약관에 동의합니다.
                             <span class="checkbox-content-highlight">(필수)</span>
                         </div>
-                        <div class="checkbox-checkelement">
+                        <div class="checkbox-checkelement essentials">
                             <div class="checkbox-svg-wrapper "> <!-- 체크 표시 들어가는 클래스-->
                                 <span role="img" class="checkbox-svg-box">
                                         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
@@ -518,11 +518,12 @@
     </main>
 </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script type="text/javascript" src="/js/signup/signup_func.js"></script>
 <script type="text/javascript" src="/js/signup/signup.js"></script>
 <script type="text/javascript" src="/js/signup/check-name.js"></script>
 <script type="text/javascript" src="/js/signup/check-phoneNumber.js"></script>
+<script type="text/javascript" src="/js/signup/submit.js"></script>
 <script type="text/javascript">
     console.log("[[${role}]]");
 </script>

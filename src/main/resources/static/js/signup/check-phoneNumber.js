@@ -5,7 +5,7 @@ const $verificationbtn = $("#verificationbtn");
 const $checkAouthCode = $("#checkAouthCode");
 const $aouthCodeErrBox = $(".verification .input-error-message");
 const aouthCodeErrMsg = "인증번호가 일치하지 않습니다.";
-let aouthCode = "0";
+let aouthCode;
 
 
 $phoneNumber.keyup(function(){
