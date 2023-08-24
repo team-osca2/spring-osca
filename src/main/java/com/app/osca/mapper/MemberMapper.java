@@ -16,8 +16,10 @@ public interface MemberMapper {
     //    삭제
     public void delete(Long id);
 
-//    시퀸스
+//    회원번호 시퀸스
     public Long selectMemberSequence();
+//    닉네임 시퀸스
+    public Long selectNickNameSequence();
 //    닉네임 중복검사
     public Optional<String> selectForNickNameCheck(String memberNickname);
 //   아이디 중복 검사

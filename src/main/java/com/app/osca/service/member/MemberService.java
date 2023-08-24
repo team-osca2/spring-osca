@@ -18,5 +18,5 @@ public interface MemberService {
     public Optional<MemberVO> getMember(Long id);
 
 //    전화번호 인증
-    public String phonenumberAuthentication(String phonenumber);
+    public String checkPhonenumber(String phonenumber);
 }

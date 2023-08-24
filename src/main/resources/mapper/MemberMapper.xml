@@ -28,9 +28,13 @@
 
 
     <!--    회원가입    -->
-    <!--  시퀸스 가져오기  -->
+    <!--  회원번호 시퀸스 가져오기  -->
     <select id="selectMemberSequence" resultType="long">
         SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
+    </select>
+    <!--  닉네임 시퀸스 가져오기 -->
+    <select id="selectNickNameSequence" resultType="long">
+        SELECT SEQ_NICKNAME.NEXTVAL FROM DUAL
     </select>
     <!-- 닉네임 중복 검사  -->
     <select id="selectForNickNameCheck" resultType="string">
@@ -55,7 +59,7 @@
     <insert id="insertCafe">
         INSERT INTO TBL_MEMBER
         (ID, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_PHONENUMBER, MEMBER_ROLE)
-        VALUES(#{id}, #{memberName}, #{memberNickname}, #{memberEmail}, #{memberPassword}, #{memberPhonenumber}, 1)
+        VALUES(#{id}, #{memberName}, #{memberNickname}, #{memberEmail}, #{memberPassword}, #{memberPhonenumber}, #{memberRole})
     </insert>
     <!--    로그인    -->
     <select id="selectForLogin" resultType="int">
