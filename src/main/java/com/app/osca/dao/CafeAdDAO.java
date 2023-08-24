@@ -15,6 +15,6 @@ public class CafeAdDAO {
     private final CafeAdMapper cafeAdMapper;
 
     public Optional<CafeAdDetailDTO> findByID(Long id){
-        return cafeAdMapper.select(id);
+        return Optional.ofNullable(cafeAdMapper.select(id));
     }
 }

@@ -1,5 +1,6 @@
-package com.app.osca.service.cafeAd;
+package com.app.osca.cafeAd.service;
 
+import com.app.osca.service.cafeAd.CafeAdService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

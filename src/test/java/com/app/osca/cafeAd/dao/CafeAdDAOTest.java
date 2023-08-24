@@ -1,4 +1,4 @@
-package com.app.osca.dao.cafeAd;
+package com.app.osca.cafeAd.dao;
 
 import com.app.osca.dao.CafeAdDAO;
 import lombok.extern.slf4j.Slf4j;

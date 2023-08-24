@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface CafeAdMapper {
     public void selectAll(Criteria criteria);
 
-    public Optional<CafeAdDetailDTO> select(Long id);
+    public CafeAdDetailDTO select(Long id);
 }
