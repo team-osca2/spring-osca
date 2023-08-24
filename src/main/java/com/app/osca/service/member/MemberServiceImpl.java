@@ -1,12 +1,12 @@
 package com.app.osca.service.member;
 
-import com.app.osca.dao.CeoDAO;
 import com.app.osca.dao.MemberDAO;
 import com.app.osca.domain.MemberVO;
 import com.app.osca.service.ceo.CeoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,17 +15,19 @@ public class MemberServiceImpl implements MemberService {
     private final MemberDAO memberDAO;
     private final CeoService ceoService;
 
+//    아이디 중복검사
     @Override
     public Optional<MemberVO> checkId(String memberId) {
         return Optional.empty();
     }
 
+//    회원가입                              완료
     @Override
     public void join(MemberVO memberVO) {
 
         boolean isGeneralMember = memberVO.getMemberRole() == null;
-//      회원번호 생성  Long id = memberMapper.selectMemberSequence();
 
+//        회원번호 생성
         Long id = memberDAO.findMemberSequence();
         memberVO.setId(id);
 
@@ -35,6 +37,14 @@ public class MemberServiceImpl implements MemberService {
         String nickname = nickNames[(int)(SEQ / DIV)] + (SEQ % DIV);
         memberVO.setMemberNickname(nickname);
 
+//      비밀번호 암호화
+        final int KEY = 3;
+        String encryptedPassword = "", password = memberVO.getMemberPassword();
+        for (int i = 0; i < password.length(); i++) {
+            encryptedPassword += (char)(password.charAt(i) * KEY);
+        }
+        memberVO.setMemberPassword(encryptedPassword);
+
 //      일반 회원이면 가입, 카페 회원이면 포인트 첫 계정인지에 따라 포인트 증정
         if ( isGeneralMember ) {
             memberDAO.saveGeneral(memberVO);
@@ -43,11 +53,13 @@ public class MemberServiceImpl implements MemberService {
             memberDAO.saveCafe(memberVO);
             ceoService.joinPoint(id, isFirstCafeAccount);
         }
+
     }
 
+//    로그인                                     완료
     @Override
-    public Optional<Long> login(String memberId, String memberPassword) {
-        return Optional.empty();
+    public Optional<Long> login(String memberEmail, String memberPassword) {
+        return memberDAO.findByEmailAndPassword(memberEmail, memberPassword);
     }
 
     @Override
@@ -55,8 +67,9 @@ public class MemberServiceImpl implements MemberService {
         return Optional.empty();
     }
 
+//    전화번호 인증
     @Override
-    public String checkPhonenumber(String phonenumber) {
+    public String phoneNumberAuthentication(String phonenumber) {
         final int MIN = 1000;
         final int MAX = 9999;
         String randomNumber = Integer.toString((int) (Math.random() * (MAX - MIN + 1)) + MIN);
@@ -83,5 +96,21 @@ public class MemberServiceImpl implements MemberService {
 //		}
 
         return randomNumber;
+    }
+
+    //   일반 계정 찾기 ( memberEmail반환 )
+    @Override
+    public List<String> getGeneralAccounts(String memberName, String memberPhonenumber) {
+        return memberDAO.findByMemberNameAndPhonenumber(memberName, memberPhonenumber);
+    }
+
+    @Override
+    public void setGeneralAccountPassword(String memberPassword, String memberEmail) {
+        String encryptedPassword = "";
+        final int KEY = 3;
+        for (int i = 0; i < memberPassword.length(); i++) {
+            encryptedPassword += (char)(memberPassword.charAt(i) * KEY);
+        }
+        memberDAO.resetPassword(encryptedPassword, memberEmail);
     }
 }

@@ -5,6 +5,7 @@ import com.app.osca.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -42,4 +43,22 @@ public class MemberDAO {
     public void saveCafe(MemberVO memberVO) {
         memberMapper.insertCafe(memberVO);
     }
+
+//   일반 로그인
+    public Optional<Long> findByEmailAndPassword(String memberEmail, String memberPassword){
+        return memberMapper.selectForLogin(memberEmail, memberPassword);
+    }
+
+//   일반 계정 찾기
+    public List<String> findByMemberNameAndPhonenumber(String memberName, String memberPhonenumber){
+        return memberMapper.selectMemberEmail(memberName, memberPhonenumber);
+    }
+
+//    일반계정 비밀번호 재설정
+    public void resetPassword(String memberPassword, String memberEmail){
+        memberMapper.updateMemberPassword(memberPassword, memberEmail);
+    }
+
+
+
 }

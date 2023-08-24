@@ -55,15 +55,15 @@
     <select id="selectForCafeCheck" resultType="long">
         SELECT COUNT(ID) FROM TBL_MEMBER WHERE #{memberPhonenumber} = MEMBER_PHONENUMBER AND MEMBER_ROLE = 1
     </select>
-    <!--  카페 계정으로 가입 시 포인트 충전 0 OR 10000 -->
+    <!--  카페 계정 가입 -->
     <insert id="insertCafe">
         INSERT INTO TBL_MEMBER
         (ID, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_PHONENUMBER, MEMBER_ROLE)
         VALUES(#{id}, #{memberName}, #{memberNickname}, #{memberEmail}, #{memberPassword}, #{memberPhonenumber}, #{memberRole})
     </insert>
-    <!--    로그인    -->
-    <select id="selectForLogin" resultType="int">
-        SELECT ID FROM TBL_MEMBER WHERE MEMBER_EMAIL = #{memberEmail} AND MEMBER_PASSWORD = #{memberPassword}  <!-- 세선에 들어갈 회원번호  -->
+    <!--    일반 로그인    -->
+    <select id="selectForLogin" resultType="long">
+        SELECT ID MEMBER_EMAIL FROM TBL_MEMBER WHERE MEMBER_EMAIL = #{memberEmail} AND MEMBER_PASSWORD = #{memberPassword}  <!-- 세선에 들어갈 회원번호  -->
     </select>
 
     <!--    계정찾기    -->
@@ -77,6 +77,5 @@
         SET MEMBER_PASSWORD = #{memberPassword}
         WHERE MEMBER_EMAIL = #{memberEmail}
     </update>
-
 
 </mapper>

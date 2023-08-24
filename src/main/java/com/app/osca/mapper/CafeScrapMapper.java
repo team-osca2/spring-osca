@@ -7,9 +7,9 @@ import java.util.List;
 
 @Mapper
 public interface CafeScrapMapper {
-    //    스크랩한 카페 가져오기
-    public List<CafeScrapDTO> selectByMemberId(Long memberId);
-
-    //    스크랩한 카페 삭제하기
-    public void delete(Long Id);
+//    //    스크랩한 카페 가져오기
+//    public List<CafeScrapDTO> selectByMemberId(Long memberId);
+//
+//    //    스크랩한 카페 삭제하기
+//    public void delete(Long Id);
 }

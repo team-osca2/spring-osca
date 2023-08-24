@@ -3,6 +3,7 @@ package com.app.osca.mapper;
 import com.app.osca.domain.MemberVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
 import java.util.Optional;
 
 @Mapper
@@ -34,20 +35,12 @@ public interface MemberMapper {
 //    카페 계정 가입
     public void insertCafe(MemberVO memberVO);
 
-//    <!--    로그인    -->
-//    <select id="selectForLogin" resultType="int">
-//    SELECT ID FROM TBL_MEMBER WHERE MEMBER_EMAIL = #{memberEmail} AND MEMBER_PASSWORD = #{memberPassword}  <!-- 세선에 들어갈 회원번호  -->
-//    </select>
-//
-//    <!--    계정찾기    -->
-//    <select id="selectMemberEmail" resultType="string">
-//        <!--  닉네임이랑 전화번호를 가지고 멤버를 조회 성공하면 Integer로 전화번호 반환 -->
-//    SELECT MEMBER_EMAIL FROM TBL_MEMBER WHERE MEMBER_NAME = #{memberName} AND MEMBER_PHONENUMBER = #{memberPhonenumber}
-//    </select>
-//    <!--    비밀번호 재설정    -->
-//    <update id="updateMemberPassword">
-//    UPDATE TBL_MEMBER
-//    SET MEMBER_PASSWORD = #{memberPassword}
-//    WHERE MEMBER_EMAIL = #{memberEmail}
-//    </update>
+//    일반 로그인
+    public Optional<Long> selectForLogin(String memberEmail, String memberPassword);
+
+//    일반 계정찾기
+    public List<String> selectMemberEmail(String memberName, String memberPhonenumber);
+
+//    일반계정 비밀번호 재설정
+    public void updateMemberPassword(String memberPassword, String memberEmail);
 }

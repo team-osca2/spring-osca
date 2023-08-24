@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 @Slf4j
 public class MemberMapperTestsKDY {
@@ -14,6 +16,39 @@ public class MemberMapperTestsKDY {
     MemberMapper memberMapper;
     @Autowired
     CeoMapper ceoMapper;
+
+
+//    비밀번호 재설정 테스트
+    @Test
+    public void updateMemberPassword() {
+        String memberPassword = "dongyeop";
+        String memberEmail = "DONGYEOP@NAVER.COM";
+        String encryptedPassword = "";
+        final int KEY = 3;
+        for (int i = 0; i < memberPassword.length(); i++) {
+            encryptedPassword += (char)(memberPassword.charAt(i) * KEY);
+        }
+        memberMapper.updateMemberPassword(encryptedPassword, memberEmail);
+    }
+
+//    아이디 찾기 테스트
+    @Test
+    public void findMemberIdTest(){
+        String memberName = "김동엽";
+        String membnerPhonenumber = "01076501147";
+        memberMapper.selectMemberEmail(memberName, membnerPhonenumber).stream().map(String::toString).forEach(log::info);
+
+    }
+
+//    로그인 테스트
+    @Test
+    public void memberLoginTest(){
+
+        String memberEmail = "DONGYEOP@NAVER.COM";
+        String memberPassword = "1234";
+
+        memberMapper.selectForLogin(memberEmail, memberPassword).ifPresent((id) -> log.info("{}...........", id));
+    }
 
 //    넥네임 시퀸스 테스트
 //    랜덤 닉네임 생성 테스트
