@@ -12,5 +12,5 @@ public class PaymentVO {
     private Long memberId;
     private String paymentPrice;
     private String paymentDate;
-    private String paymentStatus;
+    private Long paymentStatus;
 }
