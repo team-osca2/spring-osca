@@ -10,6 +10,10 @@ import org.springframework.stereotype.Component;
 public class StudyDTO {
     private Long id;
     private String studyTitle;
-    private String memberName;
-    private String studyRegistDate;
+    private String memberNickname;
+    private String studyRegisterDate;
+//    private Long memberRole;
+//    private String cafeAdTitle;
+//    private String cafeAdRegisterDate;
 }
+

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 public class CafeAdDTO {
     private Long id;
     private String cafeAdTitle;
-    private String memberName;
-    private String cafeAdDate;
+    private String memberNickname;
+    private String cafeAdRegisterDate;
 }
+

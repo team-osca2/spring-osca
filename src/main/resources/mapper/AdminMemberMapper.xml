@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.osca.mapper.AdminMemberMapper">
+
+    <!-- 관리자 전체 유저 목록-->
+    <select id="selectAll" resultType="memberVO">
+    SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE
+    FROM TBL_MEMBER
+    ORDER BY MEMBER_REGISTER_DATE DESC
+    </select>
+
+    <!-- 관리자 일반 유저 목록-->
+    <select id="selectAllUserS" resultType="memberVO">
+    SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_ROLE
+    FROM TBL_MEMBER
+    WHERE MEMBER_ROLE  = 0
+    ORDER BY MEMBER_REGISTER_DATE DESC
+    </select>
+    <!-- 관리자 카페 유저 목록-->
+    <select id="selectAllUserC" resultType="memberVO">
+    SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_ROLE
+    FROM TBL_MEMBER
+    WHERE MEMBER_ROLE  = 1
+    ORDER BY MEMBER_REGISTER_DATE DESC
+    </select>
+
+    <!-- 관리자 신고당한 유저 목록-->
+    <select id="selectUserReported" resultType="memberVO">
+    SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_ROLE , MEMBER_REPORT_NO
+    FROM TBL_MEMBER
+    ORDER BY MEMBER_REPORT_NO
+    </select>
+
+    <!-- 관리자 정지당한 유저 목록-->
+    <select id="selectUserBlocked" resultType="memberVO">
+    SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_UPDATE_DATE, MEMBER_ROLE, MEMBER_BLOCKED
+    FROM TBL_MEMBER
+    WHERE MEMBER_BLOCKED = 1
+    ORDER BY MEMBER_UPDATE_DATE DESC
+    </select>
+
+    <!-- 관리자 유저 정지 시키기-->
+    <update id="updateStateBlock">
+    UPDATE TBL_MEMBER
+    SET MEMBER_BLOCKED = 1,
+    MEMBER_UPDATE_DATE = SYSDATE
+    WHERE ID = #{id}
+    </update>
+
+    <!-- 관리자 유저 복구 시키기-->
+    <update id="updateStateUnblock">
+    UPDATE TBL_MEMBER
+    SET MEMBER_BLOCKED = 0,
+    MEMBER_UPDATE_DATE = SYSDATE
+    WHERE ID = #{id}
+    </update>
+</mapper>

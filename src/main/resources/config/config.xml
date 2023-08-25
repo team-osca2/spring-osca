@@ -29,6 +29,7 @@
         <typeAlias type="com.app.osca.domain.dto.StudyScrapDTO" alias="studyScrapDTO"/>
         <typeAlias type="com.app.osca.domain.dto.CafeScrapDTO" alias="cafeScrapDTO"/>
         <typeAlias type="com.app.osca.domain.dto.MemberSkillDTO" alias="memberSkillDTO"/>
-
+        <typeAlias type="com.app.osca.domain.dto.StudyDTO" alias="StudyDTO"/>
+        <typeAlias type="com.app.osca.domain.dto.CafeAdDTO" alias="CafeAdDTO"/>
     </typeAliases>
 </configuration>
