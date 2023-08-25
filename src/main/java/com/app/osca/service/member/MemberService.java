@@ -10,7 +10,7 @@ public interface MemberService {
     public Optional<MemberVO> checkId(String memberId);
 
     //    회원가입
-    public void join(MemberVO memberVO);
+    public String join(MemberVO memberVO);
 
     //    로그인
     public Optional<Long> login(String memberEmail, String memberPassword);

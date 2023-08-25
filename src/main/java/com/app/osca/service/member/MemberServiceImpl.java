@@ -23,7 +23,7 @@ public class MemberServiceImpl implements MemberService {
 
 //    회원가입                              완료
     @Override
-    public void join(MemberVO memberVO) {
+    public String join(MemberVO memberVO) {
 
         boolean isGeneralMember = memberVO.getMemberRole() == null;
 
@@ -53,6 +53,8 @@ public class MemberServiceImpl implements MemberService {
             memberDAO.saveCafe(memberVO);
             ceoService.joinPoint(id, isFirstCafeAccount);
         }
+
+        return nickname;
 
     }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,13 +14,13 @@
             <img src="/images/logo.png" width="85px" style="margin: 0;" alt="">
         </a>
         <div class="contents-box">
-            <form id="signup_form" novalidate class="signup-form">
+            <form class="signup-form" action="/sign-up" method="POST">
                 <h1 class="signup-form-title">딱 이것만 체크하면 가입완료!</h1>
                 <div class="name-input-area">
                     <div class="input-title">이름</div>
                     <div class="input-body">
                         <!-- 이름 입력 -->
-                        <input type="text" required="" placeholder="이름을 입력해주세요" name="name" class="input" value="">
+                        <input type="text" required="" placeholder="이름을 입력해주세요" name="memberName" class="input" value="">
                     </div>
                     <div class="input-error">
                         <div class="input-error-message-box">
@@ -33,7 +33,7 @@
                     <div class="number">
                         <div class="input-body">
                             <!-- 이메일 입력 -->
-                            <input id="tel" type="text" required="" placeholder="전화번호를 입력해주세요" name="phoneNumber" class="input"
+                            <input id="tel" type="text" required="" placeholder="전화번호를 입력해주세요" name="memberPhonenumber" class="input"
                                    value="">
                         </div>
                         <button type="button" id="verificationbtn" class="verificationbtn" disabled>인증번호 받기</button>
@@ -55,7 +55,7 @@
                     <div class="input-title">이메일</div>
                     <div class="input-body">
                         <!-- 이메일 입력 -->
-                        <input type="email" required="" placeholder="이메일을 입력해 주세요." name="email" class="input" value="">
+                        <input type="email" required="" placeholder="이메일을 입력해 주세요." name="memberEmail" class="input" value="">
                     </div>
                     <div class="input-error">
                         <div class="input-error-message-box">
@@ -67,7 +67,7 @@
                     <div class="input-title">비밀번호</div>
                     <div class="input-body">
                         <!-- 비밀번호 입력 -->
-                        <input type="password" required="" placeholder="비밀번호를 입력해 주세요. (8자리 이상)" name="password"
+                        <input type="password" required="" placeholder="비밀번호를 입력해 주세요. (8자리 이상)" name="memberPassword"
                                autocomplete="current-password" class="input" value="">
                     </div>
                     <div class="input-error">
@@ -80,7 +80,7 @@
                     <div class="input-body">
                         <!-- 비밀번호 확인 입력 -->
                         <input type="password" id="confirmPasswordInput" required="" placeholder="비밀번호를 한번 더 입력해 주세요." name="passwordConfirm"
-                               autocomplete="current-password" class="input" value="">
+                               autocomplete="current-password" class="input" value="" >
                     </div>
                     <div class="input-error">
                         <div class="input-error-message-box">
@@ -507,6 +507,8 @@
                     </div>
                 </div>
 
+                <input type="hidden" name="memberRole" />
+
                 <button role="button" type="button" class="submit-button" disabled> <!--  disabled -->
                     <span class="submit-button-text">버튼만 누르면 가입완료!</span>
                 </button>
@@ -519,12 +521,15 @@
 </div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<script>
+    if ( "[[${role}]]" === "cafe" ) {
+        $("input[name=memberRole]").val("1");
+    }
+</script>
 <script type="text/javascript" src="/js/signup/signup_func.js"></script>
 <script type="text/javascript" src="/js/signup/signup.js"></script>
 <script type="text/javascript" src="/js/signup/check-name.js"></script>
 <script type="text/javascript" src="/js/signup/check-phoneNumber.js"></script>
 <script type="text/javascript" src="/js/signup/submit.js"></script>
-<script type="text/javascript">
-    console.log("[[${role}]]");
-</script>
 </html>

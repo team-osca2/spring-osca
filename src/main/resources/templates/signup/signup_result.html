@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/images/logo/favicon.png">
-    <link rel="stylesheet" href="../../static/css/signup/result.css">
+    <link rel="stylesheet" href="/css/signup/result.css">
     <title>오!스카 회원가입 성공</title>
 </head>
 <body>
 <div id="join-result">
     <main class="container ">
         <div class="welcome-message">
-            <span class="name-wrapper">단단한자두5768</span>님!<br />오!스카 가입을 환영합니다.
+            <span class="name-wrapper" th:text="${memberNickname}">단단한자두5768</span>님!<br />오!스카 가입을 환영합니다.
         </div>
         <div class="img-wrapper">
             <img
                     width="208"
-                    src="../../static/images/signup-images/point.jpg"
+                    src="/images/signup-images/point.jpg"
                     alt="축하 이미지"
             />
         </div>
@@ -34,7 +34,7 @@
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script>
     $('.go-to-main-btn').click(function(){
-        let link = "https://www.naver.com/";
+        let link = "/";
         location.replace(link);
     });
 </script>

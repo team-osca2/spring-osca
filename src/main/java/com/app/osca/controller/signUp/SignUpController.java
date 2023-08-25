@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 @RequiredArgsConstructor
 @Controller
@@ -20,6 +22,13 @@ public class SignUpController {
     public String signUpContent(MemberVO memberVO, String role, Model model){
         model.addAttribute("role", role);
         return "signup/signup_content";
+    }
+
+    @PostMapping(value = {"", "/"})
+    public RedirectView receiveSignUpContent(MemberVO memberVO, RedirectAttributes redirectAttributes){
+        String memberNickname = memberService.join(memberVO);
+        redirectAttributes.addFlashAttribute("memberNickname", memberNickname);
+        return new RedirectView("/sign-up/result-page");
     }
 
     @GetMapping("/email-type")
@@ -36,4 +45,10 @@ public class SignUpController {
     public String checkTel(String phonenumber) {
         return memberService.phoneNumberAuthentication(phonenumber);
     }
+
+    @GetMapping("/result-page")
+    public String goToResultPage(String memberNickname) {
+        return "signup/signup_result";
+    }
+
 }
