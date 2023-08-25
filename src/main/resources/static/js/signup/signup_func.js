@@ -17,7 +17,7 @@ const validationEmailOrPassword = (validationCallback) => (errorBox, errorMessag
 /** select 박스 열고 닫기 */
 const expandSelectMenu = (idx) => ()=> $($selectMenuContentsList[idx]).toggle();
 
-/** 버튼 클릭 이벤트 */
+// /** 버튼 클릭 이벤트 */
 // const checkFuncList = [emailCheck, passwordCheck, passwordConfirmCheck];
 // function submitButtonClick(e){
 //     checkFuncList.forEach((checkFunc, idx) => {
