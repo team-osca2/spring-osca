@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.osca.mapper.MypageMemberJobMapper">
+    <!-- 1. 멤버의 직업 추가하기 -->
+    <insert id="insert">
+        INSERT INTO TBL_MEMBER_JOB  (ID, JOB_CATEGORY_ID, JOB_ID, MEMBER_ID)
+        VALUES (SEQ_MEMBER_JOB.NEXTVAL, #{jobCategoryId}, #{jobId}, #{memberId})
+    </insert>
+
+    <!--  2. 회원의 직업 가져오기 -->
+    <select id="selectByMemberId" resultType="memberJobDTO">
+        SELECT MJ.MEMBER_ID, MJ.JOB_ID, J.ID, J.JOB
+        FROM TBL_MEMBER_JOB MJ JOIN TBL_JOB J
+        ON MJ.JOB_ID=J.ID
+        WHERE MJ.MEMBER_ID=#{memberId}
+    </select>
+</mapper>

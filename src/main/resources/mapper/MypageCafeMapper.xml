@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.osca.mapper.MypageCafeMapper">
+    <!-- 카페 사업자 번호 가져오기 -->
+    <select id="selectBusinessNum" resultType="String">
+        SELECT CAFE_BUSINESS_NUMBER FROM TBL_CAFE
+        WHERE MEMBER_ID=#{memberId}
+    </select>
+
+    <!-- 카페 사업자 번호 수정하기 -->
+    <update id="updateBusinessNum">
+        UPDATE TBL_CAFE
+        SET CAFE_BUSINESS_NUMBER=#{cafeBusinessNumber}
+        WHERE MEMBER_ID=#{memberId}
+    </update>
+
+</mapper>
