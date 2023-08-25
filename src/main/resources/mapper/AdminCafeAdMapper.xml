@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.osca.mapper.AdminCafeAdMapper">
+
+<!--     관리자 카페 게시글 불러오기 -->
+    <select id="selectAllCafePost" resultType="cafeAdDTO">
+    SELECT C.ID, C.CAFE_AD_TITLE, M.MEMBER_NICKNAME, C.CAFE_AD_REGISTER_DATE
+    FROM TBL_CAFE_AD C
+    JOIN TBL_CAFE CAFE ON C.CAFE_ID  = CAFE_ID
+    JOIN TBL_MEMBER M ON CAFE.MEMBER_ID  = M.ID
+    ORDER BY C.CAFE_AD_REGISTER_DATE DESC
+    </select>
+
+<!--    관리자 카페 글 블락-->
+    <update id="updateCafeBlock">
+    UPDATE TBL_CAFE_AD
+    SET CAFE_AD_BLOCKED = 1,
+    CAFE_AD_UPDATE_DATE = CURRENT_TIMESTAMP
+    WHERE ID = #{id}
+    </update>
+
+<!--    관리자 카페 글 복구-->
+    <update id="updateCafeUnblock">
+    UPDATE TBL_CAFE_AD
+    SET CAFE_AD_BLOCKED = 0,
+    CAFE_AD_UPDATE_DATE = CURRENT_TIMESTAMP
+    WHERE ID = #{id}
+    </update>
+
+</mapper>
