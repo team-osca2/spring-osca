@@ -1,11 +1,19 @@
 package com.app.osca.mapper;
 
+import com.app.osca.domain.CafeVO;
+import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
+import com.app.osca.domain.paging.Criteria;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface CafeAdMapper {
-//        스크랩한 스터디 가져오기
-//    public List<cafeDTO> selectAllCafePost(Long cafeAdId);
+    public void selectAll(Criteria criteria);
+
+    public CafeAdDetailDTO select(Long id);
+
+    public List<CafeVO> selectAllCafePost(Long cafeAdId);
+
 }

@@ -8,6 +8,7 @@ import java.util.Optional;
 
 @Mapper
 public interface MemberMapper {
+
     //    회원의 이름, 이메일, 핸드폰 번호 가져오기
     public Optional<MemberVO> selectById(Long id);
 
@@ -18,6 +19,7 @@ public interface MemberMapper {
     public void delete(Long id);
 
 //    회원번호 시퀸스
+
     public Long selectMemberSequence();
 //    닉네임 시퀸스
     public Long selectNickNameSequence();

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.CafeMapper">
+    <select id="selectAll" resultType="cafeVO">
+        SELECT ID, CAFE_BUSINESS_NUMBER, CAFE_LOCATION, CAFE_NAME, CAFE_CONTACT_EMAIL, CAFE_CONTACT_PHONENUMBER, CAFE_OPEN_TIME, CAFE_END_TIME, MEMBER_ID
+        FROM TBL_CAFE
+    </select>
 
+    <select id="select" resultType="cafeVO">
+        SELECT ID, CAFE_BUSINESS_NUMBER, CAFE_LOCATION, CAFE_NAME, CAFE_CONTACT_EMAIL, CAFE_CONTACT_PHONENUMBER, CAFE_OPEN_TIME, CAFE_END_TIME, MEMBER_ID
+        FROM TBL_CAFE
+        WHERE ID = #{id}
+    </select>
 </mapper>
