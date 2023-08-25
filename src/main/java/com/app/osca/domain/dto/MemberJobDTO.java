@@ -1,4 +1,4 @@
-package com.app.osca.domain;
+package com.app.osca.domain.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,10 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class PaymentVO {
+public class MemberJobDTO {
     private Long id;
     private Long memberId;
-    private String paymentPrice;
-    private String paymentDate;
-    private Long paymentStatus;
+    private Long jobId;
+    private String job;
 }
