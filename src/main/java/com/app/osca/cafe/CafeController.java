@@ -1,5 +1,6 @@
-package com.app.osca.controller.cafe;
+package com.app.osca.cafe;
 
+import com.app.osca.domain.CafeVO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.service.cafeAd.CafeAdService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,16 @@ import java.util.Optional;
 public class CafeController {
 
     final private CafeAdService cafeAdService;
+
+    @GetMapping("/my-cafe")
+    public void goToMyCafeList(Model model){
+        model.addAttribute("myCafeList", "sdf");
+    }
+
+    @GetMapping("/write")
+    public void goToCafeWrite(Model model,CafeVO cafeVO){
+        ;
+    }
 
     @GetMapping("/detail/{id}")
     public String goToDetail(Model model, @PathVariable Long id){

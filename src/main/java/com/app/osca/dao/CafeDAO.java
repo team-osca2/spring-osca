@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -14,5 +15,9 @@ public class CafeDAO {
 
     public List<CafeVO> findAll(){
         return cafeMapper.selectAll();
+    }
+
+    public Optional<CafeVO> findById(Long id){
+        return Optional.ofNullable(cafeMapper.select(id));
     }
 }

@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,5 +17,10 @@ public class CafeServiceImpl implements CafeService {
     @Override
     public List<CafeVO> getList() {
         return cafeDAO.findAll();
+    }
+
+    @Override
+    public Optional<CafeVO> getOne(Long id) {
+        return cafeDAO.findById(id);
     }
 }
