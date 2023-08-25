@@ -18,10 +18,6 @@ public interface MemberMapper {
     //    삭제
     public void delete(Long id);
 
-
-
-//    시퀸스
-
 //    회원번호 시퀸스
 
     public Long selectMemberSequence();

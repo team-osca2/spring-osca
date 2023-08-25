@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.CafeAdMapper">
     <select id="selectAll" resultType="cafeAdVO">
-
+        SELECT ID, CAFE_LOCATION, CAFE_NAME, CAFE_CONTACT_EMAIL, CAFE_CONTACT_PHONENUMBER, CAFE_OPEN_TIME, CAFE_END_TIME
+        FROM TBL_CAFE
     </select>
 
     <select id="select" resultType="com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO">
@@ -11,7 +12,7 @@
             FROM TBL_CAFE C JOIN TBL_CAFE_AD CA ON #{id} = C.ID
     </select>
     <!-- 관리자 카페 게시글 불러오기 -->
-    <select id="selectAllCafePost" resultType="cafeDTO">
+    <select id="selectAllCafePost" resultType="com.app.osca.domain.dto.CafeDTO">
     SELECT c.id, c.title, m.member_name, c.date
     FROM TBL_CAFE_AD c
     JOIN TBL_CAFE cafe ON c.cafe_id = cafe.id

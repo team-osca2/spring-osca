@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 @Data
 @NoArgsConstructor
-public class CafeAdDTO {
+public class CafeAdImagesDTO {
     private Long id;
     private Long cafeId;
     private String cafeAdTitle;
@@ -24,7 +24,7 @@ public class CafeAdDTO {
     List<CafeImageVO> cafeImages;
 
     @Builder
-    public CafeAdDTO(Long cafeId, String cafeAdTitle, String cafeAdContents, String cafeAdDeadlineDate) {
+    public CafeAdImagesDTO(Long cafeId, String cafeAdTitle, String cafeAdContents, String cafeAdDeadlineDate) {
         this.cafeId = cafeId;
         this.cafeAdTitle = cafeAdTitle;
         this.cafeAdContents = cafeAdContents;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class CafeAdDTO {
+public class CafeDTO {
     private Long id;
     private String cafeAdTitle;
     private String memberName;
