@@ -46,9 +46,11 @@ public class SignUpController {
         return memberService.phoneNumberAuthentication(phonenumber);
     }
 
+//    회원가입 완료 페이지
     @GetMapping("/result-page")
     public String goToResultPage(String memberNickname) {
         return "signup/signup_result";
     }
+
 
 }
