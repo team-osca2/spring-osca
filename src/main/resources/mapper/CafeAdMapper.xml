@@ -10,4 +10,12 @@
             CAFE_LOCATION, CAFE_NAME, CAFE_CONTACT_EMAIL, CAFE_CONTACT_PHONENUMBER, CAFE_OPEN_TIME, CAFE_END_TIME
             FROM TBL_CAFE C JOIN TBL_CAFE_AD CA ON #{id} = C.ID
     </select>
+    <!-- 관리자 카페 게시글 불러오기 -->
+    <select id="selectAllCafePost" resultType="cafeDTO">
+    SELECT c.id, c.title, m.member_name, c.date
+    FROM TBL_CAFE_AD c
+    JOIN TBL_CAFE cafe ON c.cafe_id = cafe.id
+    JOIN TBL_MEMBER m ON cafe.member_id = m.member_id;
+    </select>
+
 </mapper>

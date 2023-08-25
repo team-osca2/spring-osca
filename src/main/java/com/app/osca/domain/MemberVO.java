@@ -10,11 +10,12 @@ import org.springframework.stereotype.Component;
 public class MemberVO {
     private Long id;
     private String memberName;
+    private String memberNickname;
     private String memberEmail;
     private String memberPassword;
     private String memberPhonenumber;
     private String memberReportNo;
-    private String memberRole;
+    private Long memberRole;
     private String memberBlocked;
     private String memberRegistDate;
     private String memberUpdateDate;

@@ -16,10 +16,10 @@
         <div class="contents-box">
             <form id="signup_form" novalidate class="signup-form">
                 <h1 class="signup-form-title">딱 이것만 체크하면 가입완료!</h1>
-                <div class="email-input-area">
+                <div class="name-input-area">
                     <div class="input-title">이름</div>
                     <div class="input-body">
-                        <!-- 이메일 입력 -->
+                        <!-- 이름 입력 -->
                         <input type="text" required="" placeholder="이름을 입력해주세요" name="name" class="input" value="">
                     </div>
                     <div class="input-error">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="verification">
                     <div class="input-body disable">
-                        <input type="text" placeholder="인증번호를 입력해주세요." name="authCode" readonly="" class="input"
+                        <input id="checkAouthCode" type="text" placeholder="인증번호를 입력해주세요." name="authCode" readonly="" class="input"
                                value="">
                     </div>
                     <div class="input-error">
@@ -521,5 +521,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="/js/signup/signup_func.js"></script>
 <script type="text/javascript" src="/js/signup/signup.js"></script>
+<script type="text/javascript" src="/js/signup/check-name.js"></script>
 <script type="text/javascript" src="/js/signup/check-phoneNumber.js"></script>
 </html>

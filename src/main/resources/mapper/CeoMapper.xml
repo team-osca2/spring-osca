@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.CeoMapper">
+    <insert id="insertWelcomePoint">
+        INSERT INTO TBL_CEO
+        (MEMBER_ID)
+        VALUES(#{memberid})
+    </insert>
 
+    <insert id="insertPoint">
+        INSERT INTO TBL_CEO
+        VALUES(#{memberId}, 0)
+    </insert>
 </mapper>

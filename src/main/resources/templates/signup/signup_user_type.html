@@ -15,11 +15,11 @@
             </a>
             <div class="contents-box">
                 <div class="contents-main">
-                    <h1 class="contents-title">크몽에서 어떤 서비스를<br>이용하고 싶으세요?</h1>
-                    <p class="contents-subtitle">원하는 회원가입 유형을 선택하세요.<br>의뢰인으로 가입 후에도 전문가 등록이 가능합니다.</p>
+                    <h1 class="contents-title">오!스카에서 어떤 서비스를<br>이용하고 싶으세요?</h1>
+                    <p class="contents-subtitle">원하는 회원가입 유형을 선택하세요.<br>일반회원으로 가입 후에도 카페회원으로 전한이 가능합니다.</p>
                     <label class="general">
-                        <div class="btn-explain">서비스를 의뢰하고 싶다면</div>
-                        <button role="button" class="type-button">
+                        <div class="btn-explain">스터디를 하고 싶다면 </div>
+                        <button id="study" role="button" class="type-button">
                             <span class="button-icon-wrapper">
                                 <span role="img" class="button-icon-box">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" focusable="false" preserveAspectRatio="xMidYMid meet" class="button-icon">
@@ -27,12 +27,12 @@
                                     </svg>
                                 </span>
                             </span>
-                            <div class="button-text">의뢰인으로 가입</div>
+                            <div class="button-text">일반회원으로 가입</div>
                         </button>
                     </label>
                     <label class="ceo">
-                        <div class="btn-explain">내 전문성을 판매하고 싶다면</div>
-                        <button role="button" class="type-button">
+                        <div class="btn-explain">내 카페를 홍보하고 싶다면</div>
+                        <button id="cafe" role="button" class="type-button">
                             <span class="button-icon-wrapper">
                                 <span role="img" class="button-icon-box">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" focusable="false" preserveAspectRatio="xMidYMid meet" class="button-icon">
@@ -40,11 +40,27 @@
                                     </svg>
                                 </span>
                             </span>
-                            <div class="button-text">전문가로 가입</div>
+                            <div class="button-text">카페회원으로 가입</div>
                         </button>
                     </label>
                 </div>
         </main>
     </div>
 </body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script type="text/javascript">
+    const $study = $("#study");
+    const $cafe = $("#cafe");
+
+    $study.click(function (){
+        let link = "/sign-up?role=general";
+        location.href = link;
+    });
+
+    $cafe.click(function (){
+        let link = "/sign-up?role=cafe";
+        location.href = link;
+    });
+
+</script>
 </html>
