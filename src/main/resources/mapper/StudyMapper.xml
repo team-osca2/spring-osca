@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.StudyMapper">
-    <insert id="insert">
-        INSERT INTO TBL_STUDY (ID, STUDY_TITLE, STUDY_CONTENTS, STUDY_TOTAL, STUDY_DEADLINE_DATE, MEMBER_ID)
-        VALUES (SEQ_STUDY.NEXTVAL, #{studyTitle}, #{studyContents}, #{studyTotal}, SYSDATE, #{memberId})
-    </insert>
+<!--    <insert id="insert">-->
+<!--        INSERT INTO TBL_STUDY (ID, STUDY_TITLE, STUDY_CONTENTS, STUDY_TOTAL, STUDY_DEADLINE_DATE, MEMBER_ID)-->
+<!--        VALUES (SEQ_STUDY.NEXTVAL, #{studyTitle}, #{studyContents}, #{studyTotal}, SYSDATE, #{memberId})-->
+<!--    </insert>-->
 
-    <!-- 관리자 스터디 게시글 불러오기 -->
-    <select id="selectAllStudyPost" resultType="studyDTO">
-    SELECT S.ID, STUDY_TITLE, M.MEMBER_NAME, STUDY_REGIST_DATE
-    FROM TBL_STUDY S JOIN TBL_MEMBER M
-    ON S.MEMBER_ID = M.ID;
-    </select>
+<!--    &lt;!&ndash; 관리자 스터디 게시글 불러오기 &ndash;&gt;-->
+<!--    <select id="selectAllStudyPost" resultType="studyDTO">-->
+<!--    SELECT S.ID, STUDY_TITLE, M.MEMBER_NAME, STUDY_REGIST_DATE-->
+<!--    FROM TBL_STUDY S JOIN TBL_MEMBER M-->
+<!--    ON S.MEMBER_ID = M.ID;-->
+<!--    </select>-->
 
 </mapper>

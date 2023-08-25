@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.CafeScrapMapper">
-    <!--   1. 스크랩한 카페 가져오기 (list로)   -->
-    <select id="selectByMemberId" resultType="cafeScrapDTO">
-        SELECT CS.ID, CS.MEMBER_ID, CS.CAFE_ID, C.ID, CAFE_LOCATION, CAFE_NAME, CAFE_CONTACT_EMAIL,
-        CAFE_CONTACT_PHONENUMBER, CAFE_OPEN_TIME, CAFE_END_TIME
-        FROM TBL_CAFE_SCRAP CS JOIN TBL_CAFE C
-        ON CS.CAFE_ID=C.ID
-        WHERE CS.MEMBER_ID=#{memberId}
-    </select>
+<!--    &lt;!&ndash;   1. 스크랩한 카페 가져오기 (list로)   &ndash;&gt;-->
+<!--    <select id="selectByMemberId" resultType="cafeScrapDTO">-->
+<!--        SELECT CS.ID, CS.MEMBER_ID, CS.CAFE_ID, C.ID, CAFE_LOCATION, CAFE_NAME, CAFE_CONTACT_EMAIL,-->
+<!--        CAFE_CONTACT_PHONENUMBER, CAFE_OPEN_TIME, CAFE_END_TIME-->
+<!--        FROM TBL_CAFE_SCRAP CS JOIN TBL_CAFE C-->
+<!--        ON CS.CAFE_ID=C.ID-->
+<!--        WHERE CS.MEMBER_ID=#{memberId}-->
+<!--    </select>-->
 
-    <!--   2. 스크랩한 카페 삭제하기   -->
-    <delete id="delete">
-        DELETE FROM TBL_CAFE_SCRAP WHERE ID = #{id}
-    </delete>
+<!--    &lt;!&ndash;   2. 스크랩한 카페 삭제하기   &ndash;&gt;-->
+<!--    <delete id="delete">-->
+<!--        DELETE FROM TBL_CAFE_SCRAP WHERE ID = #{id}-->
+<!--    </delete>-->
 </mapper>

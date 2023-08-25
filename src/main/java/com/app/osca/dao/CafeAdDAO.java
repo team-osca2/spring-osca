@@ -18,3 +18,4 @@ public class CafeAdDAO {
         return Optional.ofNullable(cafeAdMapper.select(id));
     }
 }
+

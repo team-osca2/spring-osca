@@ -21,3 +21,4 @@ public class CafeDAO {
         return Optional.ofNullable(cafeMapper.select(id));
     }
 }
+

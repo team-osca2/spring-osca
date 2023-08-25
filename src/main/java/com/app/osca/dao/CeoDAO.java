@@ -8,4 +8,12 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class CeoDAO {
     private final CeoMapper ceoMapper;
+
+    public void giveWelcomePoint(Long memberId) {
+         ceoMapper.insertWelcomePoint(memberId);
+    }
+
+    public void givePoint(Long memberId){
+        ceoMapper.insertPoint(memberId);
+    }
 }

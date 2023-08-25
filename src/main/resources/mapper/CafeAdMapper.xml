@@ -18,4 +18,13 @@
     JOIN TBL_MEMBER m ON cafe.member_id = m.member_id;
     </select>
 
+<!--    &lt;!&ndash; 관리자 카페 게시글 불러오기 &ndash;&gt;-->
+<!--    <select id="selectAllCafePost" resultType="cafeDTO">-->
+<!--    SELECT c.id, c.title, m.member_name, c.date-->
+<!--    FROM TBL_CAFE_AD c-->
+<!--    JOIN TBL_CAFE cafe ON c.cafe_id = cafe.id-->
+<!--    JOIN TBL_MEMBER m ON cafe.member_id = m.member_id;-->
+<!--    </select>-->
+
+
 </mapper>

@@ -1,7 +1,7 @@
 
 // email
 const emailRegex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-const $email = $('.input[name="email"]');
+const $email = $('.input[type="email"]');
 const $emailErrorMessageBox = $('.email-input-area .input-error-message');
 const emailErrorMessage = '이메일 형식이 유효하지 않습니다.';
 $email.on('input', validationEmailOrPassword(checkValidation)($emailErrorMessageBox, emailErrorMessage, emailRegex));
@@ -9,14 +9,14 @@ $email.on('input', validationEmailOrPassword(checkValidation)($emailErrorMessage
 
 // password
 const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,}$/;
-const $password = $('input[name="password"]');
+const $password = $('input[type="password"]');
 const $passwordErrorMessageBox = $(".password-input-area .input-error-message");
 const passwordErrorMessage = '8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.';
 $password.on('input', validationEmailOrPassword(checkValidation)($passwordErrorMessageBox, passwordErrorMessage, passwordRegex));
 
 
 // passwordConfirm
-const $passwordConfirm = $('input[name="passwordConfirm"]');
+const $passwordConfirm = $('#confirmPasswordInput');
 const $passwordConfirmErrorMessageBox = $(".password-confirm-input-area .input-error-message");
 const passwordConfrimErrorMessage = '비밀번호를 확인해 주세요';
 $passwordConfirm.on('input', validationEmailOrPassword(passwordConfirm)($passwordConfirmErrorMessageBox, passwordConfrimErrorMessage));
