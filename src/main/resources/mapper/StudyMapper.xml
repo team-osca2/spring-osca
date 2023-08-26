@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.StudyMapper">
+    <sql id="search">
+        <if test="search.type != null and !search.type.equals('')">
+            <trim prefix="AND(" prefixOverrides="OR" suffix=")">
+                <foreach item="type" collection="search.types">
+                    <trim prefix="OR">
+                        <choose>
+                            <when test="type=='t'.toString()">
+                                POST_TITLE LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='c'.toString()">
+                                POST_CONTENT LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='w'.toString()">
+                                MEMBER_NAME LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                        </choose>
+                    </trim>
+                </foreach>
+            </trim>
+        </if>
+    </sql>
     <insert id="insert">
         INSERT INTO TBL_STUDY (ID, STUDY_TITLE, STUDY_CONTENTS, STUDY_TOTAL, STUDY_DEADLINE_DATE, MEMBER_ID)
         VALUES (SEQ_STUDY.NEXTVAL, #{studyTitle}, #{studyContents}, #{studyTotal}, SYSDATE, #{memberId})
@@ -11,8 +32,12 @@
     </select>
 
     <select id="selectOneStudy">
-    SELECT STUDY_TITLE, STUDY_CONTENTS, STUDY_LOCATION, STUDY_TOTAL, "OPEN", STUDY_BLOCKED, STUDY_DEADLINE_DATE, STUDY_REGIST_DATE, STUDY_UPDATE_DATE, MEMBER_ID FROM TBL_STUDY
-    WHERE MEMBER_ID = #{memberId}
+        SELECT STUDY_TITLE, STUDY_CONTENTS, STUDY_LOCATION, STUDY_TOTAL, "OPEN", STUDY_BLOCKED, STUDY_DEADLINE_DATE, STUDY_REGIST_DATE, STUDY_UPDATE_DATE, MEMBER_ID FROM TBL_STUDY
+        WHERE MEMBER_ID = #{memberId}
     </select>
+
+
+
+
 
 </mapper>

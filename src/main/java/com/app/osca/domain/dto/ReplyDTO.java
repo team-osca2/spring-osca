@@ -1,13 +1,11 @@
-package com.app.osca.domain;
+package com.app.osca.domain.dto;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@NoArgsConstructor
-public class ReplyVO {
+public class ReplyDTO {
     private Long id;
     private Long memberId;
     private Long studyId;
@@ -16,4 +14,5 @@ public class ReplyVO {
     private String reportNo;
     private String replyRegisterDate;
     private String replyUpdateDate;
+    private String memberName;
 }
