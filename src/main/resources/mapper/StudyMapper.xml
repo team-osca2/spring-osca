@@ -6,11 +6,5 @@
 <!--        VALUES (SEQ_STUDY.NEXTVAL, #{studyTitle}, #{studyContents}, #{studyTotal}, SYSDATE, #{memberId})-->
 <!--    </insert>-->
 
-<!--    &lt;!&ndash; 관리자 스터디 게시글 불러오기 &ndash;&gt;-->
-<!--    <select id="selectAllStudyPost" resultType="studyDTO">-->
-<!--    SELECT S.ID, STUDY_TITLE, M.MEMBER_NAME, STUDY_REGIST_DATE-->
-<!--    FROM TBL_STUDY S JOIN TBL_MEMBER M-->
-<!--    ON S.MEMBER_ID = M.ID;-->
-<!--    </select>-->
 
 </mapper>

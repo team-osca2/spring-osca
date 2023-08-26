@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.osca.mapper.AdminPaymentMapper">
+
+    <select id="selectAll" resultType="PaymentDTO">
+    SELECT P.ID, M.MEMBER_NAME, M.MEMBER_NICKNAME, PAYMENT_DATE, PAYMENT_PRICE, PAYMENT_STATUS
+    FROM TBL_PAYMENT P
+    JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
+    ORDER BY PAYMENT_DATE DESC
+    </select>
+
+</mapper>
