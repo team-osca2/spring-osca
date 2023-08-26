@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.osca.mapper.AdminStudyMapper">
+
+    <!-- 관리자 전체 게시글 불러오기 -->
+<!--    SELECT * FROM (-->
+<!--    SELECT S.ID, S.STUDY_TITLE AS TITLE, M.MEMBER_NICKNAME, S.STUDY_REGISTER_DATE AS REGISTER_DATE, M.MEMBER_ROLE-->
+<!--    FROM TBL_STUDY S-->
+<!--    JOIN TBL_MEMBER M ON S.MEMBER_ID = M.ID-->
+<!--    UNION ALL-->
+<!--    SELECT C.ID, C.CAFE_AD_TITLE AS TITLE, M.MEMBER_NICKNAME, C.CAFE_AD_REGISTER_DATE AS REGISTER_DATE, M.MEMBER_ROLE-->
+<!--    FROM TBL_CAFE_AD C-->
+<!--    JOIN TBL_CAFE CAFE ON C.CAFE_ID  = CAFE_ID-->
+<!--    JOIN TBL_MEMBER M ON CAFE.MEMBER_ID  = M.ID)-->
+<!--    ORDER BY REGISTER_DATE DESC-->
+
+    <!-- 관리자 스터디 게시글 불러오기 -->
+    <select id="selectAllStudy" resultType="studyDTO">
+SELECT S.ID, STUDY_TITLE, M.MEMBER_NICKNAME, STUDY_REGISTER_DATE
+FROM TBL_STUDY S JOIN TBL_MEMBER M
+ON S.MEMBER_ID = M.ID
+ORDER BY STUDY_REGISTER_DATE DESC
+    </select>
+
+    <!--    관리자 스터디 글 블락-->
+    <update id="updateStudyBlock">
+    UPDATE TBL_STUDY
+    SET STUDY_BLOCKED = 1,
+    STUDY_UPDATE_DATE = CURRENT_TIMESTAMP
+    WHERE ID = #{id}
+    </update>
+
+    <!--    관리자 스터디 글 복구-->
+    <update id="updateStudyUnblock">
+    UPDATE TBL_STUDY
+    SET STUDY_BLOCKED = 0,
+    STUDY_UPDATE_DATE = CURRENT_TIMESTAMP
+    WHERE ID = #{id}
+    </update>
+
+
+    <!-- 관리자 신고당한 게시글 -->
+<!--    SELECT * FROM (-->
+<!--    SELECT S.ID, S.STUDY_TITLE AS TITLE, M.MEMBER_NICKNAME, M.MEMBER_ROLE, S.STUDY_REPORT_NO AS REPORT_NO-->
+<!--    FROM TBL_STUDY S-->
+<!--    JOIN TBL_MEMBER M ON S.MEMBER_ID = M.ID-->
+<!--    UNION ALL-->
+<!--    SELECT C.ID, C.CAFE_AD_TITLE AS TITLE,  M.MEMBER_NICKNAME, M.MEMBER_ROLE, C.CAFE_REPORT_NO AS REPORT_NO-->
+<!--    FROM TBL_CAFE_AD C-->
+<!--    JOIN TBL_CAFE CAFE ON C.CAFE_ID  = CAFE_ID-->
+<!--    JOIN TBL_MEMBER M ON CAFE.MEMBER_ID  = M.ID)-->
+<!--    ORDER BY REPORT_NO DESC;-->
+
+
+</mapper>

@@ -7,9 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class StudyDTO {
+public class AdminPaymentDTO {
     private Long id;
-    private String studyTitle;
+    private String paymentPrice;
+    private String paymentDate;
+    private String paymentStatus;
     private String memberName;
-    private String studyRegistDate;
+    private String memberNickname;
 }
