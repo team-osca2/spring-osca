@@ -1,13 +1,14 @@
 package com.app.osca.mapper;
 
-import com.app.osca.domain.StudyVO;
 import com.app.osca.domain.dto.AdminStudyDTO;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
 public interface AdminStudyMapper {
+
 
     //    관리자 스터디 게시글 불러오기
     public List<AdminStudyDTO> selectAllStudy();

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.AdminStudyMapper">
 
+
     <!-- 관리자 전체 게시글 불러오기 -->
 <!--    SELECT * FROM (-->
 <!--    SELECT S.ID, S.STUDY_TITLE AS TITLE, M.MEMBER_NICKNAME, S.STUDY_REGISTER_DATE AS REGISTER_DATE, M.MEMBER_ROLE-->
@@ -38,18 +39,6 @@ ORDER BY STUDY_REGISTER_DATE DESC
     WHERE ID = #{id}
     </update>
 
-
-    <!-- 관리자 신고당한 게시글 -->
-<!--    SELECT * FROM (-->
-<!--    SELECT S.ID, S.STUDY_TITLE AS TITLE, M.MEMBER_NICKNAME, M.MEMBER_ROLE, S.STUDY_REPORT_NO AS REPORT_NO-->
-<!--    FROM TBL_STUDY S-->
-<!--    JOIN TBL_MEMBER M ON S.MEMBER_ID = M.ID-->
-<!--    UNION ALL-->
-<!--    SELECT C.ID, C.CAFE_AD_TITLE AS TITLE,  M.MEMBER_NICKNAME, M.MEMBER_ROLE, C.CAFE_REPORT_NO AS REPORT_NO-->
-<!--    FROM TBL_CAFE_AD C-->
-<!--    JOIN TBL_CAFE CAFE ON C.CAFE_ID  = CAFE_ID-->
-<!--    JOIN TBL_MEMBER M ON CAFE.MEMBER_ID  = M.ID)-->
-<!--    ORDER BY REPORT_NO DESC;-->
 
 
 </mapper>

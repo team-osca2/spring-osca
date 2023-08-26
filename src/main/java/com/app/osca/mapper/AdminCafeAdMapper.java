@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface AdminCafeAdMapper {
-    //    관리자 스터디 게시글 불러오기
+    //    관리자 카페 게시글 불러오기
     public List<AdminCafeAdDTO> selectAllCafePost();
 
     //<!--    관리자 카페 글 블락-->
