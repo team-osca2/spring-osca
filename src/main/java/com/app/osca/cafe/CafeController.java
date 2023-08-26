@@ -1,6 +1,7 @@
 package com.app.osca.cafe;
 
 import com.app.osca.domain.CafeVO;
+import com.app.osca.domain.TicketVO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.service.cafeAd.CafeAdService;
 import lombok.RequiredArgsConstructor;
@@ -41,5 +42,9 @@ public class CafeController {
         return "temp/cafeDetail";
     }
 
+    @GetMapping("/ticket-purchase")
+    public String goToTicket(TicketVO ticketVO){
+        return "ticket/ticket";
+    }
 
 }
