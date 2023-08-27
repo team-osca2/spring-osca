@@ -17,7 +17,7 @@ public class CafeAdMapperTest {
     @Test
     public void selectTest(){
         assertThat(
-            cafeAdMapper.select(2L).getCafeId()
+            cafeAdMapper.select(41L).getCafeId()
         ).isEqualTo(2L);
     }
 

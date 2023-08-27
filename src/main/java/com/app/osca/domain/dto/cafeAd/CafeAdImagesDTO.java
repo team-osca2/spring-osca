@@ -13,14 +13,16 @@ import java.util.List;
 @NoArgsConstructor
 public class CafeAdImagesDTO {
     private Long id;
-    private Long cafeId;
     private String cafeAdTitle;
     private String cafeAdContents;
-    private String cafeAdRegisterDate;
-    private String cafeAdUpdateDate;
     private String cafeAdDeadlineDate;
     private String cafeAdReportNo;
     private String cafeAdBlocked;
+    private Long cafeId;
+    private String cafeLocation;
+    private String cafeName;
+    private String cafeOpenTime;
+    private String cafeEndTime;
     List<CafeImageVO> cafeImages;
 
     @Builder
