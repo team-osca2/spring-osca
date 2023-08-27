@@ -45,4 +45,7 @@ public interface MemberMapper {
 
 //    일반계정 비밀번호 재설정
     public void updateMemberPassword(String memberPassword, String memberEmail);
+
+//    카카오 로그인
+    public void insertKakaoMember(Long id, String memberNickname, String memberEmail);
 }

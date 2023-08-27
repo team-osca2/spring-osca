@@ -59,6 +59,9 @@ public class MemberDAO {
         memberMapper.updateMemberPassword(memberPassword, memberEmail);
     }
 
-
+//    카카오 로그인
+    public void saveKakaoMember(Long id, String memberNickname, String memberEmail){
+        memberMapper.insertKakaoMember(id, memberNickname, memberEmail);
+    }
 
 }

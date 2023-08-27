@@ -17,6 +17,14 @@ public class MemberMapperTestsKDY {
     @Autowired
     CeoMapper ceoMapper;
 
+//    아이디 중복검사 테스트
+    @Test
+    public void checkMemberEmailTest(){
+        String memberEmail = "cafeㅁㄴㅇ1@NAVER.COM";
+        memberMapper.selectForIdCheck(memberEmail).ifPresent((email) -> {
+            log.info("{}................", email);
+        });
+    }
 
 //    비밀번호 재설정 테스트
     @Test
