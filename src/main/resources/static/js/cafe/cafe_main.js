@@ -35,7 +35,6 @@ function slideRight() {
             transform: `translateX(${moveValue}px)`
         }
     );
-    console.log(pos);
     if (pos == endPos) {
         pos = startPos;
         setTimeout(initialize, 500);

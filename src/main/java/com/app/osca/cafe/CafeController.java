@@ -4,6 +4,8 @@ import com.app.osca.domain.CafeVO;
 import com.app.osca.domain.TicketVO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdImagesDTO;
+import com.app.osca.domain.paging.Criteria;
+import com.app.osca.domain.paging.PageDTO;
 import com.app.osca.service.cafeAd.CafeAdService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +26,10 @@ public class CafeController {
     final private CafeAdService cafeAdService;
 
     @GetMapping(value = {"", "/"})
-    public String goToCafeMain(CafeAdImagesDTO cafeAdImagesDTO){
+    public String goToCafeMain(Model model, Criteria criteria){
+//        criteria.setAmount(8);
+//        model.addAttribute("pagination", new PageDTO().createPageDTO(criteria, 20, 8));
+//        model.addAttribute("cafeAds", cafeAdService.getCafeAdList(criteria));
         return "/cafe/cafe_main";
     }
 
@@ -32,6 +37,8 @@ public class CafeController {
     public void goToMyCafeList(Model model){
         model.addAttribute("myCafeList", "sdf");
     }
+
+
 
     @GetMapping("/write")
     public void goToCafeWrite(Model model,CafeVO cafeVO){
