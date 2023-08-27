@@ -21,6 +21,7 @@ public class LoginController {
     @PostMapping("/login")
     public RedirectView login(String memberEmail, String memberPassword, HttpSession session, RedirectAttributes redirectAttributes) {
         final Optional<Long> foundMember = memberService.login(memberEmail, memberPassword);
+
         if(foundMember.isPresent()){
             session.setAttribute("id", foundMember.get());
             redirectAttributes.addFlashAttribute("login", "logined-header");

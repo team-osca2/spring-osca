@@ -38,6 +38,7 @@ public class kakaoController {
                 memberService.joinKakaoMember(id, memberEmail);
             }
             session.setAttribute("id", id);
+            session.setAttribute("memberRole", 2);
         }
         return new RedirectView("/");
     }
