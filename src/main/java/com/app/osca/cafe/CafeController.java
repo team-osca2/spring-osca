@@ -3,6 +3,7 @@ package com.app.osca.cafe;
 import com.app.osca.domain.CafeVO;
 import com.app.osca.domain.TicketVO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
+import com.app.osca.domain.dto.cafeAd.CafeAdImagesDTO;
 import com.app.osca.service.cafeAd.CafeAdService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,11 @@ import java.util.Optional;
 public class CafeController {
 
     final private CafeAdService cafeAdService;
+
+    @GetMapping(value = {"", "/"})
+    public String goToCafeMain(CafeAdImagesDTO cafeAdImagesDTO){
+        return "/cafe/cafe_main";
+    }
 
     @GetMapping("/my-cafe")
     public void goToMyCafeList(Model model){
