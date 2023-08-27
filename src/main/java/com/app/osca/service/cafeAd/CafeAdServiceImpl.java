@@ -1,6 +1,7 @@
 package com.app.osca.service.cafeAd;
 
 import com.app.osca.dao.CafeAdDAO;
+import com.app.osca.domain.dto.cafeAd.CafeAdDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdImagesDTO;
 import com.app.osca.domain.paging.Criteria;
@@ -18,7 +19,7 @@ public class CafeAdServiceImpl implements CafeAdService {
 
     @Override
     public Optional<CafeAdDetailDTO> getOneCafeAd(Long id) {
-        final Optional<CafeAdDetailDTO> foundCafeAd = cafeAdDAO.findByID(id);
+        final Optional<CafeAdDetailDTO> foundCafeAd = cafeAdDAO.findCafeAndCafeAdById(id);
         foundCafeAd.ifPresent(cafeAdDetailDTO -> cafeAdDetailDTO.setCafeImages(null));
         return foundCafeAd;
     }
@@ -26,5 +27,10 @@ public class CafeAdServiceImpl implements CafeAdService {
     @Override
     public List<CafeAdImagesDTO> getCafeAdList(Criteria criteria) {
         return null;
+    }
+
+    @Override
+    public List<CafeAdDTO> getMyCafeAdList(Long memberId, Integer blocked) {
+        return cafeAdDAO.findAllByMemberIdAndBlockedIsOrderByCafeAdDeadlineDateOrderById(memberId, blocked);
     }
 }

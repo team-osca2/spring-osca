@@ -35,7 +35,7 @@ public class CafeController {
 
     @GetMapping("/my-cafe")
     public void goToMyCafeList(Model model){
-        model.addAttribute("myCafeList", "sdf");
+        model.addAttribute("myCafeList", cafeAdService.getMyCafeAdList(3L, 0));
     }
 
 
