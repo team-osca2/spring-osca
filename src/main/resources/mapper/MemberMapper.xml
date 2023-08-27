@@ -84,4 +84,5 @@
         (ID, MEMBER_NICKNAME, MEMBER_EMAIL)
         VALUES(#{id}, #{memberNickname}, #{memberEmail})
     </insert>
+
 </mapper>

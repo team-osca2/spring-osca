@@ -261,6 +261,7 @@ public class MemberServiceImpl implements MemberService {
 
     }
 
+
     @Override
     public void joinKakaoMember(Long id, String memberEmail) {
 
