@@ -10,11 +10,11 @@
 </head>
 <body>
 
-<!-- 로그인 되지 않은 헤더 -->
+<!-- 로그인 된 않은 헤더 -->
 <header class="header-wrapper" th:fragment="unlogined-header">
     <section class="header-container">
         <a href="/" aria-label="logo" class="header-logo">
-            <img src="../static/images/logo.png" alt="오!스카 로고" style="width:70px; height: 40px;">
+            <img src="/images/logo.png" alt="오!스카 로고" style="width:70px; height: 40px;">
         </a>
         <div>
             <span class="header-line"></span>
@@ -25,7 +25,7 @@
         </div>
         <div style="flex-grow:1"></div>
         <div class="header-aside">
-            <a role="link" color="default" href="" class="header-aside-menu" aria-expanded="false">
+            <a role="link" color="default" href="/sign-up/email-type" class="header-aside-menu" aria-expanded="false">
                         <span class="aside-menu-contents">
                             <p variant="body2" class="aside-contents" color="gray900">회원가입</p>
                         </span>
@@ -42,7 +42,7 @@
             </a>
             <div>
                 <div class="header-profile" aria-expanded="false">
-                    <a href="/buyer/order-list" class="profile-link">
+                    <a href="#" class="profile-link">
                         <div class="profile-wrapper">
                             <div size="32" shape="0" role="article" class="profile-shape">
                                 <img src="https://kmong.com/img/tools/main_user_gray.png" alt="avatar" shape="0" loading="lazy" class="profile-img" style="height: 32px; width: 32px;">
@@ -56,6 +56,46 @@
     </section>
 </header>
 <!-- 로그인 되고 난 뒤 헤더 -->
+<header class="header-wrapper" th:fragment="logined-header">
+    <section class="header-container">
+        <a href="/" aria-label="logo" class="header-logo">
+            <img src="/images/logo.png" alt="오!스카 로고" style="width:70px; height: 40px;">
+        </a>
+        <div>
+            <span class="header-line"></span>
+            <a href="" class="header-menu">오늘의 스터디</a>
+            <a href="" class="header-menu">오늘의 카페</a>
+            <a href="" class="header-menu">FAQ</a>
+            <a href="" class="header-menu">Oh!스카 소개</a>
+        </div>
+        <div style="flex-grow:1"></div>
+        <div class="header-aside">
+            <a role="link" color="default" href="" class="header-aside-menu" aria-expanded="false">
+                        <span class="aside-menu-contents">
+                            <p variant="body2" class="aside-contents" color="gray900">로그아웃</p>
+                        </span>
+            </a>
+            <a role="link" color="default" href="" class="header-aside-menu" aria-expanded="false">
+                        <span class="aside-menu-contents">
+                            <p variant="body2" class="aside-contents" color="gray900">마이페이지</p>
+                        </span>
+            </a>
+            <div>
+                <div class="header-profile" aria-expanded="false">
+                    <a href="#" class="profile-link">
+                        <div class="profile-wrapper">
+                            <div size="32" shape="0" role="article" class="profile-shape">
+                                <img src="https://kmong.com/img/tools/main_user_gray.png" alt="avatar" shape="0" loading="lazy" class="profile-img" style="height: 32px; width: 32px;">
+                            </div>
+                        </div>
 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
 </body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script type="text/javascript" src=""></script>
 </html>

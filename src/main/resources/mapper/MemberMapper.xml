@@ -78,4 +78,10 @@
         WHERE MEMBER_EMAIL = #{memberEmail}
     </update>
 
+    <!--  카카오 로그인  -->
+    <insert id="insertKakaoMember">
+        INSERT INTO TBL_MEMBER
+        (ID, MEMBER_NICKNAME, MEMBER_EMAIL)
+        VALUES(#{id}, #{memberNickname}, #{memberEmail})
+    </insert>
 </mapper>

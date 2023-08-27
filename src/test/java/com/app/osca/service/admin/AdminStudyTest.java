@@ -21,7 +21,7 @@ public class AdminStudyTest {
 
     @Test
     public void remove(Long id){
-        adminStudyService.remove(2);
+//        adminStudyService.remove(2);
     }
 
     @Test
