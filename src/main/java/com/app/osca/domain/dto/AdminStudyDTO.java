@@ -10,10 +10,9 @@ import org.springframework.stereotype.Component;
 public class AdminStudyDTO {
     private Long id;
     private String studyTitle;
-    private String memberNickname;
     private String studyRegisterDate;
-//    private Long memberRole;
-//    private String cafeAdTitle;
-//    private String cafeAdRegisterDate;
+    private String studyUpdateDate;
+    private String studyReportNo;
+    private String memberNickname;
+    private Long memberRole;
 }
-

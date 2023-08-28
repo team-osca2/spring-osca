@@ -1,6 +1,7 @@
 package com.app.osca.dao;
 
 import com.app.osca.domain.dto.AdminCafeAdDTO;
+import com.app.osca.domain.paging.Pagination;
 import com.app.osca.mapper.AdminCafeAdMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -12,8 +13,8 @@ import java.util.List;
 public class AdminCafeAdDAO {
         private final AdminCafeAdMapper adminCafeAdMapper;
         //    관리자 스터디 게시글 불러오기
-        public List<AdminCafeAdDTO> findAllCafePost(){
-                return adminCafeAdMapper.selectAllCafePost();
+        public List<AdminCafeAdDTO> findAllCafePost(Pagination pagination){
+                return adminCafeAdMapper.selectAllCafePost(pagination);
         }
 
         //<!--    관리자 카페 글 블락-->
@@ -25,5 +26,9 @@ public class AdminCafeAdDAO {
         public void setCafeUnblock(Long id){
                 adminCafeAdMapper.updateCafeUnblock(id);
         }
+
+        //    카페 게시글 총 개수-->
+        public int findCountOfPostC(){return adminCafeAdMapper.selectCountOfCafe();}
+
 
 }
