@@ -8,5 +8,5 @@ public interface MypageCafeMapper {
     public String selectBusinessNum(Long memberId);
 
 //  사업자 번호 수정하기
-    public void updateBusinessNum(String cafeBusinessNumber);
+    public void updateBusinessNum(String cafeBusinessNumber, Long memberId);
 }
