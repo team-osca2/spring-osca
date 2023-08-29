@@ -17,6 +17,6 @@ public class MemberVO {
     private String memberReportNo;
     private Long memberRole;
     private String memberBlocked;
-    private String memberRegistDate;
+    private String memberRegisterDate;
     private String memberUpdateDate;
 }

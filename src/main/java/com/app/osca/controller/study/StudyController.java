@@ -1,9 +1,11 @@
 package com.app.osca.controller.study;
 
 import com.app.osca.domain.StudyVO;
+import com.app.osca.domain.paging.Criteria;
 import com.app.osca.service.study.StudyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +19,9 @@ public class StudyController {
     final private StudyService studyService;
 
     @GetMapping(value = {"", "/"})
-    public String studyMain(){
-        return "study/study-main";
+    public String studyMain(Model model, Criteria criteria){
+
+        return "/study/study-main";
     }
 
     @GetMapping("/my-study")
