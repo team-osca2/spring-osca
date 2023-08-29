@@ -17,6 +17,18 @@ public class MemberMapperTestsKDY {
     @Autowired
     CeoMapper ceoMapper;
 
+//
+
+
+//    멤버 이미지 불러오기 테스트
+    @Test
+    public void selectMemberImageTest(){
+        Long id = 2L;
+        if ( memberMapper.selectMemberImage(id).isEmpty() ) {
+            log.info("{비었습니다.}....................");
+        }
+    }
+
 //    아이디 중복검사 테스트
     @Test
     public void checkMemberEmailTest(){

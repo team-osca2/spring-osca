@@ -33,6 +33,8 @@
         <typeAlias type="com.app.osca.domain.dto.AdminStudyDTO" alias="StudyDTO"/>
         <typeAlias type="com.app.osca.domain.dto.AdminCafeAdDTO" alias="CafeAdDTO"/>
         <typeAlias type="com.app.osca.domain.dto.AdminPaymentDTO" alias="PaymentDTO"/>
+        <typeAlias type="com.app.osca.domain.dto.main.MainStudyDTO" alias="mainStudyDTO"/>
+        <typeAlias type="com.app.osca.domain.dto.main.MainCafeDTO" alias="mainCafeDTO"/>
 
     </typeAliases>
 </configuration>
