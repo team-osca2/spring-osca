@@ -2,25 +2,89 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.AdminStudyMapper">
 
+    <!-- 관리자 전체 게시글 불러오기 w/ pagination-->
+    <select id="selectAllStudyAndCafe" resultType="adminStudyDTO">
+    SELECT * FROM (
+        SELECT ROWNUM RN, ID, STUDY_TITLE, MEMBER_NICKNAME, STUDY_REGISTER_DATE, MEMBER_ROLE
+        FROM (
+        SELECT S.ID, S.STUDY_TITLE AS STUDY_TITLE, M.MEMBER_NICKNAME, S.STUDY_REGISTER_DATE AS STUDY_REGISTER_DATE, M.MEMBER_ROLE, STUDY_BLOCKED
+        FROM TBL_STUDY S
+        JOIN TBL_MEMBER M ON S.MEMBER_ID = M.ID
+        WHERE STUDY_BLOCKED = 0
+        UNION ALL
+        SELECT C.ID, C.CAFE_AD_TITLE AS STUDY_TITLE, M.MEMBER_NICKNAME, C.CAFE_AD_REGISTER_DATE AS STUDY_REGISTER_DATE, M.MEMBER_ROLE, CAFE_AD_BLOCKED
+        FROM TBL_CAFE_AD C
+        JOIN TBL_CAFE F ON C.CAFE_ID  = F.ID
+        JOIN TBL_MEMBER M ON F.MEMBER_ID  = M.ID
+        WHERE CAFE_AD_BLOCKED = 0
+        ORDER BY STUDY_REGISTER_DATE DESC
+    ) <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+    ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]> -- 원하는 범위의 시작 값
+    </select>
 
-    <!-- 관리자 전체 게시글 불러오기 -->
-<!--    SELECT * FROM (-->
-<!--    SELECT S.ID, S.STUDY_TITLE AS TITLE, M.MEMBER_NICKNAME, S.STUDY_REGISTER_DATE AS REGISTER_DATE, M.MEMBER_ROLE-->
-<!--    FROM TBL_STUDY S-->
-<!--    JOIN TBL_MEMBER M ON S.MEMBER_ID = M.ID-->
-<!--    UNION ALL-->
-<!--    SELECT C.ID, C.CAFE_AD_TITLE AS TITLE, M.MEMBER_NICKNAME, C.CAFE_AD_REGISTER_DATE AS REGISTER_DATE, M.MEMBER_ROLE-->
-<!--    FROM TBL_CAFE_AD C-->
-<!--    JOIN TBL_CAFE CAFE ON C.CAFE_ID  = CAFE_ID-->
-<!--    JOIN TBL_MEMBER M ON CAFE.MEMBER_ID  = M.ID)-->
-<!--    ORDER BY REGISTER_DATE DESC-->
+    <!-- 관리자 신고된 게시글 불러오기 -->
+    <select id="selectReportedStudyAndCafe" resultType="adminStudyDTO">
+SELECT * FROM (SELECT ROWNUM RN, ID, STUDY_TITLE, MEMBER_NICKNAME, MEMBER_ROLE, STUDY_REPORT_NO FROM (
+            SELECT S.ID, S.STUDY_TITLE AS STUDY_TITLE, M.MEMBER_NICKNAME, M.MEMBER_ROLE, S.STUDY_REPORT_NO AS STUDY_REPORT_NO
+            FROM TBL_STUDY S
+            JOIN TBL_MEMBER M ON S.MEMBER_ID = M.ID
+            WHERE S.STUDY_REPORT_NO > 0 AND S.STUDY_BLOCKED = 0
+            UNION ALL
+            SELECT C.ID, C.CAFE_AD_TITLE AS STUDY_TITLE, M.MEMBER_NICKNAME, M.MEMBER_ROLE, C.CAFE_AD_REPORT_NO AS STUDY_REPORT_NO
+            FROM TBL_CAFE_AD C
+            JOIN TBL_CAFE CAFE ON C.CAFE_ID = CAFE_ID
+            JOIN TBL_MEMBER M ON CAFE.MEMBER_ID = M.ID
+            WHERE C.CAFE_AD_REPORT_NO > 0 AND C.CAFE_AD_BLOCKED = 0
+            ORDER BY STUDY_REPORT_NO DESC
+            ) <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+    ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]>
+    </select>
+
+    <!-- 관리자 전체 삭제 게시글 불러오기 -->
+    <select id="selectDeletedStudyAndCafe" resultType="adminStudyDTO">
+        SELECT * FROM(SELECT  ROWNUM RN, ID, STUDY_TITLE, MEMBER_NICKNAME, STUDY_REGISTER_DATE, MEMBER_ROLE, STUDY_UPDATE_DATE FROM (
+        SELECT S.ID, S.STUDY_TITLE AS STUDY_TITLE, M.MEMBER_NICKNAME,
+        S.STUDY_REGISTER_DATE AS STUDY_REGISTER_DATE, M.MEMBER_ROLE, S.STUDY_UPDATE_DATE AS STUDY_UPDATE_DATE
+        FROM TBL_STUDY S
+        JOIN TBL_MEMBER M ON S.MEMBER_ID = M.ID
+        WHERE STUDY_BLOCKED = 1
+        UNION ALL
+        SELECT C.ID, C.CAFE_AD_TITLE AS STUDY_TITLE, M.MEMBER_NICKNAME,
+        C.CAFE_AD_REGISTER_DATE AS STUDY_REGISTER_DATE, M.MEMBER_ROLE, C.CAFE_AD_UPDATE_DATE AS STUDY_UPDATE_DATE
+        FROM TBL_CAFE_AD C
+        JOIN TBL_CAFE F ON C.CAFE_ID  = F.ID
+        JOIN TBL_MEMBER M ON F.MEMBER_ID  = M.ID
+        WHERE CAFE_AD_BLOCKED = 1
+        ) <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+    ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]>
+    </select>
 
     <!-- 관리자 스터디 게시글 불러오기 -->
-    <select id="selectAllStudy" resultType="studyDTO">
-SELECT S.ID, STUDY_TITLE, M.MEMBER_NICKNAME, STUDY_REGISTER_DATE
-FROM TBL_STUDY S JOIN TBL_MEMBER M
-ON S.MEMBER_ID = M.ID
-ORDER BY STUDY_REGISTER_DATE DESC
+    <select id="selectAllStudy" resultType="adminStudyDTO">
+    SELECT * FROM (
+        SELECT ROWNUM RN, ID, STUDY_TITLE, MEMBER_NICKNAME, STUDY_REGISTER_DATE
+        FROM (
+            SELECT S.ID, STUDY_TITLE, M.MEMBER_NICKNAME, TO_CHAR(STUDY_REGISTER_DATE, 'YYYY-MM-DD') AS STUDY_REGISTER_DATE
+            FROM TBL_STUDY S JOIN TBL_MEMBER M
+            ON S.MEMBER_ID = M.ID
+            WHERE STUDY_BLOCKED = 0
+            ORDER BY S.ID DESC
+        ) -- 여기에 추가된 괄호
+        <![CDATA[
+            WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+        ]]>
+    ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount} -- 원하는 범위의 시작 값
+    ]]>
     </select>
 
     <!--    관리자 스터디 글 블락-->
@@ -38,6 +102,37 @@ ORDER BY STUDY_REGISTER_DATE DESC
     STUDY_UPDATE_DATE = CURRENT_TIMESTAMP
     WHERE ID = #{id}
     </update>
+
+
+    <!--    //    전체 게시글 총 개수-->
+    <select id="selectCountOfStudyAndCafe" resultType="_int">
+        SELECT(
+        SELECT COUNT(*) FROM TBL_STUDY WHERE STUDY_BLOCKED = 0) + (SELECT COUNT(*) FROM TBL_CAFE_AD WHERE CAFE_AD_BLOCKED = 0) AS total_count
+        FROM dual
+    </select>
+
+
+    <!--    //    스터디 게시글 총 개수-->
+    <select id="selectCountOfStudy" resultType="_int">
+    SELECT COUNT(*) FROM TBL_STUDY WHERE STUDY_BLOCKED = 0
+        </select>
+
+    <!-- 관리자 신고당한 게시글 총 개수-->
+    <select id="selectCountOfBlockedStudyAndCafe" resultType="_int">
+    SELECT(
+    SELECT COUNT(*) FROM TBL_STUDY WHERE STUDY_REPORT_NO > 0) +
+    (SELECT COUNT(*) FROM TBL_CAFE_AD WHERE CAFE_AD_REPORT_NO > 0) AS total_count
+    FROM dual
+        </select>
+
+    <!-- 관리자 삭제당한 게시글 총 개수-->
+    <select id="selectCountOfDeletedStudyAndCafe" resultType="_int">
+    SELECT(
+    SELECT COUNT(*) FROM TBL_STUDY WHERE STUDY_BLOCKED = 1) +
+    (SELECT COUNT(*) FROM TBL_CAFE_AD WHERE CAFE_AD_BLOCKED = 1) AS total_count
+    FROM dual
+        </select>
+
 
 
 

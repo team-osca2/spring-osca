@@ -2,16 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.AdminCafeAdMapper">
 
-<!--     관리자 카페 게시글 불러오기 -->
-    <select id="selectAllCafePost" resultType="cafeAdDTO">
-    SELECT C.ID, C.CAFE_AD_TITLE, M.MEMBER_NICKNAME, C.CAFE_AD_REGISTER_DATE
-    FROM TBL_CAFE_AD C
-    JOIN TBL_CAFE CAFE ON C.CAFE_ID  = CAFE_ID
-    JOIN TBL_MEMBER M ON CAFE.MEMBER_ID  = M.ID
-    ORDER BY C.CAFE_AD_REGISTER_DATE DESC
+    <!--     관리자 카페 게시글 불러오기 -->
+    <select id="selectAllCafePost" resultType="adminCafeAdDTO">
+SELECT * FROM (
+    SELECT ROWNUM RN, ID, CAFE_AD_TITLE, MEMBER_NICKNAME, CAFE_NAME, CAFE_AD_REGISTER_DATE
+    FROM (
+        SELECT C.ID, C.CAFE_AD_TITLE, M.MEMBER_NICKNAME, F.CAFE_NAME,
+               TO_CHAR(C.CAFE_AD_REGISTER_DATE, 'YYYY-MM-DD') AS CAFE_AD_REGISTER_DATE
+        FROM TBL_CAFE_AD C
+        JOIN TBL_CAFE F ON C.CAFE_ID = F.ID
+        JOIN TBL_MEMBER M ON F.MEMBER_ID = M.ID
+        WHERE C.CAFE_AD_BLOCKED = 0
+        ORDER BY C.CAFE_AD_REGISTER_DATE DESC
+    )
+    <![CDATA[
+        WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+) <![CDATA[
+WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount} -- 원하는 범위의 시작 값
+]]>
     </select>
 
-<!--    관리자 카페 글 블락-->
+    <!--    관리자 카페 글 블락-->
     <update id="updateCafeBlock">
     UPDATE TBL_CAFE_AD
     SET CAFE_AD_BLOCKED = 1,
@@ -19,12 +31,18 @@
     WHERE ID = #{id}
     </update>
 
-<!--    관리자 카페 글 복구-->
+    <!--    관리자 카페 글 복구-->
     <update id="updateCafeUnblock">
     UPDATE TBL_CAFE_AD
     SET CAFE_AD_BLOCKED = 0,
     CAFE_AD_UPDATE_DATE = CURRENT_TIMESTAMP
     WHERE ID = #{id}
     </update>
+
+    <!--    //    카페 게시글 총 개수-->
+    <select id="selectCountOfCafe" resultType="_int">
+    SELECT COUNT(*) FROM TBL_CAFE_AD WHERE CAFE_AD_BLOCKED = 0
+        </select>
+
 
 </mapper>

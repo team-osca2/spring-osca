@@ -4,39 +4,87 @@
 
     <!-- 관리자 전체 유저 목록-->
     <select id="selectAll" resultType="memberVO">
-    SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE
-    FROM TBL_MEMBER
-    ORDER BY MEMBER_REGISTER_DATE DESC
+        <!-- 관리자 전체 유저 목록-->
+        SELECT * FROM (
+        SELECT ROWNUM RN, ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_ROLE
+        FROM (
+        SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_ROLE
+        FROM TBL_MEMBER
+        WHERE MEMBER_BLOCKED = 0
+        ORDER BY MEMBER_REGISTER_DATE DESC
+        )
+        <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+        ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]> -- 원하는 범위의 시작 값
     </select>
 
     <!-- 관리자 일반 유저 목록-->
     <select id="selectAllUserS" resultType="memberVO">
-    SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_ROLE
-    FROM TBL_MEMBER
-    WHERE MEMBER_ROLE  = 0
-    ORDER BY MEMBER_REGISTER_DATE DESC
+        SELECT * FROM (
+        SELECT ROWNUM RN, ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_ROLE
+        FROM (
+        SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_ROLE
+        FROM TBL_MEMBER
+        WHERE MEMBER_ROLE = 0 AND MEMBER_BLOCKED = 0
+        ORDER BY MEMBER_REGISTER_DATE DESC
+        )
+        <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+        ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]> -- 원하는 범위의 시작 값
     </select>
     <!-- 관리자 카페 유저 목록-->
     <select id="selectAllUserC" resultType="memberVO">
-    SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_ROLE
-    FROM TBL_MEMBER
-    WHERE MEMBER_ROLE  = 1
-    ORDER BY MEMBER_REGISTER_DATE DESC
+        SELECT * FROM (
+        SELECT ROWNUM RN, ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_ROLE
+        FROM (
+        SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_ROLE
+        FROM TBL_MEMBER
+        WHERE MEMBER_ROLE = 1 AND MEMBER_BLOCKED = 0
+        ORDER BY MEMBER_REGISTER_DATE DESC
+        )
+        <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+        ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]> -- 원하는 범위의 시작 값
     </select>
 
     <!-- 관리자 신고당한 유저 목록-->
     <select id="selectUserReported" resultType="memberVO">
-    SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_ROLE , MEMBER_REPORT_NO
-    FROM TBL_MEMBER
-    ORDER BY MEMBER_REPORT_NO
+        SELECT * FROM (
+        SELECT ROWNUM RN, ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_ROLE, MEMBER_REPORT_NO
+        FROM (
+        SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_ROLE, MEMBER_REPORT_NO
+        FROM TBL_MEMBER
+        WHERE MEMBER_BLOCKED = 0 AND MEMBER_REPORT_NO > 0
+        ORDER BY MEMBER_REPORT_NO DESC
+        )
+        <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+        ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]> -- 원하는 범위의 시작 값
     </select>
 
     <!-- 관리자 정지당한 유저 목록-->
     <select id="selectUserBlocked" resultType="memberVO">
-    SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_UPDATE_DATE, MEMBER_ROLE, MEMBER_BLOCKED
-    FROM TBL_MEMBER
-    WHERE MEMBER_BLOCKED = 1
-    ORDER BY MEMBER_UPDATE_DATE DESC
+        SELECT * FROM (
+        SELECT ROWNUM RN, ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_UPDATE_DATE, MEMBER_ROLE, MEMBER_BLOCKED
+        FROM (
+        SELECT ID, MEMBER_NICKNAME, MEMBER_NAME, MEMBER_REGISTER_DATE, MEMBER_UPDATE_DATE, MEMBER_ROLE, MEMBER_BLOCKED
+        FROM TBL_MEMBER
+        WHERE MEMBER_BLOCKED = 1
+        ORDER BY MEMBER_UPDATE_DATE DESC
+        )
+        <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+        ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]> -- 원하는 범위의 시작 값
     </select>
 
     <!-- 관리자 유저 정지 시키기-->
@@ -54,4 +102,28 @@
     MEMBER_UPDATE_DATE = SYSDATE
     WHERE ID = #{id}
     </update>
+
+    <!-- 관리자 전체 유저 총 개수-->
+    <select id="selectCountOfMembers" resultType="_int">
+    SELECT COUNT(*) FROM TBL_MEMBER WHERE MEMBER_BLOCKED = 0
+        </select>
+
+    <!-- 관리자 정지당한 유저 총 개수-->
+    <select id="selectCountOfSuspendedMembers" resultType="_int">
+    SELECT COUNT(*) FROM TBL_MEMBER WHERE MEMBER_BLOCKED = 1
+        </select>
+    <!-- 관리자 신고당한 유저 총 개수-->
+    <select id="selectCountOfReportedMembers" resultType="_int">
+    SELECT COUNT(*) FROM TBL_MEMBER WHERE MEMBER_REPORT_NO > 0
+        </select>
+    <!-- 관리자 일반 유저 총 개수-->
+    <select id="selectCountOfStudyMembers" resultType="_int">
+    SELECT COUNT(*) FROM TBL_MEMBER WHERE MEMBER_ROLE = 0 AND MEMBER_BLOCKED = 0
+        </select>
+    <!-- 관리자 카페 유저 총 개수-->
+    <select id="selectCountOfCeoMembers" resultType="_int">
+    SELECT COUNT(*) FROM TBL_MEMBER WHERE MEMBER_ROLE = 1 AND MEMBER_BLOCKED = 0
+        </select>
+
+
 </mapper>
