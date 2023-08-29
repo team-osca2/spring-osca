@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/header/header.css" />
     <link rel="stylesheet" href="/css/mypage/mypage.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
-    <title>유저 프로필</title>
+    <title>유저 프로필 - 남에게 보이는 </title>
   </head>
   <body>
     <header class="header-wrapper">
@@ -18,10 +18,10 @@
         </a>
         <div>
           <span class="header-line"></span>
-          <a href="" class="header-menu">오늘의 스터디</a>
+          <a th:href="@{/study/}" class="header-menu">오늘의 스터디</a>
           <a href="" class="header-menu">오늘의 카페</a>
           <a href="" class="header-menu">FAQ</a>
-          <a href="" class="header-menu">Oh!스카 소개</a>
+          <a th:href="@{/introduction}" class="header-menu">Oh!스카 소개</a>
         </div>
         <div style="flex-grow: 1"></div>
         <div class="header-aside">
@@ -33,18 +33,7 @@
             aria-expanded="false"
           >
             <span class="aside-menu-contents">
-              <p variant="body2" class="aside-contents" color="gray900">회원가입</p>
-            </span>
-          </a>
-          <a
-            role="link"
-            color="default"
-            href="/inboxes?inbox_group_id=&amp;partner_id="
-            class="header-aside-menu"
-            aria-expanded="false"
-          >
-            <span class="aside-menu-contents">
-              <p variant="body2" class="aside-contents" color="gray900">로그인</p>
+              <p variant="body2" class="aside-contents" color="gray900">로그아웃</p>
             </span>
           </a>
           <a
@@ -85,49 +74,37 @@
         <div class="ProfileMainSection" style="padding: 32px">
           <div class="ProfileMainSection_profile">
             <div class="MemberProfilePicture">
+              <!-- 유저 프로필 나오는 부분 -->
               <img
                 src="https://d2v80xjmx68n4w.cloudfront.net/members/thumbs/QfUBa1690812432.png"
-                title="손쉬운가을1622"
                 class="profile-image2 img-responsive"
               />
             </div>
           </div>
           <div class="ProfileMainSection__information">
-            <div class="ProfileMainSection__username">손쉬운가을1622</div>
+            <!-- 유저 닉네임 나오는 부분 -->
+            <div class="ProfileMainSection__username" th:text="*{memberNickName}"></div>
           </div>
         </div>
         <div class="UserProfileContainer__contents">
           <!-- 자기소개 css는 mypage.css-->
           <div class="ProfileDescriptionSection">
             <div class="ProfileSectionTitle">소개</div>
-            <div class="ProfileDescriptionSection_desctiption" style="height: inherit">
-              ㅂㅂㅂㅂㅂㅈㄷㄱㅂㅈㄷㄱㅂ<br />
-              ㅈㄷㄱㅂㅈㄷㄱ<br />
-              ㅂㅈㄷㄱ<br />
-              ㅂㅈㄷㄱ<br />
-              ㅂㅈㄷㄱㄱㄱ
+            <div class="ProfileDescriptionSection_desctiption" style="height: inherit" c>
             </div>
 
             <div class="DescriptionDetailSection">
-              <!-- <div>
-                <div class="ProfileSectionTitle">경력사항</div>
-                <div class="ProfileSkillSection-tag-group">
-                  <div class="ProfileSkillSection-tag">프리랜서·0년 1개월</div>
-                </div>
-              </div> -->
               <div>
-                <div class="ProfileSectionTitle">전문 분야</div>
+                <div class="ProfileSectionTitle">직업</div>
                 <div class="ProfileSkillSection-tag-group">
-                  <div class="ProfileSkillSection-tag">웹 디자인</div>
+              <!--  직업 데이터 나오는 부분 -->
+                  <div class="ProfileSkillSection-tag" th:text="*{memberJob}"></div>
                 </div>
               </div>
               <div>
+                <!--  보유 기술 나오는 부분 -->
                 <div class="ProfileSectionTitle">보유 기술</div>
-                <div class="ProfileSkillSection-tag-group">
-                  <div class="ProfileSkillSection-tag">영어 번역</div>
-                  <div class="ProfileSkillSection-tag">일본어 번역</div>
-                  <div class="ProfileSkillSection-tag">인도네시아어 번역</div>
-                  <div class="ProfileSkillSection-tag">프랑스어 번역</div>
+                <div class="ProfileSkillSection-tag-group skill-lists">
                 </div>
               </div>
             </div>
@@ -137,58 +114,50 @@
             <div class="ProfileInformationSection">
               <div class="ProfileInformationSection__section">
                 <div class="ProfileInformationSection__section-title">
-                  활동 정보
+                  더 많은 정보
                 </div>
                 <div class="ProfileInformationSection__section-infomation">
                   <span
                     class="ProfileInformationSection__section-infomation-title"
-                    >총 스터디 참여 수</span
+                    >대학교</span
                   >
+                  <!--  대학 정보 나오는 부분 -->
                   <span
-                    data-v-04747ca2=""
-                    class="ProfileInformationSection__section-infomation-description"
-                    >0개</span
+                    class="ProfileInformationSection__section-infomation-description" th:text="*{general.generalUniversity}"
+                    ></span
                   >
                 </div>
-                <div data-v-04747ca2="" class="ProfileInformationSection__section-infomation">
+                <div  class="ProfileInformationSection__section-infomation">
                   <span
-                    data-v-04747ca2=""
+
                     class="ProfileInformationSection__section-infomation-title"
-                    >완료한 스터디 수</span
+                    >회사</span
                   >
-                  <div data-v-04747ca2="" class="ProfileInformationSection__section-answer">
-                    <span
-                      data-v-04747ca2=""
-                      class="ProfileInformationSection__section-infomation-description"
-                    >
-                      0개</span
-                    >
+                  <div  class="ProfileInformationSection__section-answer">
+                    <span class="ProfileInformationSection__section-infomation-description" th:text="*{general.generalCompany}">
+                  <!--  회사 정보 나오는 부분 --></span>
                   </div>
                 </div>
-                <div data-v-04747ca2="" class="ProfileInformationSection__section-infomation">
+                <div  class="ProfileInformationSection__section-infomation">
                     <span
-                      data-v-04747ca2=""
+
                       class="ProfileInformationSection__section-infomation-title"
-                      >출석율</span
+                      >경력</span
                     >
-                    <span
-                      data-v-04747ca2=""
-                      class="ProfileInformationSection__section-infomation-description"
-                      >0%</span
+                  <!--  경력 정보 나오는 부분 -->
+                  <span
+
+                      class="ProfileInformationSection__section-infomation-description" th:text="*{general.generalCareer}"
+                      >신입</span
                     >
                   </div>
-                <div data-v-04747ca2="" class="ProfileInformationSection__section-infomation">
-                    <span
-                      data-v-04747ca2=""
-                      class="ProfileInformationSection__section-infomation-title"
-                      >지역</span
+                <div  class="ProfileInformationSection__section-infomation">
+                    <span class="ProfileInformationSection__section-infomation-title">급여</span
                     >
-                    <span
-                      data-v-04747ca2=""
-                      class="ProfileInformationSection__section-infomation-description"
-                      >서울</span
-                    >
-                  </div>
+                  <!-- 급여 데이터 나오는 부분-->
+                  <span class="ProfileInformationSection__section-infomation-description" th:text="*{general.generalSalary}">월1000만원</span
+                  >
+                </div>
               </div>
                   </div>
                 </div>
@@ -211,7 +180,7 @@
           koreais@koreaedugroup.com
         </ol>
         <ol>
-          <a href="">오늘의 스터디</a>
+          <a th:href="@{/study/}">오늘의 스터디</a>
         </ol>
         <ol>
           <a href="">오늘의 카페</a>
@@ -220,14 +189,21 @@
           <a href="">FAQ</a>
         </ol>
         <ol>
-          <a href="">OH!스카 소개</a>
+          <a th:href="@{/introduction}">OH!스카 소개</a>
         </ol>
       </div>
       <div class="footer-media">
         &nbsp;&nbsp; (주)OH!스카 &nbsp;&nbsp;&nbsp;
-        <a href="">오늘의 스터디</a>&nbsp; <a href="">오늘의 카페</a>&nbsp; <a href="">FAQ</a>&nbsp;
-        <a href="">OH!스카 소개</a>&nbsp;
+        <a th:href="@{/study/}">오늘의 스터디</a>&nbsp; <a href="">오늘의 카페</a>&nbsp; <a href="">FAQ</a>&nbsp;
+        <a th:href="@{/introduction}">OH!스카 소개</a>&nbsp;
       </div>
     </footer>
   </body>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
+  <script src="/js/post/post.js"></script>
+  <script th:inline="javascript">
+    let skills = [[${skills}]];
+  </script>
+  <script src="/js/mypage/mypage.js"></script>
 </html>
