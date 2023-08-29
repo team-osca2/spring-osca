@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.osca.mapper.StudyMapperKdy">
+    <select id="studyListByScrap" resultType="mainStudyDTO">
+        <![CDATA[
+            SELECT VI.STUDY_ID, VI.STUDY_TITLE, VI.SCRAP_RANK, VI.IMAGE_ID,
+            TI.IMAGE_PATH , TI.IMAGE_UUID, TI.IMAGE_NAME, TI.IMAGE_TYPE, TI.IMAGE_SIZE
+            FROM MAIN_STUDY_LIST_V VI JOIN TBL_IMAGE TI
+            ON R < 11 AND IMAGE_ID = TI.ID AND TI.IMAGE_TYPE = 'REPRESENTATIVE'
+         ]]>
+    </select>
+</mapper>

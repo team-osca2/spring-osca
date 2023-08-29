@@ -85,4 +85,10 @@
         VALUES(#{id}, #{memberNickname}, #{memberEmail})
     </insert>
 
+    <!--  header의 이미지 조회  -->
+    <select id="selectMemberImage" resultType="imageVO">
+        SELECT ID, IMAGE_PATH, IMAGE_UUID, IMAGE_NAME, IMAGE_TYPE, IMAGE_SIZE FROM TBL_IMAGE
+        WHERE ID = ( SELECT IMAGE_ID FROM TBL_MEMBER_IMAGE WHERE MEMBER_ID = #{id} )
+    </select>
+
 </mapper>
