@@ -96,6 +96,14 @@
             </div>
         </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script th:inline="javascript">
+        let memberProfile = [[${memberProfile}]];
+        if (memberProfile) {
+            let $profileBox = $(".profile-shape");
+            $profileBox.html(`<img src="/display?fileName=${memberProfile.imagePath}/${memberProfile.imageUuid}_${memberProfile.imageName}" alt="avatar" shape="0" loading="lazy" class="profile-img" style="height: 32px; width: 32px;">`);
+        }
+    </script>
 </header>
 <!--카카오 로그인 헤더-->
 <header class="header-wrapper" th:fragment="social-logined-header">
@@ -137,6 +145,14 @@
             </div>
         </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script th:inline="javascript">
+        let memberProfile = [[${memberProfile}]];
+        if (memberProfile) {
+            let $profileBox = $(".profile-shape");
+            $profileBox.html(`<img src="/display?fileName=${memberProfile.imagePath}/${memberProfile.imageUuid}_${memberProfile.imageName}" alt="avatar" shape="0" loading="lazy" class="profile-img" style="height: 32px; width: 32px;">`);
+        }
+    </script>
 </header>
 </body>
 </html>

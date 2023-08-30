@@ -85,4 +85,5 @@
         VALUES(#{id}, #{memberNickname}, #{memberEmail})
     </insert>
 
+
 </mapper>
