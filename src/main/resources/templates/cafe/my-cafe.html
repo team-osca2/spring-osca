@@ -76,84 +76,6 @@
             <div class="content-wrapper">
                 <div class="list-panel-wrapper">
 
-<!--                    <div class="panel-wrapper">-->
-<!--                        <div class="item-wrapper position-relative flex-center-center">-->
-<!--                            <div class="main-image-wrapper border-opacity" style="background-image: url(&quot;https://d2v80xjmx68n4w.cloudfront.net/assets/mobile/modules/custom-project/category-images/custom_project_category_94_1.jpg&quot;);"></div>-->
-<!--                            <div class="item-content-wrapper">-->
-<!--                                <div>-->
-<!--                                    <div class="breadcrumb-wrapper flex-left-center" style="margin-top: 1px;">-->
-<!--                                        <div class="status-label">-->
-<!--                                            <span class="label-chip font-medium" style="background-color: #d51e14;">홍보기간 만료됨</span>-->
-<!--                                        </div>-->
-<!--                                        <span class="border-color margin-left-5 margin-right-5">|</span>-->
-<!--                                        <span>역삼동 공부하기 좋은 카페</span>-->
-<!--                                    </div>-->
-<!--                                    <div class="item-title-wrapper">-->
-<!--                                        <a href="">-->
-<!--                                            안녕하세요! 역삼동 3번 출구 바로 앞에 위치한 카페입니다. 오셔서 공부하세요!-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="date-wrapper">-->
-<!--                                    <span class="margin-right-5" style="font-size: 14px;"></span>-->
-<!--                                    <span style="font-size: 18px;">-->
-<!--                        <span class="tahoma" data-date="2023-08-29 20:12:30"></span>-->
-<!--                      </span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="button-wrapper position-relative">-->
-<!--                                <button class="NGB btn btn-custom-project">-->
-<!--                                    다시 홍보하기-->
-<!--                                </button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                    <div class="panel-wrapper">-->
-<!--                        <div class="item-wrapper position-relative flex-center-center">-->
-<!--                            <div class="card-dropdown dropdown">-->
-<!--                                <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/ic_more.svg" alt="더보기 아이콘">-->
-<!--                                <ul class="dropdown-menu my-gigs-settings-dropdown-menu ">-->
-<!--                                    <li><a class="dropdown-link">편집</a></li>-->
-<!--                                    <li><a class="dropdown-link">삭제</a></li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                            <div class="main-image-wrapper border-opacity" style="background-image: url('https://d2v80xjmx68n4w.cloudfront.net/assets/mobile/modules/custom-project/category-images/custom_project_category_94_1.jpg');"></div>-->
-<!--                            <div class="item-content-wrapper">-->
-<!--                                <div>-->
-<!--                                    <div class="breadcrumb-wrapper flex-left-center" style="margin-top: 1px;">-->
-<!--                                        <div class="status-label">-->
-<!--                                            &lt;!&ndash; 내가 개설한 스터디는 개설, 내가 참여하는 스터디는 참여로 뜰 수 있도록&ndash;&gt;-->
-<!--                                            <span class="label-chip font-medium" style="background-color: #144F79;">홍보중</span>-->
-<!--                                        </div>-->
-<!--                                        <span class="border-color margin-left-5 margin-right-5">|</span>-->
-<!--                                        <span>강남역 친구들과 카공하기 좋은 카페</span>-->
-<!--                                    </div>-->
-<!--                                    <div class="item-title-wrapper">-->
-<!--                                        &lt;!&ndash; 스터디 상세 보기 페이지로 이동 &ndash;&gt;-->
-<!--                                        <a href="">-->
-<!--                                            안녕하세요! 강남역 11출 앞에 위치한 카페입니다. 오셔서 공부하세요!-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; 신청한 사람 수 출력되는 부분 &ndash;&gt;-->
-<!--                                <div class="date-wrapper">-->
-<!--                                    <span class="margin-right-5" style="font-size: 14px;">홍보기간 만료까지</span>-->
-<!--                                    <span style="font-size: 18px;">-->
-<!--                        &lt;!&ndash; 마감 일자 나오는 부분 &ndash;&gt;-->
-<!--                        <span class="tahoma">10일</span>-->
-<!--                      </span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="button-wrapper position-relative">-->
-<!--                                &lt;!&ndash; 신청한 사람 수 출력되는 부분 &ndash;&gt;-->
-<!--                                <button class="NGB btn btn-custom-project" style="width: 180px;">-->
-<!--                                    홍보 게시글 올리기-->
-<!--                                </button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
                 </div>
 
 
@@ -197,7 +119,7 @@
         }
         const getDataSet = (data) => {
             let id = data.id, backgroundColor = "#144F79", status = "홍보 중", title = data.cafeAdTitle,
-                contents = data.cafeAdContents, btnText = "홍보 기간 연장하기", btnLink = "/cafe/ticket-purchase",
+                contents = data.cafeAdContents, btnText = "홍보 기간 연장하기", btnLink = "/cafe/ticket-purchase?cafeId=" + id,
                 deadLineDate = data.cafeAdDeadlineDate, image = data.cafeImages;
             if(elapsedTime(data.cafeAdDeadlineDate) === ``){
                 backgroundColor = "#d51e14"; status = "홍보기간 만료됨";
@@ -208,7 +130,8 @@
         const panel = (data) => {
             console.log(data);
             const dataSet = getDataSet(data);
-            const img = dataSet.image ?? "/images/logo.png";
+            const img = dataSet.image ?? "/images/main-page/default/cafeDefaultImage.jfif";
+            const deadlineDate = elapsedTime(dataSet.deadLineDate);
             return (`
                 <div class="panel-wrapper">
                     <div class="item-wrapper position-relative flex-center-center">
@@ -229,9 +152,9 @@
                                 </div>
                             </div>
                             <div class="date-wrapper">
-                                <span class="margin-right-5" style="font-size: 14px;">홍보기간 만료까지 </span>
+                                <span class="margin-right-5" style="font-size: 14px;">${deadlineDate === '' ? "" : "홍보기간 만료까지"} </span>
                                 <span style="font-size: 18px;">
-                                    <span class="tahoma" data-date="${dataSet.deadLineDate}">${elapsedTime(dataSet.deadLineDate)}</span>
+                                    <span class="tahoma" data-date="${dataSet.deadLineDate}">${deadlineDate}</span>
                                 </span>
                             </div>
                         </div>
