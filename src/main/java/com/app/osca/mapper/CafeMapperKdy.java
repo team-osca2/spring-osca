@@ -8,5 +8,5 @@ import java.util.List;
 @Mapper
 public interface CafeMapperKdy {
 
-    public List<MainCafeDTO> cafeListByScrap();
+    public List<MainCafeDTO> selectListByScrap();
 }

@@ -9,9 +9,7 @@ import java.util.List;
 @Mapper
 public interface StudyMapperKdy {
 
-//    이미지 추가
-    public void insert(ImageVO imageVO);
-
+//    메인 페이지 스터디 리스트 가져오기
     public List<MainStudyDTO> studyListByScrap();
 
 }

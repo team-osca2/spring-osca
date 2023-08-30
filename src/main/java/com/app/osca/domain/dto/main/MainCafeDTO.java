@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Data
 public class MainCafeDTO {
     private Long cafeId;
-    private String cafeTitle;
+    private String cafeName;
     private Long imageId;
     private String imagePath;
     private String imageUuid;
