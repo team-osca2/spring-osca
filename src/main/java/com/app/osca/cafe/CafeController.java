@@ -52,7 +52,7 @@ public class CafeController {
             return "index";
         }
         model.addAttribute("cafe", cafe.get());
-        return "temp/cafeDetail";
+        return "cafe/cafe_detail";
     }
 
     @GetMapping("/ticket-purchase")
