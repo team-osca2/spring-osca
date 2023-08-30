@@ -1,17 +1,17 @@
-package com.app.osca.domain;
+package com.app.osca.domain.dto.main;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@NoArgsConstructor
-public class ImageVO {
-    private Long id;
+public class MainCafeDTO {
+    private Long cafeId;
+    private String cafeName;
+    private Long imageId;
     private String imagePath;
     private String imageUuid;
     private String imageName;
     private String imageType;
-    private Long imageSize;
+    private String imageSize;
 }

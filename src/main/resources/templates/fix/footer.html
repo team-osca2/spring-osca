@@ -33,7 +33,27 @@
         <a href="">OH!스카 소개</a>&nbsp;
         <a onclick="gotoAdminpage()" style="cursor:pointer;">관리자</a>&nbsp;
     </div>
-    <script type="text/javascript" src="/js/fix/footer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        function gotoAdminpage(){
+            $.ajax({
+                type : 'GET',           // 타입 (get, post, put 등등)
+                url : '/checkAdmin',
+                dataType : 'text',
+                success : function(result) { // 결과 성공 콜백함수
+                    url = result.split("+")[1];
+                    code = result.split("+")[0]
+                    let input = prompt('관리자코드을 입력하세요');
+                    if (input === code) {
+                        location.href=url;
+                    }
+                },
+                error : function(request, status, error) { // 결과 에러 콜백함수
+                    console.log(error)
+                }
+            })
+        }
+    </script>
 </footer>
 <!-- 푸터 끝 -->
 </body>
