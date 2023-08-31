@@ -2,18 +2,20 @@ package com.app.osca.cafe;
 
 import com.app.osca.domain.CafeVO;
 import com.app.osca.domain.TicketVO;
+import com.app.osca.domain.UpdateStateEnum;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdImagesDTO;
+import com.app.osca.domain.dto.ticket.TicketDTO;
 import com.app.osca.domain.paging.Criteria;
 import com.app.osca.domain.paging.PageDTO;
 import com.app.osca.service.cafeAd.CafeAdService;
+import com.app.osca.service.ticket.TicketService.TicketService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.Optional;
 
@@ -24,6 +26,7 @@ import java.util.Optional;
 public class CafeController {
 
     final private CafeAdService cafeAdService;
+    final private TicketService ticketService;
 
     @GetMapping(value = {"", "/"})
     public String goToCafeMain(Model model, Criteria criteria){
@@ -56,8 +59,16 @@ public class CafeController {
     }
 
     @GetMapping("/ticket-purchase")
-    public String goToTicket(TicketVO ticketVO){
+    public String goToTicket(Model model, Long cafeAdId, Integer type){
+        model.addAttribute("tickets", ticketService.getAll());
+//        model.addAttribute("cafeId", cafeId);
         return "ticket/ticket";
+    }
+
+    @PatchMapping("/ticket-purchase")
+    @ResponseBody
+    public UpdateStateEnum buyTicket(@RequestBody TicketDTO ticketDTO){
+        return cafeAdService.updateDeadLineDate(ticketDTO);
     }
 
 }

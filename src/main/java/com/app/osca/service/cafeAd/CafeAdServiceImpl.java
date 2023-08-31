@@ -1,9 +1,12 @@
 package com.app.osca.service.cafeAd;
 
 import com.app.osca.dao.CafeAdDAO;
+import com.app.osca.domain.UpdateStateEnum;
 import com.app.osca.domain.dto.cafeAd.CafeAdDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdImagesDTO;
+import com.app.osca.domain.dto.cafeAd.CafeAdUpdateDTO;
+import com.app.osca.domain.dto.ticket.TicketDTO;
 import com.app.osca.domain.paging.Criteria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,5 +35,10 @@ public class CafeAdServiceImpl implements CafeAdService {
     @Override
     public List<CafeAdDTO> getMyCafeAdList(Long memberId, Integer blocked) {
         return cafeAdDAO.findAllByMemberIdAndBlockedIsOrderByCafeAdDeadlineDateOrderById(memberId, blocked);
+    }
+
+    @Override
+    public UpdateStateEnum updateDeadLineDate(TicketDTO ticketDTO) {
+        return cafeAdDAO.modify(ticketDTO.toCafeAdUpdateDTO());
     }
 }
