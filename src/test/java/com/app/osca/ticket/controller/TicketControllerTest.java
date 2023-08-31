@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
@@ -35,12 +36,14 @@ public class TicketControllerTest {
 
     @Test
     public void buyTicketTest() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.post("/cafe/ticket-purchase")
-                    .param("cafeAdId", "101")
-                    .param("ticketDuration", "7")
-                    .param("ticketPoint", "10000")
+        String requestJson = "{\"cafeAdId\":\"101\", \"ticketDuration\": \"0\", \"ticketPoint\":\"10000\",\"type\":\"1\"}";
+        String responseJson = "\"SUCCESS\"";
+        mockMvc.perform(MockMvcRequestBuilders.patch("/cafe/ticket-purchase")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestJson)
                 )
-                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(responseJson))
                 .andDo(MockMvcResultHandlers.print());
     }
 

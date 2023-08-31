@@ -1,6 +1,7 @@
 package com.app.osca.cafeAd.mapper;
 
 import com.app.osca.domain.dto.cafeAd.CafeAdDTO;
+import com.app.osca.domain.dto.cafeAd.CafeAdUpdateDTO;
 import com.app.osca.mapper.CafeAdMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -28,6 +29,16 @@ public class CafeAdMapperTest {
     @Test
     public void selectAllMyCafesTest(){
         log.info(cafeAdMapper.selectAllMyCafes(3L, 0).toString());
+    }
+
+    @Test
+    public void updateTest(){
+        CafeAdUpdateDTO cafeAdUpdateDTO = CafeAdUpdateDTO.builder()
+                .id(101L)
+                .ticketDuration(0L)
+                .type(0)
+                .build();
+        assertThat(cafeAdMapper.update(cafeAdUpdateDTO)).isEqualTo(1);
     }
 
 }
