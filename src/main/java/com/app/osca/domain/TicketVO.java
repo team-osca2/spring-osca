@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class TicketVO {
     private Long id;
-    private String ticketName;
+    private Long ticketDuration;
     private Long ticketPoint;
 }
