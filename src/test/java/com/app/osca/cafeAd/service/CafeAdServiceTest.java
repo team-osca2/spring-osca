@@ -1,7 +1,6 @@
 package com.app.osca.cafeAd.service;
 
-import com.app.osca.domain.UpdateStateEnum;
-import com.app.osca.domain.dto.cafeAd.CafeAdUpdateDTO;
+import com.app.osca.domain.StateEnum;
 import com.app.osca.domain.dto.ticket.TicketDTO;
 import com.app.osca.service.cafeAd.CafeAdService;
 import lombok.extern.slf4j.Slf4j;
@@ -30,11 +29,13 @@ public class CafeAdServiceTest {
     @Test
     public void updateDeadlineDateTest(){
         TicketDTO ticketDTO = TicketDTO.builder()
+                .memberId(3L)
                 .cafeAdId(102L)
+                .ticketId(1L)
                 .ticketDuration(0L)
                 .ticketPoint(10000L)
                 .type(0)
                 .build();
-        assertThat(cafeAdService.updateDeadLineDate(ticketDTO)).isEqualTo(UpdateStateEnum.FAIL);
+        assertThat(cafeAdService.updateDeadLineDate(ticketDTO)).isEqualTo(StateEnum.FAIL);
     }
 }

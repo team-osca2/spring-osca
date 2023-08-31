@@ -1,7 +1,7 @@
 package com.app.osca.cafeAd.dao;
 
 import com.app.osca.dao.CafeAdDAO;
-import com.app.osca.domain.UpdateStateEnum;
+import com.app.osca.domain.StateEnum;
 import com.app.osca.domain.dto.cafeAd.CafeAdUpdateDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -29,7 +29,7 @@ public class CafeAdDAOTest {
 
     @Test
     public void modifyTest(){
-        UpdateStateEnum state = UpdateStateEnum.SUCCESS;
+        StateEnum state = StateEnum.SUCCESS;
         CafeAdUpdateDTO cafeAdUpdateDTO = CafeAdUpdateDTO.builder()
                 .id(101L)
                 .ticketDuration(0L)
