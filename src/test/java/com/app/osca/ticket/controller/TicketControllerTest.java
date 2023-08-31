@@ -33,4 +33,15 @@ public class TicketControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    @Test
+    public void buyTicketTest() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.post("/cafe/ticket-purchase")
+                    .param("cafeAdId", "101")
+                    .param("ticketDuration", "7")
+                    .param("ticketPoint", "10000")
+                )
+                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
+                .andDo(MockMvcResultHandlers.print());
+    }
+
 }
