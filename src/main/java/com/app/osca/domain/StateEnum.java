@@ -1,17 +1,17 @@
 package com.app.osca.domain;
 
-public enum UpdateStateEnum {
+public enum StateEnum {
     SUCCESS(UpdateState.SUCCESS),
     FAIL(UpdateState.FAIL);
 
-    private final Integer updateState;
+    private final Integer state;
 
-    UpdateStateEnum(Integer updateState){
-        this.updateState = updateState;
+    StateEnum(Integer updateState){
+        this.state = updateState;
     }
 
-    public Integer getUpdateState(){
-        return this.updateState;
+    public Integer getState(){
+        return this.state;
     }
 
     public static class UpdateState{

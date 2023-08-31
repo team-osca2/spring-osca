@@ -1,15 +1,16 @@
 package com.app.osca.service.cafeAd;
 
 import com.app.osca.dao.CafeAdDAO;
-import com.app.osca.domain.UpdateStateEnum;
+import com.app.osca.dao.TicketPurchaseDAO;
+import com.app.osca.domain.StateEnum;
 import com.app.osca.domain.dto.cafeAd.CafeAdDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdImagesDTO;
-import com.app.osca.domain.dto.cafeAd.CafeAdUpdateDTO;
 import com.app.osca.domain.dto.ticket.TicketDTO;
 import com.app.osca.domain.paging.Criteria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,8 @@ import java.util.Optional;
 public class CafeAdServiceImpl implements CafeAdService {
 
     final private CafeAdDAO cafeAdDAO;
+
+    final private TicketPurchaseDAO ticketPurchaseDAO;
 
     @Override
     public Optional<CafeAdDetailDTO> getOneCafeAd(Long id) {
@@ -38,7 +41,10 @@ public class CafeAdServiceImpl implements CafeAdService {
     }
 
     @Override
-    public UpdateStateEnum updateDeadLineDate(TicketDTO ticketDTO) {
-        return cafeAdDAO.modify(ticketDTO.toCafeAdUpdateDTO());
+    @Transactional(rollbackFor = Exception.class)
+    public StateEnum updateDeadLineDate(TicketDTO ticketDTO) {
+        boolean adUpdateState = cafeAdDAO.modify(ticketDTO.toCafeAdUpdateDTO()) == StateEnum.SUCCESS;
+        boolean ticketPurchaseState = ticketPurchaseDAO.save(ticketDTO.toTicketPurchaseDTO()) == StateEnum.SUCCESS;
+        return (adUpdateState && ticketPurchaseState) ? StateEnum.SUCCESS : StateEnum.FAIL;
     }
 }

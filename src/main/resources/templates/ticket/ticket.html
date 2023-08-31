@@ -140,7 +140,7 @@
     const ticketForm = (ticket) => {
         const point = numberParsing(ticket.ticketPoint);
         return (`
-            <li class="coupon-list-element" data-duration="${ticket.ticketDuration}" data-price="${ticket.ticketPoint}">
+            <li class="coupon-list-element" data-duration="${ticket.ticketDuration}" data-price="${ticket.ticketPoint}" data-id="${ticket.id}">
                 <section class="coupon-sale">
                     <h2>
                         ${ticket.ticketDuration}일 홍보권

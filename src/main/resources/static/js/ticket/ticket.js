@@ -102,6 +102,7 @@ submitBtn.addEventListener("click", async () => {
             cafeAdId,
             ticketDuration : couponDuration,
             ticketPoint : couponPrice,
+            ticketId : couponId,
             type
         })
     })

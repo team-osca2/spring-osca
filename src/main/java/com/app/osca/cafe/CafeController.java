@@ -1,13 +1,10 @@
 package com.app.osca.cafe;
 
 import com.app.osca.domain.CafeVO;
-import com.app.osca.domain.TicketVO;
-import com.app.osca.domain.UpdateStateEnum;
+import com.app.osca.domain.StateEnum;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
-import com.app.osca.domain.dto.cafeAd.CafeAdImagesDTO;
 import com.app.osca.domain.dto.ticket.TicketDTO;
 import com.app.osca.domain.paging.Criteria;
-import com.app.osca.domain.paging.PageDTO;
 import com.app.osca.service.cafeAd.CafeAdService;
 import com.app.osca.service.ticket.TicketService.TicketService;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
+import javax.mail.Session;
 import java.util.Optional;
 
 @Controller
@@ -67,7 +64,9 @@ public class CafeController {
 
     @PatchMapping("/ticket-purchase")
     @ResponseBody
-    public UpdateStateEnum buyTicket(@RequestBody TicketDTO ticketDTO){
+    public StateEnum buyTicket(@RequestBody TicketDTO ticketDTO){
+//        ticketDTO.setMemberId(Session.memberId);
+        ticketDTO.setMemberId(3L);
         return cafeAdService.updateDeadLineDate(ticketDTO);
     }
 

@@ -1,6 +1,6 @@
 package com.app.osca.dao;
 
-import com.app.osca.domain.UpdateStateEnum;
+import com.app.osca.domain.StateEnum;
 import com.app.osca.domain.dto.cafeAd.CafeAdDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdUpdateDTO;
@@ -29,8 +29,8 @@ public class CafeAdDAO {
     }
     
 //    홍보물 기간 연장
-    public UpdateStateEnum modify(CafeAdUpdateDTO cafeAdUpdateDTO){
-        return cafeAdMapper.update(cafeAdUpdateDTO) == 1 ? UpdateStateEnum.SUCCESS  : UpdateStateEnum.FAIL;
+    public StateEnum modify(CafeAdUpdateDTO cafeAdUpdateDTO){
+        return cafeAdMapper.update(cafeAdUpdateDTO) == 1 ? StateEnum.SUCCESS  : StateEnum.FAIL;
     }
 }
 
