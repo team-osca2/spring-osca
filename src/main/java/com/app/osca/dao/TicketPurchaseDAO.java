@@ -12,6 +12,6 @@ public class TicketPurchaseDAO {
     private final TicketPurchaseMapper ticketPurchaseMapper;
 
     public StateEnum save(TicketPurchaseDTO ticketPurchaseDTO){
-        return ticketPurchaseMapper.insert(ticketPurchaseDTO) == 1 ? StateEnum.SUCCESS : StateEnum.FAIL;
+        return StateEnum.toStateEnum(ticketPurchaseMapper.insert(ticketPurchaseDTO));
     }
 }

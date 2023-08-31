@@ -18,4 +18,8 @@ public enum StateEnum {
         public static final Integer SUCCESS = 1;
         public static final Integer FAIL = 0;
     }
+
+    public static StateEnum toStateEnum(Integer currentState){
+        return currentState.equals(UpdateState.SUCCESS) ? SUCCESS : FAIL;
+    }
 }

@@ -1,6 +1,7 @@
 package com.app.osca.domain.dto.ticket;
 
 import com.app.osca.domain.dto.cafeAd.CafeAdUpdateDTO;
+import com.app.osca.domain.dto.ceo.CeoDTO;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,8 @@ public class TicketDTO {
     }
 
     public TicketPurchaseDTO toTicketPurchaseDTO() {return new TicketPurchaseDTO(memberId, ticketId);}
+
+    public CeoDTO toCeoDTO() {return new CeoDTO(memberId, ticketPoint);}
 
     @Builder
     public TicketDTO(Long memberId, Long cafeAdId, Long ticketDuration, Long ticketPoint, Long ticketId, Integer type) {

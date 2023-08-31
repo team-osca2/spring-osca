@@ -30,7 +30,7 @@ public class CafeAdDAO {
     
 //    홍보물 기간 연장
     public StateEnum modify(CafeAdUpdateDTO cafeAdUpdateDTO){
-        return cafeAdMapper.update(cafeAdUpdateDTO) == 1 ? StateEnum.SUCCESS  : StateEnum.FAIL;
+        return StateEnum.toStateEnum(cafeAdMapper.update(cafeAdUpdateDTO));
     }
 }
 
