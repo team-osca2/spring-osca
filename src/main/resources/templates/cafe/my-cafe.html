@@ -119,16 +119,19 @@
         }
         const getDataSet = (data) => {
             let id = data.id, backgroundColor = "#144F79", status = "홍보 중", title = data.cafeAdTitle,
-                contents = data.cafeAdContents, btnText = "홍보 기간 연장하기", btnLink = "/cafe/ticket-purchase?cafeId=" + id,
+                contents = data.cafeAdContents, btnText = "홍보 기간 연장하기", btnLink = `/cafe/ticket-purchase?cafeAdId=${id}&type=`, type = 0,
                 deadLineDate = data.cafeAdDeadlineDate, image = data.cafeImages;
+
             if(elapsedTime(data.cafeAdDeadlineDate) === ``){
                 backgroundColor = "#d51e14"; status = "홍보기간 만료됨";
-                btnText = "다시 홍보하기";
+                btnText = "다시 홍보하기"; type = 1;
             }
+
+            btnLink += type;
             return {id, backgroundColor, status,title,contents, btnText, btnLink, deadLineDate, image};
         }
+
         const panel = (data) => {
-            console.log(data);
             const dataSet = getDataSet(data);
             const img = dataSet.image ?? "/images/main-page/default/cafeDefaultImage.jfif";
             const deadlineDate = elapsedTime(dataSet.deadLineDate);
