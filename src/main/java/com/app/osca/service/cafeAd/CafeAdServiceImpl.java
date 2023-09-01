@@ -1,6 +1,7 @@
 package com.app.osca.service.cafeAd;
 
 import com.app.osca.dao.CafeAdDAO;
+import com.app.osca.dao.CeoDAO;
 import com.app.osca.dao.TicketPurchaseDAO;
 import com.app.osca.domain.StateEnum;
 import com.app.osca.domain.dto.cafeAd.CafeAdDTO;
@@ -20,8 +21,8 @@ import java.util.Optional;
 public class CafeAdServiceImpl implements CafeAdService {
 
     final private CafeAdDAO cafeAdDAO;
-
     final private TicketPurchaseDAO ticketPurchaseDAO;
+    final private CeoDAO ceoDAO;
 
     @Override
     public Optional<CafeAdDetailDTO> getOneCafeAd(Long id) {
@@ -45,6 +46,7 @@ public class CafeAdServiceImpl implements CafeAdService {
     public StateEnum updateDeadLineDate(TicketDTO ticketDTO) {
         boolean adUpdateState = cafeAdDAO.modify(ticketDTO.toCafeAdUpdateDTO()) == StateEnum.SUCCESS;
         boolean ticketPurchaseState = ticketPurchaseDAO.save(ticketDTO.toTicketPurchaseDTO()) == StateEnum.SUCCESS;
-        return (adUpdateState && ticketPurchaseState) ? StateEnum.SUCCESS : StateEnum.FAIL;
+        boolean ceoPointUpdateState = ceoDAO.modify(ticketDTO.toCeoDTO()) == StateEnum.SUCCESS;
+        return (adUpdateState && ticketPurchaseState && ceoPointUpdateState) ? StateEnum.SUCCESS : StateEnum.FAIL;
     }
 }

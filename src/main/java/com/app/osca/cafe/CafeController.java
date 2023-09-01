@@ -6,6 +6,7 @@ import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.domain.dto.ticket.TicketDTO;
 import com.app.osca.domain.paging.Criteria;
 import com.app.osca.service.cafeAd.CafeAdService;
+import com.app.osca.service.ceo.CeoService;
 import com.app.osca.service.ticket.TicketService.TicketService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,7 @@ public class CafeController {
 
     final private CafeAdService cafeAdService;
     final private TicketService ticketService;
+    final private CeoService ceoService;
 
     @GetMapping(value = {"", "/"})
     public String goToCafeMain(Model model, Criteria criteria){
@@ -57,7 +59,9 @@ public class CafeController {
 
     @GetMapping("/ticket-purchase")
     public String goToTicket(Model model, Long cafeAdId, Integer type){
+        Long id = 3L;/*Session.memberId*/
         model.addAttribute("tickets", ticketService.getAll());
+        model.addAttribute("ceoBalance", ceoService.getPoint(id).get());
 //        model.addAttribute("cafeId", cafeId);
         return "ticket/ticket";
     }
