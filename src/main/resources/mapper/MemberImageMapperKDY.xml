@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.app.osca.mapper.MemberImageMapperKDY">
-    <!--  이미지 가져오기 (프로필) -->
-    <select id="selectMemberProfileImage" resultType="imageVO">
-        SELECT ID, IMAGE_PATH, IMAGE_UUID, IMAGE_NAME, IMAGE_TYPE, IMAGE_SIZE FROM TBL_IMAGE
-        WHERE ID = ( SELECT IMAGE_ID FROM TBL_MEMBER_IMAGE WHERE MEMBER_ID = #{id} ) AND IMAGE_TYPE = 'REPRESENTATIVE'
-    </select>
-</mapper>

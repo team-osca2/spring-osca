@@ -14,4 +14,11 @@
         ON MJ.JOB_ID=J.ID
         WHERE MJ.MEMBER_ID=#{memberId}
     </select>
+
+    <!-- 3. 회원의 직업 수정하기 -->
+    <update id="update">
+        UPDATE TBL_MEMBER_JOB
+        SET JOB_ID = #{jobId}
+        WHERE MEMBER_ID = #{memberId}
+    </update>
 </mapper>

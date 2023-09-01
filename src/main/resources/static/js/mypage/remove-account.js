@@ -18,16 +18,43 @@ $radiolist.on('click', function() {
     }
 });
 
+// 비밀번호 검사하기 (db비밀번호.equal(입력한 비밀번호))
+$(".password-input").on("blur",function () {
+    $.ajax({
+        url:`/password/check-password?memberPassword=${$(this).val()}`,
+        success:function (result) {
+            if(result){
+                $('.check-input-password').text("* 올바른 비밀번호입니다. ");
+                $('.check-input-password').css('color','blue');
+                const $checkClick = $('.check-wrapper');
+                const $checked = $('.checkbox__inner');
+                const $finalButton = $('#final-button');
 
-const $checkClick = $('.check-wrapper');
-const $checked = $('.checkbox__inner');
-const $finalButton = $('.final-button');
-$checkClick.on('click', function() {
-    $checked.toggleClass('check-selected');
-    
-    if ($checked.hasClass('check-selected')) {
-        $finalButton.prop('disabled', false);
-    } else {
-        $finalButton.prop('disabled', true);
-    }
-});
+                $checkClick.on('click', function() {
+                    $checked.toggleClass('check-selected');
+                    if ($checked.hasClass('check-selected')) {
+                        $finalButton.attr('disabled', false);
+                    } else {
+                        $finalButton.attr('disabled', true);
+                    }
+                });
+
+            }else{
+                $('.check-input-password').text( "* 올바른 비밀번호를 입력해주세요.");
+                $('.check-input-password').css('color','red');
+                $('#final-button').attr('disabled', true);
+            }
+        }
+    });
+})
+
+// 삭제하기
+// $.ajax({
+//     url:`/setting/withdraw`,
+//     type:"POST",
+//     dataType:"json",
+//     data : $("#deleteMember").serializeArray(),
+//     success:function (result) {
+//         return
+//     }
+// });

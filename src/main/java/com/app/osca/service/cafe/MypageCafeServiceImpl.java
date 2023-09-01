@@ -15,7 +15,7 @@ public class MypageCafeServiceImpl implements MypageCafeService {
     }
 
     @Override
-    public void modifyBusinessNum(String cafeBusinessNumber) {
-        cafeDAO.setBusinessNum(cafeBusinessNumber);
+    public void modifyBusinessNum(String cafeBusinessNumber, Long memberId) {
+        cafeDAO.setBusinessNum(cafeBusinessNumber, memberId);
     }
 }

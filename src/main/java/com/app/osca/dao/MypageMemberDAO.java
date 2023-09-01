@@ -17,9 +17,14 @@ public class MypageMemberDAO {
         return memberMapper.selectById(id);
     }
 
+    //   닉네임 중복검사
+    public int findNickname(String memberNickname){
+        return memberMapper.selectNickname(memberNickname);
+    }
+
     //   회원 정보 수정 (이름, 폰번호)
-    public void setMemberInfo(MemberVO memberVO){
-        memberMapper.update(memberVO);
+    public void setMemberNickName(String memberNickName,Long id){
+        memberMapper.update(memberNickName,id);
     }
 
     //   회원 탈퇴
@@ -31,7 +36,12 @@ public class MypageMemberDAO {
     public String findPassword(Long id){return memberMapper.selectPassword(id);}
 
     //    회원의 비밀번호 수정
-    public void setPassword(String memberPassword){
-        memberMapper.updatePassword(memberPassword);
+    public void setPassword(String memberPassword, Long id){
+        memberMapper.updatePassword(memberPassword,id);
+    }
+
+    //    회원의 휴대폰 번호 수정
+    public void setPhonenumber(String memberPhonenumber, Long id){
+        memberMapper.updatePhonenumber(memberPhonenumber, id);
     }
 }

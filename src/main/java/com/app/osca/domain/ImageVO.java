@@ -13,5 +13,5 @@ public class ImageVO {
     private String imageUuid;
     private String imageName;
     private String imageType;
-    private Long imageSize;
+    private String imageSize;
 }

@@ -229,11 +229,11 @@ table {
     margin: 0 8px;
 }
 
-.email-colum {
+.password-colum {
     margin-top: 32px;
 }
 
-.email-check-title {
+.password-check-title {
     color: #303441;
 }
 .input-div {
@@ -260,7 +260,7 @@ table {
     margin-top: 12px;
 }
 
-.email-input {
+.password-input {
     outline: none;
     -webkit-flex: 1;
     -ms-flex: 1;
@@ -516,4 +516,11 @@ table {
 
 .displayNone{
     display: none;
+}
+
+.check-input-password{
+    margin: 6px 0 0 0;
+    padding: 0;
+    color: #9a9ba7;
+    font-size: 12px;
 }

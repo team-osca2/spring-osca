@@ -83,7 +83,6 @@ video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -658,7 +657,7 @@ table {
     display: block;
     cursor: text;
     color: #303441;
-    padding: 14px;
+    padding: 14px 0px;
     font-size: 13px;
     resize: none;
 }
@@ -788,7 +787,7 @@ table {
     border: none;
     padding: 0;
 }
-.loc-input-area {
+.loc-input-area, .expert-loc-input-area {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -804,7 +803,6 @@ table {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding: 0 12px;
     -webkit-overflow-scrolling: touch;
     position: relative;
     overflow: hidden;
@@ -816,7 +814,7 @@ table {
     align-content: center;
 }
 
-.loc-singleValue {
+.loc-singleValue, .expert-loc-singleValue {
     color: rgb(48, 52, 65);
     margin-left: 2px;
     margin-right: 2px;
@@ -1455,7 +1453,7 @@ table {
     align-items: center;
 }
 
-/*  경력기갸ㅏㄴ*/
+/*  경력기간*/
 .workperiod-select-wrapper {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1477,7 +1475,7 @@ table {
     border-bottom: 1px solid #f2f3f7;
 }
 
-.workperiod-menu-container{
+.workperiod-menu-container, .expert-menu-container{
     top: 26px;
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
@@ -1504,7 +1502,7 @@ table {
     flex: 1;
     padding: 14px 0 68px 0;
 }
-.workperiod-list {
+.workperiod-list, .expert-list {
     overflow-y: auto;
     padding-bottom: 4px;
     padding-top: 4px;
@@ -1513,7 +1511,7 @@ table {
     max-height: 310px;
 }
 
-.workperiod-option-selected {
+.workperiod-option-selected, .expert-option-selected {
     background-color: transparent;
     color: rgb(245, 193, 38);
     cursor: default;
@@ -1528,7 +1526,7 @@ table {
     font-weight: 500;
 }
 
-.workperiod-option{
+.workperiod-option, .expert-text{
     background-color: transparent;
     color: rgb(48, 52, 65);
     cursor: default;
@@ -1543,10 +1541,10 @@ table {
     font-weight: 400;
 }
 
-.workperiod-option:hover {
+.workperiod-option:hover, .expert-text:hover {
     background-color: rgb(242, 243, 247);
 }
-.workperiod-text {
+.workperiod-text, .expert-option-text {
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
