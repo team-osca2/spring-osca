@@ -36,7 +36,7 @@ public class TicketControllerTest {
 
     @Test
     public void buyTicketTest() throws Exception {
-        String requestJson = "{\"cafeAdId\":\"101\", \"ticketDuration\": \"0\", \"ticketPoint\":\"10000\",\"type\":\"1\"}";
+        String requestJson = "{\"cafeAdId\":\"101\", \"ticketDuration\": \"0\", \"ticketPoint\":\"10000\", \"ticketId\":\"1\", \"type\":\"1\"}";
         String responseJson = "\"SUCCESS\"";
         mockMvc.perform(MockMvcRequestBuilders.patch("/cafe/ticket-purchase")
                 .contentType(MediaType.APPLICATION_JSON)

@@ -5,6 +5,7 @@ import com.app.osca.domain.StateEnum;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.domain.dto.ticket.TicketDTO;
 import com.app.osca.domain.paging.Criteria;
+import com.app.osca.handler.MemberIdNotFoundException;
 import com.app.osca.service.cafeAd.CafeAdService;
 import com.app.osca.service.ceo.CeoService;
 import com.app.osca.service.ticket.TicketService.TicketService;
@@ -61,7 +62,7 @@ public class CafeController {
     public String goToTicket(Model model, Long cafeAdId, Integer type){
         Long id = 3L;/*Session.memberId*/
         model.addAttribute("tickets", ticketService.getAll());
-        model.addAttribute("ceoBalance", ceoService.getPoint(id).get());
+        model.addAttribute("ceoBalance", ceoService.getPoint(id).orElseThrow(MemberIdNotFoundException::new));
 //        model.addAttribute("cafeId", cafeId);
         return "ticket/ticket";
     }
