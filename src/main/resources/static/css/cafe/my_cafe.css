@@ -566,3 +566,111 @@ img {
     }
 }
 
+.main-wrapper .card-dropdown {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+}
+
+.main-wrapper .card-dropdown img {
+    width: 24px;
+}
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+.main-wrapper .card-dropdown .dropdown-menu {
+    padding: 0;
+    right: 0;
+    left: inherit;
+    border: 1px solid #f2f3f7;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.07);
+    min-width: 78px;
+}
+
+.dropdown-menu,
+.border-top-category,
+.alarm-dropdown-menu,
+.gig-detail-menu,
+.gig-count-word .count-words-menu,
+.interest-box,
+.user-bank-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    padding: 5px 0;
+    margin-top: 0px;
+    list-style: none;
+    font-size: 13px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px #ccc;
+    box-shadow: 0 1px 2px #ccc;
+    background-clip: padding-box;
+}
+
+.main-wrapper .card-dropdown .dropdown-link {
+    padding: 8px 12px;
+    text-align: center;
+    color: #303441;
+}
+
+.dropdown-menu > li > a,
+.border-top-category > li > a,
+.alarm-dropdown-menu > li > a,
+.gig-detail-menu > li > a,
+.gig-count-word .count-words-menu > li > a,
+.interest-box > li > a,
+.user-bank-dropdown-menu > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.5438;
+    color: #4d4d4d;
+    white-space: nowrap;
+}
+
+.display-open {
+    padding: 0;
+    right: 0;
+    left: inherit;
+    border: 1px solid #f2f3f7;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.07);
+    min-width: 78px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    padding: 5px 0;
+    margin-top: 0px;
+    list-style: none;
+    font-size: 13px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px #ccc;
+    box-shadow: 0 1px 2px #ccc;
+    background-clip: padding-box;
+}
+
+.display-open > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.5438;
+    color: #4d4d4d;
+    white-space: nowrap;
+}
+
+.display-open > li > a:hover {
+    background-color: #ccc;
+}
