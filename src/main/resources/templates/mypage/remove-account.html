@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,10 +18,10 @@
         </a>
         <div>
           <span class="header-line"></span>
-          <a href="" class="header-menu">오늘의 스터디</a>
+          <a th:href="@{/study/}" class="header-menu">오늘의 스터디</a>
           <a href="" class="header-menu">오늘의 카페</a>
           <a href="" class="header-menu">FAQ</a>
-          <a href="" class="header-menu">Oh!스카 소개</a>
+          <a th:href="@{/introduction}" class="header-menu">Oh!스카 소개</a>
         </div>
         <div style="flex-grow: 1"></div>
         <div class="header-aside">
@@ -33,18 +33,7 @@
             aria-expanded="false"
           >
             <span class="aside-menu-contents">
-              <p variant="body2" class="aside-contents" color="gray900">회원가입</p>
-            </span>
-          </a>
-          <a
-            role="link"
-            color="default"
-            href="/inboxes?inbox_group_id=&amp;partner_id="
-            class="header-aside-menu"
-            aria-expanded="false"
-          >
-            <span class="aside-menu-contents">
-              <p variant="body2" class="aside-contents" color="gray900">로그인</p>
+              <p variant="body2" class="aside-contents" color="gray900">로그아웃</p>
             </span>
           </a>
           <a
@@ -85,9 +74,9 @@
         <aside class="setting-menu-box">
           <div class="menu-title">계정 설정</div>
           <hr class="line" />
-          <a class="menu-list" href="">내 정보</a>
-          <a class="menu-list" href="">비밀번호 변경</a>
-          <a class="menu-list menu-selected" href="">회원 탈퇴</a>
+          <a class="menu-list" th:href="@{/setting/}">내 정보</a>
+          <a class="menu-list" th:href="@{/password/change}">비밀번호 변경</a>
+          <a class="menu-list menu-selected">회원 탈퇴</a>
         </aside>
         <hr class="line-mini">
         <main class="body-details">
@@ -200,15 +189,20 @@
                   </li>
                 </ul>
               </section>
-              <section class="email-colum">
-                <div class="email-check-title">이메일 확인</div>
+              <section class="password-colum">
+                <div class="password-check-title">비밀번호 확인</div>
                 <div class="input-div">
                   <input
-                    type="text"
-                    placeholder="오스카에 가입하신 이메일을 적어주세요"
-                    class="email-input"
-                    value=""
+                    type="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    class="password-input"
                   />
+                </div>
+                <div>
+                  <div class="password-check">
+                    <p class="check-input-password">
+                    </p>
+                  </div>
                 </div>
                 <ul class="account-delete-notice-wrapper">
                   <li class="notice-list">
@@ -245,9 +239,12 @@
                         class="checkbox__inner"
                       ></span></span></label
                   ><span class="check-text">주의사항을 모두 확인하였습니다.</span></label
-                ><button role="button" color="default" disabled="" class="final-button">
-                  <span>회원 탈퇴</span>
-                </button>
+                >
+<!--                <form th:action="@{/setting/withdraw}" method="post" id="deleteMember" name="deleteMember" class="body-box">-->
+                    <button role="button" color="default" disabled id="final-button" class="final-button">
+                      <span>회원 탈퇴</span>
+                    </button>
+<!--                </form>-->
               </div>
             </div>
           </div>
@@ -265,7 +262,7 @@
           koreais@koreaedugroup.com
         </ol>
         <ol>
-          <a href="">오늘의 스터디</a>
+          <a th:href="@{/study/}">오늘의 스터디</a>
         </ol>
         <ol>
           <a href="">오늘의 카페</a>
@@ -274,16 +271,16 @@
           <a href="">FAQ</a>
         </ol>
         <ol>
-          <a href="">OH!스카 소개</a>
+          <a th:href="@{/introduction}">OH!스카 소개</a>&nbsp;
         </ol>
       </div>
       <div class="footer-media">
         &nbsp;&nbsp; (주)OH!스카 &nbsp;&nbsp;&nbsp;
-        <a href="">오늘의 스터디</a>&nbsp; <a href="">오늘의 카페</a>&nbsp; <a href="">FAQ</a>&nbsp;
-        <a href="">OH!스카 소개</a>&nbsp;
+        <a th:href="@{/study/}">오늘의 스터디</a>&nbsp; <a href="">오늘의 카페</a>&nbsp; <a href="">FAQ</a>&nbsp;
+        <a th:href="@{/introduction}">OH!스카 소개</a>&nbsp;
       </div>
     </footer>
   </body>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script src="../../../../../../../CSS/workspace/oscaSpring/remove-account.js"></script>
+  <script src="/js/mypage/remove-account.js"></script>
 </html>

@@ -37,17 +37,35 @@ public class MapperTestsYujin {
     }
 
     @Test
+    public void memberNicknameSelectTest(){
+        memberMapper.selectNickname("사과42");
+    }
+
+    @Test
     public void memberUpdateTest(){
-        memberMapper.selectById(1L).ifPresent(member -> {
-            member.setMemberName("정유진");
-            member.setMemberEmail("dbwls89173@gmail.com");
-            memberMapper.update(member);
-        });
+        memberMapper.update("돈많은 개발자",1L);
     }
 
     @Test
     public void memberDeleteTest(){
         memberMapper.delete(1L);
+    }
+
+    //  비밀번호 변경 테스트
+    @Test
+    public void memberPasswordInsertTest(){
+        log.info(memberMapper.selectPassword(1L));
+    }
+
+    @Test
+    public void memberPasswordUpdateTest() {
+        String password = "@dbwls1234";
+        String encryptedPassword = "";
+        final int KEY = 3;
+        for (int i = 0; i < password.length(); i++) {
+            encryptedPassword += (char)(password.charAt(i) * KEY);
+        }
+        memberMapper.updatePassword(encryptedPassword, 1L);
     }
 
     //    일반 회원 테스트
@@ -83,7 +101,7 @@ public class MapperTestsYujin {
     //    스터디 스크랩 테스트
     @Test
     public void selectStudyScrapTest(){
-        studyScrapMapper.selectByMemberId(2L).stream().map(StudyScrapDTO::toString).forEach(log::info);
+        studyScrapMapper.selectByMemberId(1L).stream().map(StudyScrapDTO::toString).forEach(log::info);
     }
 
     @Test
@@ -103,13 +121,40 @@ public class MapperTestsYujin {
     }
 
     //    스터디 스킬 등록 테스트
-    @Test
-    public void insertMemberSkillTest() {
-        MemberSkillVO memberSkillVO = new MemberSkillVO();
-        memberSkillVO.setMemberId(3L);
-        memberSkillVO.setSkillListId(2L);
-        memberSkillMapper.insert(memberSkillVO);
-    }
+//    @Test
+//    public void insertMemberSkillTest() {
+//        MemberSkillVO memberSkillVO = new MemberSkillVO();
+//        memberSkillVO.setMemberId(3L);
+//        memberSkillVO.setSkillListId(2L);
+//        memberSkillMapper.insert(memberSkillVO);
+//    }
+
+
+//    @Test
+//    public void insertAllTest() {
+//        MypageMemberSkillDTO mypageMemberSkillDTO = new MypageMemberSkillDTO();
+//        mypageMemberSkillDTO.setMemberId(193L);
+//
+//        List<Long> skillListIds = new ArrayList<>();
+////        skillListIds.add(1L);
+//        skillListIds.add(2L);
+//        skillListIds.add(3L);
+//        mypageMemberSkillDTO.setSkillListIds(skillListIds);
+//
+//        mypageMemberSkillMapper.insertAll(mypageMemberSkillDTO);
+//    }
+
+//        MemberSkillDTO memberSkillDTO = new MemberSkillDTO();
+//        memberSkillDTO.setMemberId(193L);
+//
+//        List<Long> skillListIds = new ArrayList<>();
+//        skillListIds.add(1L);
+//        skillListIds.add(2L);
+//        skillListIds.add(3L);
+//        memberSkillDTO.setSkillListIds(skillListIds);
+//
+//        memberSkillMapper.insertAll(memberSkillDTO);
+
 
     @Test
     public void selectMemberSkillTest(){
@@ -118,12 +163,17 @@ public class MapperTestsYujin {
 
     //    결제 정보 추가하기 테스트
     @Test
-    public void insertPaymentTest(){
+    public void insertPaymentTest() {
         PaymentVO paymentVO = new PaymentVO();
         paymentVO.setMemberId(2L);
         paymentVO.setPaymentPrice("100000");
         paymentVO.setPaymentStatus(0L);
         paymentMapper.insert(paymentVO);
+    }
+
+    @Test
+    public void selectMemberSkillExistTest(){
+        memberSkillMapper.selectExistsSkill(3L, 193L);
     }
 }
 

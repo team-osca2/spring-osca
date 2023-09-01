@@ -24,7 +24,7 @@ public class UserController {
     private final HttpSession session;
 
     @RequestMapping("/user/{id}")
-    public String goToMyPage(@PathVariable String id, Model model) {
+    public String goToMyPage(@PathVariable Long id, Model model) {
         model.addAttribute("memberNickName",memberService.getMemberInfo(1L).get().getMemberNickname());
         model.addAttribute("general",generalService.getGeneralInfo(1L).get());
         model.addAttribute("memberJob",memberJobService.getByMemberId(1L).get().getJob());

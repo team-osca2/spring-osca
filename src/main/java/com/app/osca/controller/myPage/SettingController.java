@@ -7,10 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
-
-import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/setting")
@@ -30,11 +27,12 @@ public class SettingController {
 
     //  =================== 닉네임 변경하기 =================== //
     //    닉네임 중복 검사하기: 1이면 중복, 0이면 사용 가능
-    @GetMapping("/check-nickname/{memberNickname}")
+    @GetMapping("check-nickname/{memberNickname}")
     @ResponseBody
     public int checkNickname(@PathVariable String memberNickname){
         return memberService.checkNickname(memberNickname);
     }
+
 
     @GetMapping("changeMemberNickname")
     public String goToMemberNickName(String memberNickname){

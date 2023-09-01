@@ -1,8 +1,5 @@
 package com.app.osca.controller.myPage;
 
-import com.app.osca.domain.GeneralVO;
-import com.app.osca.domain.MemberJobVO;
-import com.app.osca.domain.MemberSkillVO;
 import com.app.osca.service.member.MypageMemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

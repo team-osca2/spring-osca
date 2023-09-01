@@ -14,4 +14,22 @@
         ON MS.SKILL_LIST_ID = SL.ID
         WHERE MS.MEMBER_ID=#{memberId}
     </select>
+
+<!--  3. skill 존재 여부 조사하기 -->
+    <select id="selectExistsSkill" resultType="int">
+        SELECT COUNT(*) FROM TBL_MEMBER_SKILL WHERE MEMBER_ID = #{memberId} AND SKILL_LIST_ID = #{skillListId}
+    </select>
+
+    <!--  4. skill 업데이트 하기 (삭제가 필요할듯....?) -->
+    <update id="update">
+		UPDATE TBL_MEMBER_SKILL
+		SET SKILL_LIST_ID = #{skillListId}
+		WHERE MEMBER_ID = #{memberId}
+	</update>
+
+    <!--  4. skill 업데이트 하기 (삭제가 필요할듯....?) -->
+    <delete id="delete">
+        DELETE FROM TBL_MEMBER_SKILL WHERE MEMBER_ID = #{memberId} AND SKILL_LIST_ID = #{skillListId}
+    </delete>
+
 </mapper>
