@@ -63,9 +63,7 @@ const ansFunc = (infoModal) => (data) => {
         makeInfoModal(infoModal, 'blue', '<span class="info-modal-icon-left-v2"></span><span class="info-modal-icon-right-v2"></span>', '결제가 완료 되었습니다.', '');
         setTimeout(() => {
             infoModal.style.display = 'none';
-            form.action = "/cafe/my-cafe";
-            form.method = "GET";
-            form.submit();
+            location.href = "/cafe/my-cafe";
         }, 1500);
     }
     else{
