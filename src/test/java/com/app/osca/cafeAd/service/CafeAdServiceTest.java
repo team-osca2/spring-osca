@@ -30,12 +30,12 @@ public class CafeAdServiceTest {
     public void updateDeadlineDateTest(){
         TicketDTO ticketDTO = TicketDTO.builder()
                 .memberId(3L)
-                .cafeAdId(102L)
+                .cafeAdId(101L)
                 .ticketId(1L)
                 .ticketDuration(0L)
                 .ticketPoint(10000L)
                 .type(0)
                 .build();
-        assertThat(cafeAdService.updateDeadLineDate(ticketDTO)).isEqualTo(StateEnum.FAIL);
+        assertThat(cafeAdService.updateDeadLineDate(ticketDTO)).isEqualTo(StateEnum.SUCCESS);
     }
 }
