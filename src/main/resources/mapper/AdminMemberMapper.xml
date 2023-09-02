@@ -89,10 +89,10 @@
 
     <!-- 관리자 유저 정지 시키기-->
     <update id="updateStateBlock">
-    UPDATE TBL_MEMBER
-    SET MEMBER_BLOCKED = 1,
-    MEMBER_UPDATE_DATE = SYSDATE
-    WHERE ID = #{id}
+        UPDATE TBL_MEMBER
+        SET MEMBER_BLOCKED = 1,
+        MEMBER_UPDATE_DATE = SYSDATE
+         WHERE ID = #{id}
     </update>
 
     <!-- 관리자 유저 복구 시키기-->
@@ -114,7 +114,7 @@
         </select>
     <!-- 관리자 신고당한 유저 총 개수-->
     <select id="selectCountOfReportedMembers" resultType="_int">
-    SELECT COUNT(*) FROM TBL_MEMBER WHERE MEMBER_REPORT_NO > 0
+    SELECT COUNT(*) FROM TBL_MEMBER WHERE MEMBER_REPORT_NO > 0 AND MEMBER_BLOCKED = 0
         </select>
     <!-- 관리자 일반 유저 총 개수-->
     <select id="selectCountOfStudyMembers" resultType="_int">

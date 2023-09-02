@@ -7,11 +7,14 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class AdminPaymentDTO {
+
+public class AdminReplyDTO {
+
     private Long id;
-    private String ticketPoint;
-    private String ticketPurchaseDate;
-    private Integer status;
-    private String memberName;
+    private String replyContent;
+    private String studyTitle;
     private String memberNickname;
+    private String replyRegisterDate;
+    private String replyUpdateDate;
+    private String replyReportNo;
 }

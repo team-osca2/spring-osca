@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -34,15 +34,12 @@
         <!-- 사이드 바 -->
         <div th:replace="~{admin/board/all:: #sidebar}"> </div>
         <!-- 사이드 바 끝-->
-
         <div class="container">
             <div class="container-margin">
                 <!-- 헤더 -->
-                <div class="delete-box-layout">
-                    <div class="delete-box">
-                        <button class="delete-button">계정 정지</button>
-                    </div>
-                </div>
+                <!--                <form th:action="@{/admin/member/blockUsers}" name="blockUser" method="post">-->
+                <!--                    <input type="checkbox" name="userIds" value="{{user.id}}" />-->
+
 
                 <!-- 내용 섹션 -->
                 <section class="board-info-box-layout">
@@ -56,21 +53,16 @@
                             <table>
                                 <thead>
                                 <tr>
-                                    <th class="checkbox-line">
-                                        <input type="checkbox" id="allSelect">
-                                    </th>
-                                    <th>No</th>
+                                    <th>유저 고유번호</th>
                                     <th>유저 아이디</th>
                                     <th>유저 이름</th>
                                     <th>가입 날짜</th>
                                     <th>유저 유형</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="user : ${users}">
-                                    <td class="checkbox-line">
-                                        <input type="checkbox" name="check" />
-                                    </td>
                                     <td class="noticeId">
                                         <span th:text="${user.id}"></span>
                                     </td>
@@ -88,10 +80,14 @@
                                     <td>
                                         <span th:text="${user.memberRole == 1 ? '카페' : '스터디'}"></span>
                                     </td>
+                                    <td>
+                                        <span class="delete-indivisual"> 삭제 </span>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
+
                     </div>
                 </section>
 
@@ -111,6 +107,7 @@
                 <!-- 페이지 번호 끝 -->
             </div>
         </div>
+
     </div>
 </div>
 </body>
@@ -118,5 +115,4 @@
 <script src="/js/admin/checkbox.js"></script>
 <script src="/js/admin/board_proposal.js"></script>
 <script src="/js/admin/sidemenu.js"></script>
-
 </html>

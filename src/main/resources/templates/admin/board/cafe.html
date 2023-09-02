@@ -39,11 +39,6 @@
         <div class="container">
             <div class="container-margin">
                 <!-- 헤더 -->
-                <div class="delete-box-layout">
-                    <div class="delete-box">
-                        <button class="delete-button">게시글 삭제</button>
-                    </div>
-                </div>
 
                 <!-- 내용 섹션 -->
                 <section class="board-info-box-layout">
@@ -57,24 +52,21 @@
                             <table>
                                 <thead>
                                 <tr>
-                                    <th class="checkbox-line">
-                                        <input type="checkbox" id="allSelect">
-                                    </th>
+
                                     <th>게시글ID</th>
-                                    <th>카페 게시글 제목</th>
+                                    <th>카페 게시글명</th>
                                     <th>카페명</th>
                                     <th>작성자 아이디</th>
                                     <th>작성 날짜</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tr>
                                     <tbody>
                                     <tr th:each="post : ${posts}">
-                                        <td class="checkbox-line">
-                                            <input type="checkbox" name="check">
-                                        </td>
+
                                         <td class="noticeId">
-                                            <span th:text="${post.id}"></span>
+                                            <span class="postId" th:text="${post.id}"></span>
                                         </td>
                                         <td>
                                             <a href="">
@@ -90,6 +82,9 @@
                                         </td>
                                         <td>
                                             <span th:text="${post.cafeAdRegisterDate}"></span>
+                                        </td>
+                                        <td>
+                                            <span class="delete-boardCC"> 삭제 </span>
                                         </td>
                                     </tr>
                                     <tbody/>
