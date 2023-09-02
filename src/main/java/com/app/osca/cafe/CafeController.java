@@ -65,7 +65,7 @@ public class CafeController {
             return "index";
         }
         model.addAttribute("cafe", cafe.get());
-        return "cafe/cafe_detail";
+        return "cafe/cafe_detail2";
     }
 
     @GetMapping("/ticket-purchase")
