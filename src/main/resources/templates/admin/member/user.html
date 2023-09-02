@@ -38,11 +38,7 @@
         <div class="container">
             <div class="container-margin">
                 <!-- 헤더 -->
-                <div class="delete-box-layout">
-                    <div class="delete-box">
-                        <button class="delete-button">계정 정지</button>
-                    </div>
-                </div>
+
 
                 <!-- 내용 섹션 -->
                 <section class="board-info-box-layout">
@@ -56,20 +52,16 @@
                             <table>
                                 <thead>
                                 <tr>
-                                    <th class="checkbox-line">
-                                        <input type="checkbox" id="allSelect">
-                                    </th>
-                                    <th>No</th>
+
+                                    <th>유저 고유번호</th>
                                     <th>유저 아이디</th>
                                     <th>유저 이름</th>
                                     <th>가입 날짜</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="user : ${users}">
-                                    <td class="checkbox-line">
-                                        <input type="checkbox" name="check" />
-                                    </td>
                                     <td class="noticeId">
                                         <span th:text="${user.id}"></span>
                                     </td>
@@ -83,6 +75,9 @@
                                     </td>
                                     <td>
                                         <span th:text="${user.memberRegisterDate}"></span>
+                                    </td>
+                                    <td>
+                                        <span class="delete-indivisual"> 삭제 </span>
                                     </td>
                                 </tr>
                                 </tbody>

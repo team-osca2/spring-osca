@@ -23,7 +23,7 @@ public interface AdminMemberService {
     public List<MemberVO> getBlockedUser(Pagination pagination);
 
     //    <!-- 관리자 유저 정지 시키기-->
-    public void remove(Long id);
+    public void block(Long id);
 
     //    <!-- 관리자 유저 복구 시키기-->
     public void restore(Long id);

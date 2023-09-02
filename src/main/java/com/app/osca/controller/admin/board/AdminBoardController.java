@@ -4,11 +4,13 @@ import com.app.osca.domain.dto.AdminCafeAdDTO;
 import com.app.osca.domain.dto.AdminStudyDTO;
 import com.app.osca.domain.paging.Pagination;
 import com.app.osca.service.admin.AdminCafeAdService;
+import com.app.osca.service.admin.AdminReplyService;
 import com.app.osca.service.admin.AdminStudyService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,11 +19,14 @@ import java.util.List;
 public class AdminBoardController {
     private final AdminCafeAdService adminCafeAdService;
     private final AdminStudyService adminStudyService;
-
-    public AdminBoardController(AdminCafeAdService adminCafeAdService, AdminStudyService adminStudyService) {
+    private final AdminReplyService adminReplyService;
+    public AdminBoardController(AdminCafeAdService adminCafeAdService, AdminStudyService adminStudyService, AdminReplyService adminReplyService) {
         this.adminCafeAdService = adminCafeAdService;
         this.adminStudyService = adminStudyService;
+        this.adminReplyService = adminReplyService;
     }
+
+
     @GetMapping(value = {"", "/"})
     public String getAllBoards(Model model, Pagination pagination){
         pagination.setTotal(adminStudyService.getTotalStudyAndCafe());
@@ -69,5 +74,64 @@ public class AdminBoardController {
     }
 
 
+    @PutMapping("/cafeBlockPost")
+    public ResponseEntity<String> removeCafeBoards(@RequestBody Long id) {
+        try {
+            adminStudyService.remove(id);
+            return new ResponseEntity<>("성공적으로 삭제 되었습니다", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("실패했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/studyBlockPost")
+    public ResponseEntity<String> removeStudyBoards(@RequestBody Long id) {
+        try {
+            adminCafeAdService.remove(id);
+            return new ResponseEntity<>("성공적으로 삭제 되었습니다", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("실패했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/studyRestorePost")
+    public ResponseEntity<String> restoreStudyBoards(@RequestBody Long id) {
+        try {
+            adminStudyService.recover(id);
+            return new ResponseEntity<>("성공적으로 복구 되었습니다", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("실패했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/cafeRestorePost")
+    public ResponseEntity<String> restoreCafeBoards(@RequestBody Long id) {
+        try {
+            adminCafeAdService.restore(id);
+            return new ResponseEntity<>("성공적으로 복구 되었습니다", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("실패했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/deleteReply")
+    public ResponseEntity<String> removeReply(@RequestBody Long id) {
+        try {
+            adminReplyService.delete(id);
+            return new ResponseEntity<>("성공적으로 삭제 되었습니다", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("실패했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/restoreReply")
+    public ResponseEntity<String> restoreReply(@RequestBody Long id) {
+        try {
+            adminReplyService.recover(id);
+            return new ResponseEntity<>("성공적으로 복구 되었습니다", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("실패했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
 

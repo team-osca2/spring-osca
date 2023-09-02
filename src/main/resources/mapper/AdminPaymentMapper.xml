@@ -2,11 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.AdminPaymentMapper">
 
-    <select id="selectAll" resultType="PaymentDTO">
-    SELECT P.ID, M.MEMBER_NAME, M.MEMBER_NICKNAME, PAYMENT_DATE, PAYMENT_PRICE, PAYMENT_STATUS
-    FROM TBL_PAYMENT P
-    JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
-    ORDER BY PAYMENT_DATE DESC
+
+    <select id="selectAll" resultType="adminPaymentDTO">
+        SELECT * FROM (
+        SELECT ROWNUM RN, ID, TICKET_PURCHASE_DATE, MEMBER_NICKNAME, MEMBER_NAME, TICKET_POINT, STATUS
+        FROM (
+        SELECT TP.ID, TP.TICKET_PURCHASE_DATE, M.MEMBER_NICKNAME, M.MEMBER_NAME, T.TICKET_POINT, TP.STATUS
+        FROM
+        TBL_TICKET_PURCHASE TP
+        JOIN
+        TBL_TICKET T ON TP.TICKET_ID = T.ID
+        JOIN
+        TBL_MEMBER M ON TP.MEMBER_ID = M.ID
+        ORDER BY
+        TICKET_PURCHASE_DATE DESC
+        )
+    <![CDATA[
+        WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+    ) <![CDATA[
+WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount} -- 원하는 범위의 시작 값
+]]>
     </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        <selectKey keyProperty="id" resultType="long" order="BEFORE">
+            SELECT SEQ_TBL_FAQ.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TBL_FAQ (ID, FAQ_TITLE, FAQ_CONTENT, FAQ_TYPE)
+        VALUES(#{id}, #{title}, #{content}, #{type})
+    </insert>
+
+    <!--    총 개수-->
+    <select id="selectCountOfPurchase" resultType="_int">
+    SELECT COUNT(*) FROM TBL_TICKET_PURCHASE
+        </select>
 
 </mapper>

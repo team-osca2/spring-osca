@@ -2,12 +2,12 @@ package com.app.osca.service.admin;
 
 import com.app.osca.dao.AdminMemberDAO;
 import com.app.osca.domain.MemberVO;
-import com.app.osca.domain.dto.AdminStudyDTO;
 import com.app.osca.domain.paging.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -52,13 +52,14 @@ public class AdminMemberServiceImpl implements AdminMemberService {
         return blockedUsers;
     }
 
-
     //    <!-- 관리자 유저 정지 시키기-->
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void remove(Long id) {
+    public void block(Long id) {
         adminMemberDAO.updateUserBlock(id);
     }
+
+
     //    <!-- 관리자 유저 정지 해제 시키기-->
     @Override
     @Transactional(rollbackFor = Exception.class)
