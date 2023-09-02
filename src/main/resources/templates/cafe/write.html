@@ -1,182 +1,110 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/header/header.css"/>
     <link rel="stylesheet" href="/css/footer/footer.css"/>
     <link rel="stylesheet" href="/images/favicon.png">
-    <link rel="stylesheet" href="/css/cafe/write.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/cafe/write.css">
     <title>writeCafePost</title>
 </head>
 <body class="body" style="padding-right:0px;">
 <div id="__next">
     <div class="cafePost">
-        <header class="header-wrapper">
-            <section class="header-container">
-                <a href="/" aria-label="logo" class="header-logo">
-                    <img src="/images/logo.png" alt="오!스카 로고" style="width:70px; height: 40px;">
-                </a>
-                <div>
-                    <span class="header-line"></span>
-                    <a href="" class="header-menu">오늘의 스터디</a>
-                    <a href="" class="header-menu">오늘의 카페</a>
-                    <a href="" class="header-menu">FAQ</a>
-                    <a href="" class="header-menu">Oh!스카 소개</a>
-                </div>
-                <div style="flex-grow:1"></div>
-                <div class="header-aside">
-                    <a role="link" color="default" href="/inboxes?inbox_group_id=&amp;partner_id=" class="header-aside-menu" aria-expanded="false">
-                            <span class="aside-menu-contents">
-                                <p variant="body2" class="aside-contents" color="gray900">회원가입</p>
-                            </span>
-                    </a>
-                    <a role="link" color="default" href="/inboxes?inbox_group_id=&amp;partner_id=" class="header-aside-menu" aria-expanded="false">
-                            <span class="aside-menu-contents">
-                                <p variant="body2" class="aside-contents" color="gray900">로그인</p>
-                            </span>
-                    </a>
-                    <a role="link" color="default" href="/inboxes?inbox_group_id=&amp;partner_id=" class="header-aside-menu" aria-expanded="false">
-                            <span class="aside-menu-contents">
-                                <p variant="body2" class="aside-contents" color="gray900">마이페이지</p>
-                            </span>
-                    </a>
-                    <div>
-                        <div class="header-profile" aria-expanded="false">
-                            <a href="/buyer/order-list" class="profile-link">
-                                <div class="profile-wrapper">
-                                    <div size="32" shape="0" role="article" class="profile-shape">
-                                        <img src="https://kmong.com/img/tools/main_user_gray.png" alt="avatar" shape="0" loading="lazy" class="profile-img" style="height: 32px; width: 32px;">
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </header>
-        <form class="form">
+        <!-- 헤더 시작 -->
+        <div th:if="${session.id == null}"><header th:replace="~{/fix/header :: unlogined-header}"></header></div>
+        <div th:if="${session.id != null && session.memberRole == 2}"><header th:replace="~{/fix/header :: social-logined-header}"></header></div>
+        <div th:if="${session.id != null && session.memberRole == null}"><header th:replace="~{/fix/header :: logined-header}"></header></div>
+        <form id="form" class="form" th:object="${cafeVO}" onsubmit="return false;" >
             <div class="form-content">
-                <nav class="side-navigation">
-                    <div class="side-navigation-row">
-                        <div class="navigation-row active">
-                            <div class="row-number">1</div>
-                            <span class="row-title">카페 정보</span>
-                        </div>
-                        <div class="navigation-row">
-                            <div class="row-number">2</div>
-                            <span class="row-title">카페 위치</span>
-                        </div>
-                        <div class="navigation-row">
-                            <div class="row-number">3</div>
-                            <span class="row-title">소개글</span>
-                        </div>
-                        <div class="navigation-row">
-                            <div class="row-number">4</div>
-                            <span class="row-title">홍보권 선택</span>
-                        </div>
-                    </div>
-                </nav>
+<!--                <nav class="side-navigation">-->
+<!--                    <div class="side-navigation-row">-->
+<!--                        <div class="navigation-row active">-->
+<!--                            <div class="row-number">1</div>-->
+<!--                            <span class="row-title">카페 정보</span>-->
+<!--                        </div>-->
+<!--                        <div class="navigation-row">-->
+<!--                            <div class="row-number">2</div>-->
+<!--                            <span class="row-title">카페 위치</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </nav>-->
                 <div class="main-content">
                     <section id="information" class="information">
                         <span class="content-category">카페 정보</span>
-                        <div class="content-area">
-                            <div class="content-area-style">
-                                <div class="content-section">
-                                    <div class="cafe-introduction-section">
-                                        <div class="side-profile">
-                                            <div name="profile_thumbnail" class="profile-thumbnail">
-                                                <div size="102" shape="0" role="article" class="thumbnail-box">
-                                                    <img src="https://d2v80xjmx68n4w.cloudfront.net/members/thumbs/liZ7N1582284577.jpg" alt="avatar" shape="0" loading="lazy" class="thumbnail-img">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cafe-introduction">
-                                            <div class="cafe-introduction-box">
-                                                <div class="box-directory brand-name">
-                                                    <span class="directory-title cafe-brand">카페 이름</span>
-                                                    <textarea placeholder="카페 이름을 알려주세요." maxlength="50" class="directory-context"></textarea>
-                                                    <span class="text-number">0/50</span>
-                                                </div>
-                                                <div class="box-directory items">
-                                                    <span class="directory-title compact-intro">간단 소개</span>
-                                                    <textarea placeholder="카페 메뉴 등 간단한 정보를 입력해 주세요." maxlength="255" class="directory-context"></textarea>
-                                                    <span class="text-number">0/255</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section id="location" class="location section information">
-                        <span direction="row" class="content-category">카페 위치</span>
-                        <div class="box-directory location-row">
-                            <span class="directory-title title-location">지역</span>
-                            <!-- 검색 기능을 표시할 <div>를 생성한다 -->
-                            <div id="postcodify">
-                                <!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 id를 부여한다 -->
-                                <input type="text" name="postcode" id="postcode" value="" class="address-tag" style="width: 400px;" /><br />
-                                <input type="text" name="address" id="address" value="" class="address-tag" style="width: 400px;" /><br />
-                                <input type="text" name="details" id="details" value="" class="address-tag" style="width: 400px;" /><br />
-                                <input type="text" name="extra_info" id="extra_info" value="" class="address-tag" style="width: 400px;" /><br />
-                            </div>
-                        </div>
-                    </section>
-                    <section id="introduction" class="introduction section information">
-                        <span direction="row" class="content-category">소개글</span>
                         <div class="sub-container">
                             <div class="introduction">
                                 <div class="introduction-box">
                                     <div class="box-directory brand-name">
-                                        <span class="directory-title cafe-brand">소개글 제목</span>
-                                        <textarea placeholder="소개글 제목을 적어주세요." maxlength="50" class="directory-context"></textarea>
-                                        <span class="text-number">0/50</span>
+                                        <span class="directory-title cafe-brand">사업자 번호</span>
+                                        <label>
+                                            <input type="text" placeholder="사업자 번호를 입력해주세요.(-포함)" maxlength="12" th:field="*{cafeBusinessNumber}" class="directory-context"/>
+                                        </label>
                                     </div>
-                                    <div class="box-directory intro-items">
-                                        <span class="directory-title compact-intro">소개글</span>
-                                        <textarea placeholder="소개글을 작성해 주세요." maxlength="255" class="directory-context"></textarea>
-                                        <span class="text-number">0/500</span>
+                                    <div class="box-directory brand-name">
+                                        <span class="directory-title cafe-brand">카페 이름</span>
+                                        <label>
+                                            <input type="text" placeholder="카페 이름을 입력해주세요." maxlength="20" th:field="*{cafeName}" class="directory-context"/>
+                                        </label>
+<!--                                        <span class="text-number">0/20</span>-->
+                                    </div>
+                                    <div class="box-directory brand-name">
+                                        <span class="directory-title cafe-brand">카페 이메일</span>
+                                        <label>
+                                            <input type="email" placeholder="카페 이메일을 입력해주세요." th:field="*{cafeContactEmail}" class="directory-context"/>
+                                        </label>
+                                        <span class="directory-title cafe-brand">카페 전화번호</span>
+                                        <label>
+                                            <input type="text" placeholder="카페 전화번호를 입력해주세요." th:field="*{cafeContactPhonenumber}" class="directory-context"/>
+                                        </label>
+                                    </div>
+                                    <div class="box-directory brand-name">
+                                        <span class="directory-title cafe-brand">오픈 시간</span>
+                                        <label>
+                                            <input type="time" name="cafeOpenTime" value="09:00" class="directory-context" />
+                                        </label>
+                                        ~
+                                        <span class="directory-title cafe-brand">마감 시간</span>
+                                        <label>
+                                            <input type="time" name="cafeEndTime" value="23:00" class="directory-context" />
+                                        </label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section id="advertisement" class="advertisement information">
-                        <span direction="row" class="content-category">홍보권 선택</span>
-                        <div class="adv-choice box-directory adv-directory">
-                            <span class="use-or-not">홍보권 사용 여부</span>
-                            <div class="choice-box">
-                                <div class="choices">
-                                    <label color="#ffd400" class="choice-label">
-                                            <span class="choice-content">
-                                                <input data-testid="radio" type="radio" class="radio__input">
-                                                <span color="#ffd400" class="radio__inner"></span>
-                                                <span class="choice">사용할래요</span>
-                                            </span>
-                                    </label>
-                                </div>
-                                <div class="choices">
-                                    <label color="#ffd400" class="choice-label">
-                                            <span class="choice-content">
-                                                <input data-testid="radio" type="radio" class="radio__input">
-                                                <span color="#ffd400" class="radio__inner"></span>
-                                                <span class="choice">괜찮아요</span>
-                                            </span>
-                                    </label>
+
+                    <section id="location" class="location section information">
+                        <span direction="row" class="content-category">카페 위치</span>
+                        <div class="sub-container">
+                            <div class="introduction">
+                                <div class="introduction-box">
+                                    <div class="box-directory brand-name" id="postcodify_search_button">
+                                        <span class="directory-title cafe-brand">주소</span>
+                                        <label for="address">
+                                            <input type="text" id="address" placeholder="클릭해주세요" value="" class="directory-context postcodify_address" style="cursor: default;" readonly/>
+                                        </label>
+                                    </div>
+                                    <div class="box-directory brand-name">
+                                        <span class="directory-title cafe-brand">상세 주소</span>
+                                        <label for="address_detail">
+                                            <input type="text" id="address_detail" placeholder="상세주소를 입력해주세요" class="directory-context postcodify_details" value=""/>
+                                        </label>
+                                    </div>
+                                    <input type="text" th:field="*{cafeLocation}" hidden>
                                 </div>
                             </div>
                         </div>
                     </section>
+
+
                 </div>
             </div>
             <footer class="footer">
-                <div class="save-button">
-                    <button role="button" color="yellow" class="css-ekg1um eklkj752">
-                        <span class="css-1oteowz eklkj751">등록하기</span>
+                <div class="save-button-box">
+                    <button type="button" role="button" class="save-button">
+                        <span class="save-button-text">등록하기</span>
                     </button>
                 </div>
             </footer>
@@ -184,7 +112,12 @@
     </div>
 </div>
 </body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script src="http://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+
+<script>
+    // 주소 찾기
+    $(function() { $("#postcodify_search_button").postcodifyPopUp(); });
+</script>
 <script src="/js/cafe/write.js"></script>
 </html>
