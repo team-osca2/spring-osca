@@ -2,7 +2,9 @@
 
 $(document).ready(function () {
    const list = $('.list-panel-wrapper');
-
+    const openToggle = () => $(".modal2").toggleClass("hidden");
+   $(".cancel-btn1").on("click", openToggle);
+   $(".accept-btn1").on("click", openToggle);
    const elapsedTime = (date) => {
       const end = new Date(date);
       const start = new Date();
@@ -57,8 +59,8 @@ $(document).ready(function () {
                 <div class="panel-wrapper">
                     <div class="item-wrapper position-relative flex-center-center">
                    ` +
-          (deadlineDate === '' ? '' : dropdown)
-          +`
+                      (deadlineDate === '' ? '' : dropdown)
+                      +`
                         <div class="main-image-wrapper border-opacity" style="background-image: url('${img}'); background-repeat : no-repeat; background-size : 100px;"></div>
                         <div class="item-content-wrapper">
                             <div>
@@ -92,21 +94,48 @@ $(document).ready(function () {
         `)
    }
 
-   const drawPanel = (cafes) => {
+    const panel2 = (data) => {
+       const backgroundColor = data.cafeAdCount !== 0 ? "#144F79" : "#d51e14";
+       const content = data.cafeAdCount !== 0 ? "홍보 중" : "홍보 미진행";
+        return (`
+                <div class="panel-wrapper">
+                    <div class="panel-cafe-wrapper">
+                       
+                        <div style="width: 40%">
+                            <div class="breadcrumb-wrapper flex-left-center" style="margin-top: 1px;">
+                                <div class="status-label">
+                                    <span class="label-chip font-medium" style="background-color: ${backgroundColor};">${content}</span>
+                                </div>
+                                <span class="border-color margin-left-5 margin-right-5">|</span>
+                                <span>${data.cafeName}</span>
+                            </div>
+                        </div>
+                        <div class="date-wrapper" style="width: 100%">
+                            <span class="margin-right-5" style="font-size: 14px;">주소 :  ${data.cafeLocation}</span>
+                        </div>
+                        
+                        <div class="card-dropdown cafe-wrapper-dropdown">
+                            <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/ic_more.svg" alt="더보기 아이콘">
+                            <ul class="dropdown-menu my-gigs-settings-dropdown-menu ">
+                                <li><a class="dropdown-link">수정</a></li>
+                                <li><a class="dropdown-link delete-btn">삭제</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        `)
+    }
+
+   const drawPanel = (cafes, isCafe = false) => {
        let text = '';
        cafes?.forEach((cafe) => {
-           text += panel(cafe);
+           text += isCafe ? panel2(cafe) : panel(cafe);
        });
        if(text === ''){
            text = '<h3 style="color: #c1c1c1;position: absolute; top: 50%; left: 50%">아직 아무런 게시물이 없어요.</h3>'
        }
        list.html(text);
        setInterval(() => list.find('.tahoma').each((idx, data) => $(data).text(elapsedTime($(data).attr('data-date')))), 1000);
-
-       const openToggle = () => $(".modal2").toggleClass("hidden")
-
-       $(".cancel-btn1").on("click", openToggle);
-       $(".accept-btn1").on("click", openToggle);
 
        $(".card-dropdown").on(
            {"mouseover":function(){
@@ -126,12 +155,20 @@ $(document).ready(function () {
 
     drawPanel(myCafeList);
 
-   const datas = [myCafeList, myCafeList.filter(cafe => elapsedTime(cafe.cafeAdDeadlineDate) !== ''), myCafeList.filter(cafe => elapsedTime(cafe.cafeAdDeadlineDate) === '')];
+   const myCafes = [];
+    (async () => await fetch("/cafe/my-cafe-info").then(response => response.json()).then(datas => Array.isArray(datas) ? datas.forEach(data => myCafes.push(data)) : myCafes.push(datas)))();
+
+   const datas = [myCafeList,
+       myCafeList.filter(cafe => elapsedTime(cafe.cafeAdDeadlineDate) !== ''),
+       myCafeList.filter(cafe => elapsedTime(cafe.cafeAdDeadlineDate) === ''),
+       myCafes
+   ];
 
     $('.panel').each((idx, data) => {
         $(data).on('click', () => {
             $('.panel').removeClass('side-content-all-weight');
             $(data).addClass('side-content-all-weight');
-            drawPanel(datas[idx])});
+            drawPanel(datas[idx], idx === 3);
+        });
     })
 })

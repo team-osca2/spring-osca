@@ -731,3 +731,17 @@ img {
 .hidden {
     display: none;
 }
+
+.panel-cafe-wrapper {
+    position: relative;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cafe-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

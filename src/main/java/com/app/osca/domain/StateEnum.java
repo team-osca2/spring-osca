@@ -20,6 +20,6 @@ public enum StateEnum {
     }
 
     public static StateEnum toStateEnum(Integer currentState){
-        return currentState.equals(UpdateState.SUCCESS) ? SUCCESS : FAIL;
+        return currentState.equals(UpdateState.FAIL) ? FAIL : SUCCESS;
     }
 }

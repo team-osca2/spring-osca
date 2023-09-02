@@ -1,5 +1,6 @@
 package com.app.osca.service.cafeAd;
 
+import com.app.osca.domain.CafeVO;
 import com.app.osca.domain.StateEnum;
 import com.app.osca.domain.dto.cafeAd.CafeAdDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
@@ -18,4 +19,6 @@ public interface CafeAdService {
     public List<CafeAdDTO> getMyCafeAdList(Long memberId, Integer blocked);
 
     public StateEnum updateDeadLineDate(TicketDTO ticketDTO);
+
+    public StateEnum write(CafeVO cafeVO);
 }

@@ -2,10 +2,12 @@ package com.app.osca.cafe;
 
 import com.app.osca.domain.CafeVO;
 import com.app.osca.domain.StateEnum;
+import com.app.osca.domain.dto.cafe.CafeAdCountDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import com.app.osca.domain.dto.ticket.TicketDTO;
 import com.app.osca.domain.paging.Criteria;
 import com.app.osca.handler.MemberIdNotFoundException;
+import com.app.osca.service.cafe.CafeService;
 import com.app.osca.service.cafeAd.CafeAdService;
 import com.app.osca.service.ceo.CeoService;
 import com.app.osca.service.ticket.TicketService.TicketService;
@@ -14,8 +16,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.mail.Session;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -26,6 +30,7 @@ public class CafeController {
 
     final private CafeAdService cafeAdService;
     final private TicketService ticketService;
+    final private CafeService cafeService;
     final private CeoService ceoService;
 
     @GetMapping(value = {"", "/"})
@@ -41,11 +46,16 @@ public class CafeController {
         model.addAttribute("myCafeList", cafeAdService.getMyCafeAdList(3L, 0));
     }
 
-
-
     @GetMapping("/write")
     public void goToCafeWrite(Model model,CafeVO cafeVO){
         ;
+    }
+
+    @PostMapping("/write")
+    public RedirectView saveWrite(CafeVO cafeVO){
+        cafeVO.setMemberId(3L);
+        cafeAdService.write(cafeVO);
+        return new RedirectView("");
     }
 
     @GetMapping("/detail/{id}")
@@ -73,6 +83,12 @@ public class CafeController {
 //        ticketDTO.setMemberId(Session.memberId);
         ticketDTO.setMemberId(3L);
         return cafeAdService.updateDeadLineDate(ticketDTO);
+    }
+
+    @GetMapping("/my-cafe-info")
+    @ResponseBody
+    public List<CafeAdCountDTO> getMyCafeInfoList(){
+        return cafeService.getList(3L);
     }
 
 }

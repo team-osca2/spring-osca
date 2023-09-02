@@ -1,8 +1,10 @@
 package com.app.osca.service.cafeAd;
 
 import com.app.osca.dao.CafeAdDAO;
+import com.app.osca.dao.CafeDAO;
 import com.app.osca.dao.CeoDAO;
 import com.app.osca.dao.TicketPurchaseDAO;
+import com.app.osca.domain.CafeVO;
 import com.app.osca.domain.StateEnum;
 import com.app.osca.domain.dto.cafeAd.CafeAdDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
@@ -21,6 +23,7 @@ import java.util.Optional;
 public class CafeAdServiceImpl implements CafeAdService {
 
     final private CafeAdDAO cafeAdDAO;
+    final private CafeDAO cafeDAO;
     final private TicketPurchaseDAO ticketPurchaseDAO;
     final private CeoDAO ceoDAO;
 
@@ -41,6 +44,8 @@ public class CafeAdServiceImpl implements CafeAdService {
         return cafeAdDAO.findAllByMemberIdAndBlockedIsOrderByCafeAdDeadlineDateOrderById(memberId, blocked);
     }
 
+
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public StateEnum updateDeadLineDate(TicketDTO ticketDTO) {
@@ -48,5 +53,11 @@ public class CafeAdServiceImpl implements CafeAdService {
         boolean ticketPurchaseState = ticketPurchaseDAO.save(ticketDTO.toTicketPurchaseDTO()) == StateEnum.SUCCESS;
         boolean ceoPointUpdateState = ceoDAO.modify(ticketDTO.toCeoDTO()) == StateEnum.SUCCESS;
         return (adUpdateState && ticketPurchaseState && ceoPointUpdateState) ? StateEnum.SUCCESS : StateEnum.FAIL;
+    }
+
+    @Override
+    public StateEnum write(CafeVO cafeVO) {
+        boolean cafeWriteState = cafeDAO.save(cafeVO) == StateEnum.SUCCESS;
+        return cafeWriteState ? StateEnum.SUCCESS : StateEnum.FAIL;
     }
 }
