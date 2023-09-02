@@ -19,10 +19,10 @@
             통신판매업신고 : 2015 - 서울강남 - 03148호 | 02-2135-2949<br>
             koreais@koreaedugroup.com
         </ol>
-        <ol><a href="">오늘의 스터디</a></ol>
-        <ol><a href="">오늘의 카페</a></ol>
-        <ol><a href="">FAQ</a></ol>
-        <ol><a href="">OH!스카 소개</a></ol>
+        <ol><a href="/study">오늘의 스터디</a></ol>
+        <ol><a href="/cafe">오늘의 카페</a></ol>
+        <ol><a href="/FAQ/FAQ-main">FAQ</a></ol>
+        <ol><a href="/introduction">OH!스카 소개</a></ol>
         <ol><a onclick="gotoAdminpage()" style="cursor:pointer;">관리자</a></ol>
     </div>
     <div class="footer-media">
@@ -33,7 +33,27 @@
         <a href="">OH!스카 소개</a>&nbsp;
         <a onclick="gotoAdminpage()" style="cursor:pointer;">관리자</a>&nbsp;
     </div>
-    <script type="text/javascript" src="/js/fix/footer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        function gotoAdminpage(){
+            $.ajax({
+                type : 'GET',           // 타입 (get, post, put 등등)
+                url : '/checkAdmin',
+                dataType : 'text',
+                success : function(result) { // 결과 성공 콜백함수
+                    url = result.split("+")[1];
+                    code = result.split("+")[0]
+                    let input = prompt('관리자코드을 입력하세요');
+                    if (input === code) {
+                        location.href=url;
+                    }
+                },
+                error : function(request, status, error) { // 결과 에러 콜백함수
+                    console.log(error)
+                }
+            })
+        }
+    </script>
 </footer>
 <!-- 푸터 끝 -->
 </body>
