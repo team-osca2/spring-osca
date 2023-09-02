@@ -13,5 +13,25 @@
             WHERE CA.ID = #{id}
     </select>
 
+    <select id="selectAllMyCafes" resultType="com.app.osca.domain.dto.cafeAd.CafeAdDTO">
+        SELECT CA.ID ID, C.ID CAFE_ID, CAFE_AD_TITLE, CAFE_AD_CONTENTS, CAFE_AD_DEADLINE_DATE, CAFE_AD_BLOCKED
+        FROM TBL_CAFE C JOIN TBL_CAFE_AD CA ON C.ID = CA.CAFE_ID
+        WHERE C.MEMBER_ID = #{memberId} AND CAFE_AD_BLOCKED = #{blocked}
+        ORDER BY CAFE_AD_DEADLINE_DATE, ID
+    </select>
 
+    <update id="update">
+        UPDATE TBL_CAFE_AD
+        SET CAFE_AD_DEADLINE_DATE =
+        <choose>
+            <when test = "type == 0">
+                CAFE_AD_DEADLINE_DATE
+            </when>
+            <otherwise>
+                SYSDATE
+            </otherwise>
+        </choose>
+        + #{ticketDuration}
+        WHERE ID = #{id}
+    </update>
 </mapper>

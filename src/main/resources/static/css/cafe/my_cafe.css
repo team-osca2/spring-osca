@@ -57,7 +57,7 @@ a {
 body {
     letter-spacing: 0;
     font-size: 13px;
-    font-family: MetroSans;
+    font-family: "Metro Sans";
     font-weight: 400;
     background-color: #fff
 }
@@ -137,6 +137,7 @@ body {
     align-items: baseline;
 }
 .flex-left-center {
+    cursor: pointer;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -566,3 +567,181 @@ img {
     }
 }
 
+.main-wrapper .card-dropdown {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+}
+
+.main-wrapper .card-dropdown img {
+    width: 24px;
+}
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+.main-wrapper .card-dropdown .dropdown-menu {
+    padding: 0;
+    right: 0;
+    left: inherit;
+    border: 1px solid #f2f3f7;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.07);
+    min-width: 78px;
+}
+
+.dropdown-menu,
+.border-top-category,
+.alarm-dropdown-menu,
+.gig-detail-menu,
+.gig-count-word .count-words-menu,
+.interest-box,
+.user-bank-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    padding: 5px 0;
+    margin-top: 0px;
+    list-style: none;
+    font-size: 13px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px #ccc;
+    box-shadow: 0 1px 2px #ccc;
+    background-clip: padding-box;
+}
+
+.main-wrapper .card-dropdown .dropdown-link {
+    padding: 8px 12px;
+    text-align: center;
+    color: #303441;
+}
+
+.dropdown-menu > li > a,
+.border-top-category > li > a,
+.alarm-dropdown-menu > li > a,
+.gig-detail-menu > li > a,
+.gig-count-word .count-words-menu > li > a,
+.interest-box > li > a,
+.user-bank-dropdown-menu > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.5438;
+    color: #4d4d4d;
+    white-space: nowrap;
+}
+
+.display-open {
+    padding: 0;
+    right: 0;
+    left: inherit;
+    border: 1px solid #f2f3f7;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.07);
+    min-width: 78px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    padding: 5px 0;
+    margin-top: 0px;
+    list-style: none;
+    font-size: 13px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px #ccc;
+    box-shadow: 0 1px 2px #ccc;
+    background-clip: padding-box;
+}
+
+.display-open > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.5438;
+    color: #4d4d4d;
+    white-space: nowrap;
+}
+
+.display-open > li > a:hover {
+    background-color: #ccc;
+}
+
+.modal2{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.accept-btn1{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 13px;
+    margin-right: 10px;
+    border-radius: 8px;
+    color: #f0f1f5;
+    background-color: #F9A01B;
+    border-color: #F9A01B;
+}
+
+.cancel-btn1{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 13px;
+    border-radius: 8px;
+    color: #f0f1f5;
+    background-color: #F9A01B;
+    border-color: #F9A01B;
+    margin-left: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+.panel-cafe-wrapper {
+    position: relative;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cafe-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

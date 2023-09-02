@@ -1,5 +1,6 @@
 package com.app.osca.cafe.controller;
 
+import com.app.osca.domain.dto.cafeAd.CafeAdDTO;
 import com.app.osca.domain.dto.cafeAd.CafeAdDetailDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,6 +13,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.List;
 import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,30 +30,28 @@ public class CafeControllerTest{
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
+    private Object returnModel(final String URI, final String objectName) throws Exception {
+
+            return Objects.requireNonNull(mockMvc.perform(MockMvcRequestBuilders.get(URI))
+                        .andReturn()
+                        .getModelAndView()
+                    )
+                    .getModelMap()
+                    .get(objectName);
+    }
+
     @Test
     public void goToMyCafeListTest() throws Exception {
         assertThat(
-            Objects.requireNonNull(mockMvc.perform(MockMvcRequestBuilders.get("/cafe/my-cafe"))
-                    .andReturn()
-                    .getModelAndView()
-            )
-            .getModelMap()
-            .get("myCafeList")
-        ).isEqualTo("sdf");
+                ((List<CafeAdDTO>)returnModel("/cafe/my-cafe", "myCafeList")).get(0).getId()
+        ).isEqualTo(21L);
     }
 
     @Test
     public void goToDetailTest() throws Exception {
         long id = 2L;
         assertThat(
-                ((CafeAdDetailDTO)
-                    Objects.requireNonNull(mockMvc.perform(MockMvcRequestBuilders.get("/cafe/detail/" + id))
-                            .andReturn()
-                            .getModelAndView()
-                    )
-                    .getModelMap()
-                    .get("cafe")
-                ).getCafeId()
+                ((CafeAdDetailDTO) returnModel("/cafe/detail/" + id, "cafe")).getCafeId()
         ).isEqualTo(2L);
     }
 }

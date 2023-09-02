@@ -11,4 +11,15 @@
         FROM TBL_CAFE
         WHERE ID = #{id}
     </select>
+
+    <select id="selectByMemberId" resultType="com.app.osca.domain.dto.cafe.CafeAdCountDTO">
+        SELECT ID, CAFE_BUSINESS_NUMBER, CAFE_LOCATION, CAFE_NAME, CAFE_CONTACT_EMAIL, CAFE_CONTACT_PHONENUMBER, CAFE_OPEN_TIME, CAFE_END_TIME, MEMBER_ID, (SELECT COUNT(TCA.ID) FROM TBL_CAFE_AD TCA WHERE CAFE_ID =  TC.ID) CAFE_AD_COUNT
+        FROM TBL_CAFE TC
+        WHERE MEMBER_ID = #{memberId}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO TBL_CAFE(ID, CAFE_BUSINESS_NUMBER, CAFE_LOCATION, CAFE_NAME,CAFE_CONTACT_EMAIL, CAFE_CONTACT_PHONENUMBER, CAFE_OPEN_TIME, CAFE_END_TIME, MEMBER_ID)
+            VALUES(SEQ_CAFE.NEXTVAL, #{cafeBusinessNumber} , #{cafeLocation}, #{cafeName}, #{cafeContactEmail}, #{cafeContactPhonenumber}, #{cafeOpenTime}, #{cafeEndTime}, #{memberId})
+    </insert>
 </mapper>

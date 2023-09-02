@@ -11,4 +11,14 @@
         INSERT INTO TBL_CEO
         VALUES(#{memberId}, 0)
     </insert>
+
+    <update id="updatePoint">
+        UPDATE TBL_CEO
+        SET CEO_POINT = CEO_POINT - #{ticketPoint}
+        WHERE MEMBER_ID = #{memberId}
+    </update>
+    
+    <select id="selectMemberPoint" resultType="_int">
+        SELECT CEO_POINT FROM TBL_CEO WHERE MEMBER_ID = #{memberId}
+    </select>
 </mapper>

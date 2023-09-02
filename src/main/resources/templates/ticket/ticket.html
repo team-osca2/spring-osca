@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,50 +13,10 @@
 </head>
 <body>
 <div id="__next">
-    <header class="header-wrapper">
-        <section class="header-container">
-            <a href="/" aria-label="logo" class="header-logo">
-                <img src="/images/logo.png" alt="오!스카 로고" style="width:70px; height: 40px;">
-            </a>
-            <div>
-                <span class="header-line"></span>
-                <a href="" class="header-menu">오늘의 스터디</a>
-                <a href="" class="header-menu">오늘의 카페</a>
-                <a href="" class="header-menu">FAQ</a>
-                <a href="" class="header-menu">Oh!스카 소개</a>
-            </div>
-            <div style="flex-grow:1"></div>
-            <div class="header-aside">
-                <a role="link" color="default" href="/inboxes?inbox_group_id=&amp;partner_id=" class="header-aside-menu" aria-expanded="false">
-                        <span class="aside-menu-contents">
-                            <p variant="body2" class="aside-contents" color="gray900">회원가입</p>
-                        </span>
-                </a>
-                <a role="link" color="default" href="/inboxes?inbox_group_id=&amp;partner_id=" class="header-aside-menu" aria-expanded="false">
-                        <span class="aside-menu-contents">
-                            <p variant="body2" class="aside-contents" color="gray900">로그인</p>
-                        </span>
-                </a>
-                <a role="link" color="default" href="/inboxes?inbox_group_id=&amp;partner_id=" class="header-aside-menu" aria-expanded="false">
-                        <span class="aside-menu-contents">
-                            <p variant="body2" class="aside-contents" color="gray900">마이페이지</p>
-                        </span>
-                </a>
-                <div>
-                    <div class="header-profile" aria-expanded="false">
-                        <a href="/buyer/order-list" class="profile-link">
-                            <div class="profile-wrapper">
-                                <div size="32" shape="0" role="article" class="profile-shape">
-                                    <img src="https://kmong.com/img/tools/main_user_gray.png" alt="avatar" shape="0" loading="lazy" class="profile-img" style="height: 32px; width: 32px;">
-                                </div>
-                            </div>
-
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </header>
+    <!-- 헤더 시작 -->
+    <div th:if="${session.id == null}"><header th:replace="~{/fix/header :: unlogined-header}"></header></div>
+    <div th:if="${session.id != null && session.memberRole == 2}"><header th:replace="~{/fix/header :: social-logined-header}"></header></div>
+    <div th:if="${session.id != null && session.memberRole == null}"><header th:replace="~{/fix/header :: logined-header}"></header></div>
     <main>
         <div class="pay-service pay-service-container">
             <h1 class="pay-content1 pay-content-title">
@@ -76,126 +36,9 @@
                     <section class="coupon-list-wrapper">
                         <!-- 쿠폰 리스트 -->
                         <ul class="coupon-list">
-                            <li class="coupon-list-element">
-                                <section class="coupon-sale">
-                                    <h2>
-                                        7일
-                                        홍보권
-                                    </h2>
-                                </section>
-                                <h2 class="coupon-benefit">10,000 point</h2>
-                                <p class="coupon-benefit-detail">현재 소유하고 계신 포인트에서 1,000포인트가 차감됩니다.</p>
-                                <section class="coupon-dday-detail-wrapper">
-                                    <div class="coupon-dday-detail">
-                                        쿠폰 구매 후 7일 동안 카페 홍보가 가능합니다.
-                                    </div>
-                                </section>
-                                <div class="coupon-benefit-category-wrapper">
-                                    <div class="coupon-benefit-category">
-                                        즉시 사용 가능
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="coupon-list-element">
-                                <section class="coupon-sale">
-                                    <h2>
-                                        14일
-                                        홍보권
-                                    </h2>
-                                </section>
-                                <h2 class="coupon-benefit">16,000 point</h2>
-                                <p class="coupon-benefit-detail">현재 소유하고 계신 포인트에서 1,000포인트가 차감됩니다.</p>
-                                <section class="coupon-dday-detail-wrapper">
-                                    <div class="coupon-dday-detail">
-                                        쿠폰 구매 후 14일 동안 카페 홍보가 가능합니다.
-                                    </div>
-                                </section>
-                                <div class="coupon-benefit-category-wrapper">
-                                    <div class="coupon-benefit-category">
-                                        즉시 사용 가능
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="coupon-list-element">
-                                <section class="coupon-sale">
-                                    <h2>
-                                        30일
-                                        홍보권
-                                    </h2>
-                                </section>
-                                <h2 class="coupon-benefit">30,000 point</h2>
-                                <p class="coupon-benefit-detail">현재 소유하고 계신 포인트에서 3,000포인트가 차감됩니다.</p>
-                                <section class="coupon-dday-detail-wrapper">
-                                    <div class="coupon-dday-detail">
-                                        쿠폰 구매 후 30일 동안 카페 홍보가 가능합니다.
-                                    </div>
-                                </section>
-                                <div class="coupon-benefit-category-wrapper">
-                                    <div class="coupon-benefit-category">
-                                        즉시 사용 가능
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="coupon-list-element">
-                                <section class="coupon-sale">
-                                    <h2>
-                                        60일
-                                        홍보권
-                                    </h2>
-                                </section>
-                                <h2 class="coupon-benefit">58,000 point</h2>
-                                <p class="coupon-benefit-detail">현재 소유하고 계신 포인트에서 3,000포인트가 차감됩니다.</p>
-                                <section class="coupon-dday-detail-wrapper">
-                                    <div class="coupon-dday-detail">
-                                        쿠폰 구매 후 60일 동안 카페 홍보가 가능합니다.
-                                    </div>
-                                </section>
-                                <div class="coupon-benefit-category-wrapper">
-                                    <div class="coupon-benefit-category">
-                                        즉시 사용 가능
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="coupon-list-element">
-                                <section class="coupon-sale">
-                                    <h2>
-                                        90일
-                                        홍보권
-                                    </h2>
-                                </section>
-                                <h2 class="coupon-benefit">85,000 point</h2>
-                                <p class="coupon-benefit-detail">현재 소유하고 계신 포인트에서 8,500포인트가 차감됩니다.</p>
-                                <section class="coupon-dday-detail-wrapper">
-                                    <div class="coupon-dday-detail">
-                                        쿠폰 구매 후 90일 동안 카페 홍보가 가능합니다.
-                                    </div>
-                                </section>
-                                <div class="coupon-benefit-category-wrapper">
-                                    <div class="coupon-benefit-category">
-                                        즉시 사용 가능
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="coupon-list-element">
-                                <section class="coupon-sale">
-                                    <h2>
-                                        180일
-                                        홍보권
-                                    </h2>
-                                </section>
-                                <h2 class="coupon-benefit">150,000 point</h2>
-                                <p class="coupon-benefit-detail">현재 소유하고 계신 포인트에서 15,000포인트가 차감됩니다.</p>
-                                <section class="coupon-dday-detail-wrapper">
-                                    <div class="coupon-dday-detail">
-                                        쿠폰 구매 후 180일 동안 카페 홍보가 가능합니다.
-                                    </div>
-                                </section>
-                                <div class="coupon-benefit-category-wrapper">
-                                    <div class="coupon-benefit-category">
-                                        즉시 사용 가능
-                                    </div>
-                                </div>
-                            </li>
+
+<!--                            js에서 입력-->
+
                         </ul>
                     </section>
                 </div>
@@ -239,16 +82,16 @@
                     </div>
                 </div>
                 <div class="modal_content_area">
-                    <form>
+                    <form id="modal_form" onsubmit="return false;">
                         <div class="modal_input_area">
-                            <div id="modal_point_title">결제 예정 point</div>
-                            <div class="modal_point_text1">현재 보유하고 있는 point</div>
-                            <span class="point_price">+ 5000point</span>
-                            <div class="modal_point_text1">사용될 예정인 point</div>
-                            <span class="point_price" style="color:red">- 1000point</span>
+                            <div id="modal_point_title">결제 예정 포인트</div>
+                            <div class="modal_point_text1">현재 보유 중인 포인트</div>
+                            <span class="point_price positive" id="balance"></span>
+                            <div class="modal_point_text1">사용될 예정인 포인트</div>
+                            <span id="price" class="point_price negative"></span>
                             <hr style="border:solid 1px #dad8d8;">
-                            <div class="modal_point_text2">결제 후 point</div>
-                            <span class="point_price">+ 4000point</span>
+                            <div class="modal_point_text2">결제 후 포인트</div>
+                            <span id="balance_after_payment" class="point_price"></span>
                         </div>
                         <div class="modal_button_area">
                             <button type="submit" data-testid="Button" class="submit_button">
@@ -260,31 +103,68 @@
                         </div>
                     </form>
                 </div>
+
+                <div class="info-modal" style="display: none;">
+                    <div class="info-modal-area" role="dialog">
+                        <div class="info-modal-main">
+                            <div class="info-modal-icon-box">
+                                <span class="info-modal-icon-body">
+                                </span>
+                            </div>
+                            <h2 class="info-modal-title"></h2>
+                        </div>
+                        <div class="info-modal-foot">
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
-    <footer class="footer">
-        <div class="footer-inner">
-            <ol style="width:45%; padding: 0;">
-                <b>(주)OH!스카</b> | 서울특별시 강남구 테헤란로 26길 12 제일비전타워 13층 | 대표 : 정해승<br>
-                개인정보보호책임 : 배정수 | 사업자등록번호 : 815-88-00171<br>
-                통신판매업신고 : 2015 - 서울강남 - 03148호 | 02-2135-2949<br>
-                koreais@koreaedugroup.com
-            </ol>
-            <ol><a href="">오늘의 스터디</a></ol>
-            <ol><a href="">오늘의 카페</a></ol>
-            <ol><a href="">FAQ</a></ol>
-            <ol><a href="">OH!스카 소개</a></ol>
-        </div>
-        <div class="footer-media">
-            &nbsp;&nbsp; (주)OH!스카 &nbsp;&nbsp;&nbsp;
-            <a href="">오늘의 스터디</a>&nbsp;
-            <a href="">오늘의 카페</a>&nbsp;
-            <a href="">FAQ</a>&nbsp;
-            <a href="">OH!스카 소개</a>&nbsp;
-        </div>
-    </footer>
+    <!-- 푸터 시작 -->
+    <footer th:replace="~{/fix/footer :: footer}"></footer>
+    <!-- 푸터 끝 -->
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script th:inline="javascript">
+    const tickets = [[${tickets}]];
+    const cafeAdId = [[${param.cafeAdId}]][0];
+    const type = [[${param.type}]][0];
+    const ceoBalance = [[${ceoBalance}]];
+    const ticketBox = $('.coupon-list');
+
+    const numberParsing = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+    const ticketForm = (ticket) => {
+        const point = numberParsing(ticket.ticketPoint);
+        return (`
+            <li class="coupon-list-element" data-duration="${ticket.ticketDuration}" data-price="${ticket.ticketPoint}" data-id="${ticket.id}">
+                <section class="coupon-sale">
+                    <h2>
+                        ${ticket.ticketDuration}일 홍보권
+                    </h2>
+                </section>
+                <h2 class="coupon-benefit">${point} point</h2>
+                <p class="coupon-benefit-detail">현재 소유하고 계신 포인트에서 ${point}포인트가 차감됩니다.</p>
+                <section class="coupon-dday-detail-wrapper">
+                    <div class="coupon-dday-detail">
+                        쿠폰 구매 후 ${ticket.ticketDuration}일 동안 카페 홍보가 가능합니다.
+                    </div>
+                </section>
+                <div class="coupon-benefit-category-wrapper">
+                    <div class="coupon-benefit-category">
+                        즉시 사용 가능
+                    </div>
+                </div>
+            </li>
+        `)
+    }
+
+    tickets.forEach((ticket) => {
+        ticketBox.append(ticketForm(ticket));
+    })
+</script>
 <script src="/js/ticket/ticket.js"></script>
 </html>

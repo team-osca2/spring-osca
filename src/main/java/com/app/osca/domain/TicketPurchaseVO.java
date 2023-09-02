@@ -9,8 +9,10 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class TicketPurchaseVO {
     private Long id;
-    private Long ceoId;
+    private Long memberId;
     private Long ticketId;
     private String purchaseDate;
     private String ticketPurchaseStatus;
+
+
 }
