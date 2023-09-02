@@ -339,9 +339,7 @@ table {
     font-weight: 400;
     margin-left: 8px;
 }
-.displayNone{
-    display: none;
-}
+
 .input .suffix-wrapper {
     padding-left: 7px;
     -webkit-box-pack: end;
@@ -367,7 +365,6 @@ table {
     flex-direction: row;
     overflow: hidden;
     cursor: text;
-    background-color: #fff;
     color: #303441;
     height: 42px;
     font-size: 15px;
@@ -376,7 +373,6 @@ table {
 }
 
 .input, .input:hover, .input:focus-within {
-    background-color: #fafafc;
     border-color: #e4e5ed;
     color: #9a9ba7;
 }
@@ -392,6 +388,22 @@ table {
     box-sizing: border-box;
     font-size: inherit;
     border: none;
+}
+
+#verificationbtn {
+    border:none;
+    color:white;
+    background-color: #F6C323;
+}
+
+#modify-phone-button {
+    border:none;
+    color:white;
+    background-color: #116ad4;
+}
+
+#checkAouthCode{
+    margin-top: 10px;
 }
 
 .explanation {

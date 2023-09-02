@@ -5,5 +5,5 @@ public interface MypageCafeService {
     public String getBusinessNum(Long memberId);
 
     //  사업자 번호 수정하기
-    public void modifyBusinessNum(String cafeBusinessNumber);
+    public void modifyBusinessNum(String cafeBusinessNumber,Long memberId);
 }

@@ -15,4 +15,5 @@ public class AdminStudyDTO {
     private String studyReportNo;
     private String memberNickname;
     private Long memberRole;
+    private String postIds;
 }

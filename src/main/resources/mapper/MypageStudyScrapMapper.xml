@@ -3,7 +3,7 @@
 <mapper namespace="com.app.osca.mapper.MypageStudyScrapMapper">
     <!--   1. 스크랩한 스터디 가져오기 (list로)   -->
     <select id="selectByMemberId" resultType="studyScrapDTO">
-        SELECT SC.ID, SC.MEMBER_ID, SC.STUDY_ID, S.ID,STUDY_TITLE, STUDY_CONTENTS
+        SELECT SC.ID, SC.MEMBER_ID, SC.STUDY_ID, S.ID, STUDY_TITLE, STUDY_CONTENTS, STUDY_MEMBER_TOTAL_NUMBER, STUDY_PERIOD_DATE, TO_CHAR(STUDY_DEADLINE_DATE, 'YYYY-MM-DD') AS STUDY_DEADLINE_DATE
         FROM TBL_STUDY_SCRAP SC JOIN TBL_STUDY S
         ON SC.STUDY_ID=S.ID
         WHERE SC.MEMBER_ID=#{memberId}

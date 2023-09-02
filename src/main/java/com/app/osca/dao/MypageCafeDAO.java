@@ -15,7 +15,7 @@ public class MypageCafeDAO {
     }
 
     //  사업자 번호 수정하기
-    public void setBusinessNum(String cafeBusinessNumber){
-        cafeMapper.updateBusinessNum(cafeBusinessNumber);
+    public void setBusinessNum(String cafeBusinessNumber, Long id){
+        cafeMapper.updateBusinessNum(cafeBusinessNumber,id);
     }
 }

@@ -30,14 +30,11 @@
         <typeAlias type="com.app.osca.domain.dto.CafeScrapDTO" alias="cafeScrapDTO"/>
         <typeAlias type="com.app.osca.domain.dto.MemberSkillDTO" alias="memberSkillDTO"/>
         <typeAlias type="com.app.osca.domain.dto.MemberJobDTO" alias="memberJobDTO"/>
-        <typeAlias type="com.app.osca.domain.dto.AdminStudyDTO" alias="StudyDTO"/>
-        <typeAlias type="com.app.osca.domain.dto.AdminCafeAdDTO" alias="CafeAdDTO"/>
-        <typeAlias type="com.app.osca.domain.dto.AdminPaymentDTO" alias="PaymentDTO"/>
+        <typeAlias type="com.app.osca.domain.dto.main.MainStudyDTO" alias="mainStudyDTO"/>
+        <typeAlias type="com.app.osca.domain.dto.main.MainCafeDTO" alias="mainCafeDTO"/>
         <typeAlias type="com.app.osca.domain.dto.AdminStudyDTO" alias="adminStudyDTO"/>
         <typeAlias type="com.app.osca.domain.dto.AdminCafeAdDTO" alias="adminCafeAdDTO"/>
         <typeAlias type="com.app.osca.domain.dto.AdminPaymentDTO" alias="adminPaymentDTO"/>
-        <typeAlias type="com.app.osca.domain.dto.main.MainStudyDTO" alias="mainStudyDTO"/>
-        <typeAlias type="com.app.osca.domain.dto.main.MainCafeDTO" alias="mainCafeDTO"/>
-
+        <typeAlias type="com.app.osca.domain.dto.AdminReplyDTO" alias="adminReplyDTO"/>
     </typeAliases>
 </configuration>

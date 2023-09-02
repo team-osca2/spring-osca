@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.osca.mapper.AdminReplyMapper">
+
+    <!-- 관리자 전체 댓글 목록-->
+    <select id="selectAll" resultType="adminReplyDTO">
+SELECT * FROM (
+        SELECT ROWNUM RN, ID, MEMBER_NICKNAME, REPLY_CONTENT, STUDY_TITLE, REPLY_REGISTER_DATE
+        FROM (
+        SELECT R.ID,
+        R.REPLY_CONTENT,
+        S.STUDY_TITLE,
+        M.MEMBER_NICKNAME,
+        R.REPLY_REGISTER_DATE
+        FROM TBL_REPLY R
+        JOIN TBL_STUDY S ON R.STUDY_ID = S.ID
+        JOIN TBL_MEMBER M ON R.MEMBER_ID = M.ID
+        WHERE REPLY_BLOCKED = 0
+        ORDER BY REPLY_REGISTER_DATE DESC
+        )
+        <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+        ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]> -- 원하는 범위의 시작 값
+    </select>
+
+    <!-- 관리자 삭제 댓글 목록-->
+    <select id="selectDeleted" resultType="adminReplyDTO">
+SELECT * FROM (
+        SELECT ROWNUM RN, ID, MEMBER_NICKNAME, REPLY_CONTENT, STUDY_TITLE, REPLY_UPDATE_DATE
+        FROM (
+        SELECT R.ID,
+        R.REPLY_CONTENT,
+        S.STUDY_TITLE,
+        M.MEMBER_NICKNAME,
+        R.REPLY_UPDATE_DATE
+        FROM TBL_REPLY R
+        JOIN TBL_STUDY S ON R.STUDY_ID = S.ID
+        JOIN TBL_MEMBER M ON R.MEMBER_ID = M.ID
+        WHERE REPLY_BLOCKED = 1
+        ORDER BY REPLY_UPDATE_DATE DESC
+        )
+        <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+        ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]> -- 원하는 범위의 시작 값
+    </select>
+
+
+    <!-- 관리자 신고당한 댓글 목록-->
+    <select id="selectReported" resultType="adminReplyDTO">
+        SELECT RN, ID, MEMBER_NICKNAME, REPLY_CONTENT, STUDY_TITLE, REPLY_REGISTER_DATE, REPLY_REPORT_NO
+FROM (
+    SELECT ROWNUM RN, ID, MEMBER_NICKNAME, REPLY_CONTENT, STUDY_TITLE, REPLY_REGISTER_DATE, REPLY_REPORT_NO
+    FROM (
+        SELECT R.ID,
+               R.REPLY_CONTENT,
+               S.STUDY_TITLE,
+               M.MEMBER_NICKNAME,
+               R.REPLY_REGISTER_DATE,
+               R.REPLY_REPORT_NO
+        FROM TBL_REPLY R
+        JOIN TBL_STUDY S ON R.STUDY_ID = S.ID
+        JOIN TBL_MEMBER M ON R.MEMBER_ID = M.ID
+        WHERE REPLY_BLOCKED = 0 AND REPLY_REPORT_NO >0
+        ORDER BY REPLY_REPORT_NO DESC
+    )
+        <![CDATA[
+    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} -- 원하는 범위의 끝 값
+    ]]>
+        ) <![CDATA[
+    WHERE RN > (#{pagination.page} - 1) * #{pagination.rowCount}]]> -- 원하는 범위의 시작 값
+    </select>
+
+    <!--    -->
+    <update id="updateReplyBlock">
+    UPDATE TBL_REPLY
+    SET REPLY_BLOCKED = 1,
+    REPLY_UPDATE_DATE = CURRENT_TIMESTAMP
+    WHERE ID = #{id}
+    </update>
+
+    <!--    관리자 -->
+    <update id="updateReplyRestore">
+    UPDATE TBL_REPLY
+    SET REPLY_BLOCKED = 0,
+    REPLY_UPDATE_DATE = CURRENT_TIMESTAMP
+    WHERE ID = #{id}
+    </update>
+
+    <!-- 관리자 댓글 총 개수-->
+    <select id="selectCountOfReplies" resultType="_int">
+    SELECT COUNT(*) FROM TBL_REPLY WHERE REPLY_BLOCKED = 0
+        </select>
+
+    <!-- 관리자 신고 개수-->
+    <select id="selectCountOfReportedReplies" resultType="_int">
+    SELECT COUNT(*) FROM TBL_REPLY WHERE REPLY_REPORT_NO >0 AND REPLY_BLOCKED = 0
+        </select>
+
+
+    <!-- 관리자 삭제 개수-->
+    <select id="selectCountOfDeletedReplies" resultType="_int">
+    SELECT COUNT(*) FROM TBL_REPLY WHERE REPLY_BLOCKED = 1
+        </select>
+
+</mapper>

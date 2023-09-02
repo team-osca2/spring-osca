@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/css/mypage/mypage.css" />
     <link rel="stylesheet" href="/css/mypage/point-charge.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.png"/></head>
-  <script src="https://js.tosspayments.com/v1/payment-widget"></script>
   <body>
     <header class="header-wrapper">
       <section class="header-container">
@@ -33,18 +32,7 @@
             aria-expanded="false"
           >
             <span class="aside-menu-contents">
-              <p variant="body2" class="aside-contents" color="gray900">회원가입</p>
-            </span>
-          </a>
-          <a
-            role="link"
-            color="default"
-            href="/inboxes?inbox_group_id=&amp;partner_id="
-            class="header-aside-menu"
-            aria-expanded="false"
-          >
-            <span class="aside-menu-contents">
-              <p variant="body2" class="aside-contents" color="gray900">로그인</p>
+              <p variant="body2" class="aside-contents" color="gray900">로그아웃</p>
             </span>
           </a>
           <a
@@ -92,7 +80,7 @@
                   class="profile-image"
                 />
               </div>
-              <div class="username">유저네임</div>
+              <div class="username" th:text="*{memberNickname}"></div>
             </section>
             <section class="aside-bottom">
               <div class="mini">마이 페이지</div>
@@ -214,7 +202,7 @@
             </section>
             <section class="CashChargeDescriptionBox">
               <h4 class="description-title">
-                <img src="../../images/mypage/checked-black.svg" alt="check-mark" style="margin-right: 5px" />
+                <img src="/images/mypage/checked-black.svg" alt="check-mark" style="margin-right: 5px" />
                 <span>이용 상세 안내</span>
               </h4>
               <ul class="description-list">

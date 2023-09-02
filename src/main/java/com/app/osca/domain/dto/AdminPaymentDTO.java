@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class AdminPaymentDTO {
     private Long id;
-    private String paymentPrice;
-    private String paymentDate;
-    private String paymentStatus;
+    private String ticketPoint;
+    private String ticketPurchaseDate;
+    private Integer status;
     private String memberName;
     private String memberNickname;
 }

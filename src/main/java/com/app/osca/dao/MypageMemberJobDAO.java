@@ -1,5 +1,6 @@
 package com.app.osca.dao;
 
+import com.app.osca.domain.MemberJobVO;
 import com.app.osca.domain.dto.MemberJobDTO;
 import com.app.osca.mapper.MypageMemberJobMapper;
 import lombok.RequiredArgsConstructor;
@@ -16,4 +17,14 @@ public class MypageMemberJobDAO {
     public Optional<MemberJobDTO> findByMemberId(Long memberId){
         return memberJobMapper.selectByMemberId(memberId);
     }
+
+//  멤버의 직업 추가하기
+    public void save(MemberJobVO memberJobVO){
+        memberJobMapper.insert(memberJobVO);
+    }
+
+    //  멤버의 직업 수정하기
+    public void setJobId(MemberJobVO memberJobVO){
+        memberJobMapper.update(memberJobVO);
+    };
 }

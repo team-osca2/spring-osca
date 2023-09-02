@@ -38,11 +38,7 @@
         <div class="container">
             <div class="container-margin">
                 <!-- 헤더 -->
-                <div class="delete-box-layout">
-                    <div class="delete-box">
-                        <button class="delete-button">계정 정지</button>
-                    </div>
-                </div>
+
 
                 <!-- 내용 섹션 -->
                 <section class="board-info-box-layout">
@@ -56,14 +52,12 @@
                             <table>
                                 <thead>
                                 <tr>
-                                    <th class="checkbox-line">
-                                        <input type="checkbox" id="allSelect">
-                                    </th>
                                     <th>No</th>
                                     <th>유저 아이디</th>
                                     <th>유저 이름</th>
                                     <th>분류</th>
                                     <th>신고 수</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -87,6 +81,9 @@
                                     </td>
                                     <td>
                                         <span th:text="${user.memberReportNo}"></span>
+                                    </td>
+                                    <td>
+                                        <span class="delete-indivisual"> 삭제 </span>
                                     </td>
                                 </tr>
                                 </tbody>

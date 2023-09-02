@@ -119,7 +119,7 @@
 
                     <section class="most-popular">
                         <div class="most-popular-list">
-                            <a href="#" class="most-popular-item-area">
+                            <a href="/study" class="most-popular-item-area">
                                 <article class="most-popular-item-box">
                                     <div class="most-popular-item-title">
                                         IT 스터디
@@ -128,7 +128,7 @@
                                     <img src="/images/main-page/main1-1.png" width="217" height="300" decoding="async" class="most-popular-item-img">
                                 </article>
                             </a>
-                            <a href="#" class="most-popular-item-area">
+                            <a href="/cafe" class="most-popular-item-area">
                                 <article class="most-popular-item-box">
                                     <div class="most-popular-item-title">
                                         카공 카페
@@ -137,7 +137,7 @@
                                     <img src="/images/main-page/main1-2.png" width="217" height="300" decoding="async" class="most-popular-item-img">
                                 </article>
                             </a>
-                            <a href="#" class="most-popular-item-area">
+                            <a href="" class="most-popular-item-area">
                                 <article class="most-popular-item-box">
                                     <div class="most-popular-item-title">
                                         내 스터기 가기
@@ -146,7 +146,7 @@
                                     <img src="/images/main-page/main1-3.png" width="217" height="300" decoding="async" class="most-popular-item-img">
                                 </article>
                             </a>
-                            <a href="#" class="most-popular-item-area">
+                            <a href="/FAQ/FAQ-main" class="most-popular-item-area">
                                 <article class="most-popular-item-box">
                                     <div class="most-popular-item-title">
                                         자주 묻는 질문
@@ -155,7 +155,7 @@
                                     <img src="/images/main-page/main1-4.png" width="217" height="300" decoding="async" class="most-popular-item-img">
                                 </article>
                             </a>
-                            <a href="#" class="most-popular-item-area">
+                            <a href="/introduction" class="most-popular-item-area">
                                 <article class="most-popular-item-box">
                                     <div class="most-popular-item-title">
                                         소개
@@ -469,15 +469,15 @@
     <footer th:replace="~{/fix/footer :: footer}"></footer>
     <!-- 푸터 끝 -->
 
-<!-- 로그인 모달창 -->
-<!--<link rel="stylesheet" href="main_page_login_modal.css">-->
-<div class="modal-root" >
-    <div class="modal-background"></div>
-    <div role="dialog" class="modal-wrapper">
-        <div class="modal-container">
-            <div id="modal-content" class="modal-content">
-                <div class="close-button-box">
-                    <button role="button" class="close-button">
+    <!-- 로그인 모달창 -->
+    <!--<link rel="stylesheet" href="main_page_login_modal.css">-->
+    <div class="modal-root" >
+        <div class="modal-background"></div>
+        <div role="dialog" class="modal-wrapper">
+            <div class="modal-container">
+                <div id="modal-content" class="modal-content">
+                    <div class="close-button-box">
+                        <button role="button" class="close-button">
                             <span class="svg-wrapper">
                                 <span role="img" class="svg-box">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" focusable="false" preserveAspectRatio="xMidYMid meet" class="svg">
@@ -485,78 +485,78 @@
                                     </svg>
                                 </span>
                             </span>
-                    </button>
-                </div>
-                <div class="modal-box">
-                    <div class="modal-area">
-                        <div class="modal-header">
-                            <img src="/images/logo.png" style="width: 70px; height: 40px">
-                        </div>
-                        <form id="login-form" action="/login" method="POST" novalidate class="modal-body">
-                            <div class="email-input-area">
-                                <div class="input-box">
-                                    <input type="email" required="" placeholder="이메일을 입력해 주세요." name="memberEmail" autocomplete="username" class="input-info" value="">
-                                </div>
-                                <div class="error-log-area">
-                                    <p class="error-log-box">
-                                    <p id="email-error-log" class="error-log"></p>
-                                    </p>
-                                </div>
+                        </button>
+                    </div>
+                    <div class="modal-box">
+                        <div class="modal-area">
+                            <div class="modal-header">
+                                <img src="/images/logo.png" style="width: 70px; height: 40px">
                             </div>
-                            <div class="password-input-area">
-                                <div class="input-box">
-                                    <input type="password" required="" placeholder="비밀번호를 입력해 주세요." name="memberPassword" autocomplete="current-password" class="input-info" value="">
+                            <form id="login-form" action="/login" method="POST" novalidate class="modal-body">
+                                <div class="email-input-area">
+                                    <div class="input-box">
+                                        <input type="email" required="" placeholder="이메일을 입력해 주세요." name="memberEmail" autocomplete="username" class="input-info" value="">
+                                    </div>
+                                    <div class="error-log-area">
+                                        <p class="error-log-box">
+                                        <p id="email-error-log" class="error-log"></p>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="error-log-area">
-                                    <p class="error-log-box">
-                                    <p id="password-error-log" class="error-log"></p>
-                                    </p>
+                                <div class="password-input-area">
+                                    <div class="input-box">
+                                        <input type="password" required="" placeholder="비밀번호를 입력해 주세요." name="memberPassword" autocomplete="current-password" class="input-info" value="">
+                                    </div>
+                                    <div class="error-log-area">
+                                        <p class="error-log-box">
+                                        <p id="password-error-log" class="error-log"></p>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="modal-login-button-area">
-                                <button role="button" type="submit" class="modal-login-button">
-                                    <span class="login-button-content">로그인</span>
-                                </button>
-                            </div>
-                            <div class="forgot-account-area">
-                                <div class="forgot-account-box">
-                                    <a href="/find-account" class="forgot-account-link">
-                                        <p class="forgot-account">아이디·비밀번호 찾기</p>
+                                <div class="modal-login-button-area">
+                                    <button role="button" type="submit" class="modal-login-button">
+                                        <span class="login-button-content">로그인</span>
+                                    </button>
+                                </div>
+                                <div class="forgot-account-area">
+                                    <div class="forgot-account-box">
+                                        <a href="/find-account" class="forgot-account-link">
+                                            <p class="forgot-account">아이디·비밀번호 찾기</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="modal-social-login-box">
+                                <h5 class="modal-social-login-title">SNS 간편 로그인</h5>
+                                <div class="modal-social-login-container">
+                                    <a href="#" class="modal-social-login" style="background-color: rgb(30, 200, 0);">
+                                        <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/naver-logo_v2.png" width="24" height="24" alt="소셜 로고">
+                                    </a>
+                                    <a href="https://kauth.kakao.com/oauth/authorize?client_id=c4b51a9523682afb89b2d9dca35e3d2e&redirect_uri=
+http://localhost:10000/kakao/login&response_type=code" class="modal-social-login" style="background-color:  rgb(249, 224, 0);">
+                                        <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/kakao-logo_v2.png" width="24" height="24" alt="소셜 로고">
+                                    </a>
+                                    <a href="#" class="modal-social-login" style="background-color: rgb(24, 119, 242);">
+                                        <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/facebook-logo_v2.png" width="24" height="24" alt="소셜 로고">
+                                    </a>
+                                    <a href="#" class="modal-social-login" style="background-color: rgb(255, 255, 255); border: 1px solid rgb(228, 229, 237);">
+                                        <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/google-logo_v2.png" width="24" height="24" alt="소셜 로고">
+                                    </a>
+                                    <a href="#" class="modal-social-login" style="background-color: rgb(0, 0, 0);">
+                                        <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/apple-logo_v2.png" width="24" height="24" alt="소셜 로고">
                                     </a>
                                 </div>
                             </div>
-                        </form>
-                        <div class="modal-social-login-box">
-                            <h5 class="modal-social-login-title">SNS 간편 로그인</h5>
-                            <div class="modal-social-login-container">
-                                <a href="#" class="modal-social-login" style="background-color: rgb(30, 200, 0);">
-                                    <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/naver-logo_v2.png" width="24" height="24" alt="소셜 로고">
-                                </a>
-                                <a href="https://kauth.kakao.com/oauth/authorize?client_id=c4b51a9523682afb89b2d9dca35e3d2e&redirect_uri=
-http://localhost:10000/kakao/login&response_type=code" class="modal-social-login" style="background-color:  rgb(249, 224, 0);">
-                                    <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/kakao-logo_v2.png" width="24" height="24" alt="소셜 로고">
-                                </a>
-                                <a href="#" class="modal-social-login" style="background-color: rgb(24, 119, 242);">
-                                    <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/facebook-logo_v2.png" width="24" height="24" alt="소셜 로고">
-                                </a>
-                                <a href="#" class="modal-social-login" style="background-color: rgb(255, 255, 255); border: 1px solid rgb(228, 229, 237);">
-                                    <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/google-logo_v2.png" width="24" height="24" alt="소셜 로고">
-                                </a>
-                                <a href="#" class="modal-social-login" style="background-color: rgb(0, 0, 0);">
-                                    <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/apple-logo_v2.png" width="24" height="24" alt="소셜 로고">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="sign-up-box">
-                            <a href="/sign-up/email-type" class="modal-signup-link"><span class="modal-signup-link-text">회원가입</span></a>
-                            <div class="modal-event-message-box">
-                                <p class="modal-event-message" >회원가입 하면 <b>1,000point</b>을 드려요!</p>
+                            <div class="sign-up-box">
+                                <a href="/sign-up/email-type" class="modal-signup-link"><span class="modal-signup-link-text">회원가입</span></a>
+                                <div class="modal-event-message-box">
+                                    <p class="modal-event-message" >회원가입 하면 <b>1,000point</b>을 드려요!</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </div>
@@ -564,60 +564,60 @@ http://localhost:10000/kakao/login&response_type=code" class="modal-social-login
 <script type="text/javascript" src="/js/mainPage/login_modal.js"></script>
 <script type="text/javascript" src="/js/mainPage/main_page_login_modal.js"></script>
 <script type="text/javascript" src="/js/mainPage/main_page_banner.js"></script>
-    <script th:inline="javascript">
-        let role =  "[[${session.memberRole}]]";
-        let id =  "[[${session.id}]]";
-        let mainStudyList = [[${mainStudyList}]];
-        let mainCafeList = [[${mainCafeList}]];
+<script th:inline="javascript">
+    let role =  "[[${session.memberRole}]]";
+    let id =  "[[${session.id}]]";
+    let mainStudyList = [[${mainStudyList}]];
+    let mainCafeList = [[${mainCafeList}]];
 
-        console.log(mainStudyList);
-        console.log(mainCafeList);
+    console.log(mainStudyList);
+    console.log(mainCafeList);
 
-        // 1위 스터디
-        const $studyTitleOfStudyRankNo1 = $("#No1StudyTitle");
-        const $studyImageOfStudyRankNo1 = $("#No1StudyImage");
-        const $studyRank = $("#studyRank > article");
+    // 1위 스터디
+    const $studyTitleOfStudyRankNo1 = $("#No1StudyTitle");
+    const $studyImageOfStudyRankNo1 = $("#No1StudyImage");
+    const $studyRank = $("#studyRank > article");
 
-        // 스터디 리스트 뿌리기
-        mainStudyList.forEach((element, idx) => {
-            if ( idx === 0 ) {
-                $studyTitleOfStudyRankNo1.text(element.studyTitle);
-                if (element.imageId) {
-                    $studyImageOfStudyRankNo1.html(`<img src="/display?fileName=${element.imagePath}/${element.imageUuid}_${element.imageName}" alt="no.1" shape="0" loading="lazy" class="page-lank-info-detail-img">`);
-                }
-            } else {
-                $($studyRank[idx-1]).children("div").children("strong").text(element.studyTitle);
-                if (element.imageId) {
-                    $($studyRank[idx-1]).children("a").children("div").html(`<img src="/display?fileName=${element.imagePath}/${element.imageUuid}_${element.imageName}" shape="0" loading="lazy" class="page-lank-info-detail-img">`);
-                }
+    // 스터디 리스트 뿌리기
+    mainStudyList.forEach((element, idx) => {
+        if ( idx === 0 ) {
+            $studyTitleOfStudyRankNo1.text(element.studyTitle);
+            if (element.imageId) {
+                $studyImageOfStudyRankNo1.html(`<img src="/display?fileName=${element.imagePath}/${element.imageUuid}_${element.imageName}" alt="no.1" shape="0" loading="lazy" class="page-lank-info-detail-img">`);
             }
-        });
+        } else {
+            $($studyRank[idx-1]).children("div").children("strong").text(element.studyTitle);
+            if (element.imageId) {
+                $($studyRank[idx-1]).children("a").children("div").html(`<img src="/display?fileName=${element.imagePath}/${element.imageUuid}_${element.imageName}" shape="0" loading="lazy" class="page-lank-info-detail-img">`);
+            }
+        }
+    });
 
 
     //    카페 리스트 뿌리기
 
-        const $cafeTitleOfStudyRankNo1 = $("#No1CafeName");
-        const $cafeImageOfStudyRankNo1 = $("#No1CafeImage");
-        const $cafeRank = $("#cafeRank > article");
+    const $cafeTitleOfStudyRankNo1 = $("#No1CafeName");
+    const $cafeImageOfStudyRankNo1 = $("#No1CafeImage");
+    const $cafeRank = $("#cafeRank > article");
 
-        console.log($cafeImageOfStudyRankNo1);
-        console.log($cafeTitleOfStudyRankNo1);
+    console.log($cafeImageOfStudyRankNo1);
+    console.log($cafeTitleOfStudyRankNo1);
 
-        mainCafeList.forEach((element, idx) => {
-            if ( idx === 0 ) {
-                $cafeTitleOfStudyRankNo1.text(element.cafeName);
-                if (element.imageId) {
-                    $cafeImageOfStudyRankNo1.html(`<img src="/display?fileName=${element.imagePath}/${element.imageUuid}_${element.imageName}" alt="no.1" shape="0" loading="lazy" class="page-lank-info-detail-img">`);
-                }
-            } else {
-                $($cafeRank[idx-1]).children("div").children("strong").text(element.cafeName);
-                if (element.imageId) {
-                    $($cafeRank[idx-1]).children("a").children("div").html(`<img src="/display?fileName=${element.imagePath}/${element.imageUuid}_${element.imageName}" shape="0" loading="lazy" class="page-lank-info-detail-img">`);
-                }
+    mainCafeList.forEach((element, idx) => {
+        if ( idx === 0 ) {
+            $cafeTitleOfStudyRankNo1.text(element.cafeName);
+            if (element.imageId) {
+                $cafeImageOfStudyRankNo1.html(`<img src="/display?fileName=${element.imagePath}/${element.imageUuid}_${element.imageName}" alt="no.1" shape="0" loading="lazy" class="page-lank-info-detail-img">`);
             }
-        });
+        } else {
+            $($cafeRank[idx-1]).children("div").children("strong").text(element.cafeName);
+            if (element.imageId) {
+                $($cafeRank[idx-1]).children("a").children("div").html(`<img src="/display?fileName=${element.imagePath}/${element.imageUuid}_${element.imageName}" shape="0" loading="lazy" class="page-lank-info-detail-img">`);
+            }
+        }
+    });
 
 
-    </script>
+</script>
 </body>
 </html>

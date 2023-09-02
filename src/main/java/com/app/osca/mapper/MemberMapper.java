@@ -1,6 +1,5 @@
 package com.app.osca.mapper;
 
-import com.app.osca.domain.ImageVO;
 import com.app.osca.domain.MemberVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -20,6 +19,7 @@ public interface MemberMapper {
     public void delete(Long id);
 
 //    회원번호 시퀸스
+
     public Long selectMemberSequence();
 //    닉네임 시퀸스
     public Long selectNickNameSequence();
@@ -48,7 +48,4 @@ public interface MemberMapper {
 
 //    카카오 로그인
     public void insertKakaoMember(Long id, String memberNickname, String memberEmail);
-
-//    헤더 회원 이미지 가져오기
-    public Optional<ImageVO> selectMemberImage(Long id);
 }
