@@ -14,8 +14,6 @@ import java.util.List;
 public class AdminStudyServiceImpl implements AdminStudyService{
     final private AdminStudyDAO adminStudyDAO;
 
-
-
     //    관리자 전체 게시글 불러오기
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -23,6 +21,8 @@ public class AdminStudyServiceImpl implements AdminStudyService{
         final List<AdminStudyDTO> studyCafePosts = adminStudyDAO.findAllStudyAndCafe(pagination);
         return studyCafePosts;
     }
+
+
 
     //    관리자 스터디 게시글 불러오기
     @Override
@@ -46,12 +46,12 @@ public class AdminStudyServiceImpl implements AdminStudyService{
         final List<AdminStudyDTO> deletedPosts = adminStudyDAO.findAllDeletedPost(pagination);
         return deletedPosts;
     }
-
-    //    <!--    관리자 스터디 글 블락 시키기-->
+    //    <!--    관리자 스터디 글 삭제-->
     @Override
     public void remove(Long id) {
         adminStudyDAO.updateStudyBlock(id);
     }
+
     //    <!--    관리자 스터디 글 복구-->
     @Override
     public void recover(Long id) {

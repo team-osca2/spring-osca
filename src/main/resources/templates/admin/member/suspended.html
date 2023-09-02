@@ -38,11 +38,7 @@
         <div class="container">
             <div class="container-margin">
                 <!-- 헤더 -->
-                <div class="delete-box-layout">
-                    <div class="delete-box">
-                        <button class="delete-button">계정 복구</button>
-                    </div>
-                </div>
+
 
                 <!-- 내용 섹션 -->
                 <section class="board-info-box-layout">
@@ -56,22 +52,18 @@
                             <table>
                                 <thead>
                                 <tr>
-                                    <th class="checkbox-line">
-                                        <input type="checkbox" id="allSelect">
-                                    </th>
                                     <th>No</th>
                                     <th>유저 아이디</th>
                                     <th>유저 이름</th>
                                     <th>가입 날짜</th>
                                     <th>정지 날짜</th>
                                     <th>분류</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="user : ${users}">
-                                    <td class="checkbox-line">
-                                        <input type="checkbox" name="check" />
-                                    </td>
+
                                     <td class="noticeId">
                                         <span th:text="${user.id}"></span>
                                     </td>
@@ -91,6 +83,9 @@
                                     </td>
                                     <td>
                                         <span th:text="${user.memberRole == 1 ? '카페' : '스터디'}"></span>
+                                    </td>
+                                    <td>
+                                        <span class="restore-indivisual"> 복구 </span>
                                     </td>
                                 </tr>
                                 </tbody>

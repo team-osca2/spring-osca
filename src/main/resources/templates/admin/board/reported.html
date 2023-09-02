@@ -38,41 +38,34 @@
         <div class="container">
             <div class="container-margin">
                 <!-- 헤더 -->
-                <div class="delete-box-layout">
-                    <div class="delete-box">
-                        <button class="delete-button">게시판 삭제</button>
-                    </div>
-                </div>
+
 
                 <!-- 내용 섹션 -->
                 <section class="board-info-box-layout">
 
                     <div class="board-info-box">
                         <div class="board-info-title-box">
-                            <span>신고당한 게시판 목록</span>
+                            <span>신고된 게시판 목록</span>
                         </div>
 
                         <div class="info-table">
                             <table>
                                 <thead>
                                 <tr>
-                                    <th class="checkbox-line">
-                                        <input type="checkbox" id="allSelect">
-                                    </th>
+
                                     <th>게시글ID</th>
                                     <th>게시판 제목</th>
                                     <th>개설자</th>
                                     <th>분류</th>
                                     <th>신고 수</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="post : ${posts}">
-                                    <td class="checkbox-line">
-                                        <input type="checkbox" name="check">
-                                    </td>
+
                                     <td class="noticeId">
-                                        <span th:text="${post.id}"></span>
+                                        <span class="postId" th:text="${post.id}"></span>
                                     </td>
                                     <td>
                                         <a href="">
@@ -84,10 +77,13 @@
                                             <span th:text="${post.memberNickname}"></span>
                                     </td>
                                     <td>
-                                        <span th:text="${post.memberRole == 1 ? '카페' : '스터디'}"></span>
+                                        <span th:text="${post.memberRole == 1 ? '카페' : '스터디'}" class="postType"></span>
                                     </td>
                                     <td>
                                         <span th:text="${post.studyReportNo}"></span>
+                                    </td>
+                                    <td>
+                                        <span class="delete-board"> 삭제 </span>
                                     </td>
                                 </tr>
                                 <tbody/>

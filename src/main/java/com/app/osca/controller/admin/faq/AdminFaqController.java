@@ -5,13 +5,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("admin/faq")
+@RequestMapping("/admin/faq")
 public class AdminFaqController {
+
     @GetMapping(value = {"", "/"})
-    public String getAllFaq(){
+    public String getAllFaq() {
         return "admin/faq/list";
     }
 
     @GetMapping("/write")
-    public void writeFaq(){;}
+    public String writeFaq() {
+        return "admin/faq/write";
+    }
 }

@@ -57,4 +57,6 @@ public class AdminStudyDAO {
 
     // 관리자 삭제당한 게시글 총 개수-->
     public int findCountOfDeletedPost(){return adminStudyMapper.selectCountOfDeletedStudyAndCafe();}
+
+
 }
