@@ -3,6 +3,7 @@ package com.app.osca.controller.myPage;
 import com.app.osca.domain.GeneralVO;
 import com.app.osca.domain.MemberJobVO;
 import com.app.osca.domain.MemberSkillVO;
+import com.app.osca.domain.MemberVO;
 import com.app.osca.domain.dto.CafeScrapDTO;
 import com.app.osca.domain.dto.MemberSkillDTO;
 import com.app.osca.domain.dto.StudyScrapDTO;
@@ -16,10 +17,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
@@ -38,6 +36,17 @@ public class MyPageController {
     private final MypageStudyScrapSercvice studyScrapSercvice;
     private final MypageCafeScrapService cafeScrapService;
     private final HttpSession session;
+//
+//    @RequestMapping("/member")
+//    public RedirectView goToMyPage(Long id, Model model) {
+//        Long memberRole = memberService.getMemberInfo(1L).get().getMemberRole();
+//        if (memberRole == 1) {
+//            return new RedirectView("/mypage/point-charge");
+//        } else {
+//            return new RedirectView("/user/dbgmlwns");
+//        }
+//    }
+
 
     @GetMapping("/favourites")
     public void goToSetting(Model model) {

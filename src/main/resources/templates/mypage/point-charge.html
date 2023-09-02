@@ -12,15 +12,15 @@
   <body>
     <header class="header-wrapper">
       <section class="header-container">
-        <a href="/" aria-label="logo" class="header-logo">
+        <a th:href="@{/}" aria-label="logo" class="header-logo">
           <img src="/images/logo.png" alt="오!스카 로고" style="width: 70px; height: 40px" />
         </a>
         <div>
           <span class="header-line"></span>
-          <a href="" class="header-menu">오늘의 스터디</a>
-          <a href="" class="header-menu">오늘의 카페</a>
-          <a href="" class="header-menu">FAQ</a>
-          <a href="" class="header-menu">Oh!스카 소개</a>
+          <a th:href="@{/study/}" class="header-menu">오늘의 스터디</a>
+          <a th:href="@{/cafe}" class="header-menu">오늘의 카페</a>
+          <a th:href="@{/FAQ/FAQ-main}" class="header-menu">FAQ</a>
+          <a th:href="@{/introduction}" class="header-menu">Oh!스카 소개</a>
         </div>
         <div style="flex-grow: 1"></div>
         <div class="header-aside">
@@ -38,7 +38,7 @@
           <a
             role="link"
             color="default"
-            href="/inboxes?inbox_group_id=&amp;partner_id="
+            th:href="@{/mypage/point-charge}"
             class="header-aside-menu"
             aria-expanded="false"
           >
@@ -85,17 +85,14 @@
             <section class="aside-bottom">
               <div class="mini">마이 페이지</div>
               <hr orientation="horizontal" class="line" />
-              <a class="menu-list" href="">
-                <div class="menu-list-text">내 프로필</div>
+              <a class="menu-list" th:href="@{/mypage/point-charge}">
+                <div class="menu-list-text menu-page-here">포인트 충전</div>
               </a>
-              <a class="menu-list" href="">
+              <a class="menu-list" th:href="@{/setting}">
                 <div class="menu-list-text">계정 관리</div>
               </a>
-              <a class="menu-list" href="">
+              <a class="menu-list" th:href="@{/cafe/my-cafe}">
                 <div class="menu-list-text">내 카페</div>
-              </a>
-              <a class="menu-list" href="">
-                <div class="menu-list-text menu-page-here">포인트 충전</div>
               </a>
             </section>
           </aside>
@@ -183,16 +180,19 @@
                 <div class="payment-options-select-box">
                     <div class="options-main">
                     <div class="flex-center-center">
-                      <div class="Button">
-                        <button
-                          disabled="disabled"
-                          class="btn size-l point-payment"
-                          id="payment"
-                          style="font-size: 15px; font-weight: 500"
-                        >
-                          <span class="pay-button point-payment">충전하기</span>
-                        </button>
-                      </div>
+                      <a th:href="@{/mypage/payment-api}">
+                        <div class="Button">
+                          <a
+                            disabled="disabled"
+                            class="btn size-l point-payment"
+                            id="payment"
+                            style="font-size: 15px; font-weight: 500"
+                            th:href="@{/mypage/payment-api}"
+                          >
+                              <span class="pay-button point-payment">충전하기</span>
+                          </a>
+                        </div>
+                      </a>
                     </div>
                     <form id="LGD_PAYINFO" method="post" name="LGD_PAYINFO" action=""></form>
                   </div>
@@ -247,22 +247,24 @@
           koreais@koreaedugroup.com
         </ol>
         <ol>
-          <a href="">오늘의 스터디</a>
+          <a th:href="@{/study/}">오늘의 스터디</a>
         </ol>
         <ol>
-          <a href="">오늘의 카페</a>
+          <a th:href="@{/cafe}">오늘의 카페</a>
         </ol>
         <ol>
-          <a href="">FAQ</a>
+          <a th:href="@{/FAQ/FAQ-main}">FAQ</a>
         </ol>
         <ol>
-          <a href="">OH!스카 소개</a>
+          <a th:href="@{/introduction}">Oh!스카 소개</a>
         </ol>
       </div>
       <div class="footer-media">
         &nbsp;&nbsp; (주)OH!스카 &nbsp;&nbsp;&nbsp;
-        <a href="">오늘의 스터디</a>&nbsp; <a href="">오늘의 카페</a>&nbsp; <a href="">FAQ</a>&nbsp;
-        <a href="">OH!스카 소개</a>&nbsp;
+        <a th:href="@{/study/}">오늘의 스터디</a>
+        <a th:href="@{/cafe}">오늘의 카페</a>
+        <a th:href="@{/FAQ/FAQ-main}">FAQ</a>
+        <a th:href="@{/introduction}">Oh!스카 소개</a>
       </div>
     </footer>
   </body>

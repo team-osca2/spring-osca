@@ -13,14 +13,14 @@
   <body>
     <header class="header-wrapper">
       <section class="header-container">
-        <a href="/" aria-label="logo" class="header-logo">
+        <a th:href="@{/}" aria-label="logo" class="header-logo">
           <img src="/images/logo.png" alt="오!스카 로고" style="width: 70px; height: 40px" />
         </a>
         <div>
           <span class="header-line"></span>
           <a th:href="@{/study/}" class="header-menu">오늘의 스터디</a>
-          <a href="" class="header-menu">오늘의 카페</a>
-          <a href="" class="header-menu">FAQ</a>
+          <a th:href="@{/cafe}" class="header-menu">오늘의 카페</a>
+          <a th:href="@{/FAQ/FAQ-main}" class="header-menu">FAQ</a>
           <a th:href="@{/introduction}" class="header-menu">Oh!스카 소개</a>
         </div>
         <div style="flex-grow: 1"></div>
@@ -265,19 +265,21 @@
           <a th:href="@{/study/}">오늘의 스터디</a>
         </ol>
         <ol>
-          <a href="">오늘의 카페</a>
+          <a th:href="@{/cafe}">오늘의 카페</a>
         </ol>
         <ol>
-          <a href="">FAQ</a>
+          <a th:href="@{/FAQ/FAQ-main}">FAQ</a>
         </ol>
         <ol>
-          <a th:href="@{/introduction}">OH!스카 소개</a>&nbsp;
+          <a th:href="@{/introduction}">Oh!스카 소개</a>
         </ol>
       </div>
       <div class="footer-media">
         &nbsp;&nbsp; (주)OH!스카 &nbsp;&nbsp;&nbsp;
-        <a th:href="@{/study/}">오늘의 스터디</a>&nbsp; <a href="">오늘의 카페</a>&nbsp; <a href="">FAQ</a>&nbsp;
-        <a th:href="@{/introduction}">OH!스카 소개</a>&nbsp;
+        <a th:href="@{/study/}">오늘의 스터디</a>
+        <a th:href="@{/cafe}">오늘의 카페</a>
+        <a th:href="@{/FAQ/FAQ-main}">FAQ</a>
+        <a th:href="@{/introduction}">Oh!스카 소개</a>
       </div>
     </footer>
   </body>

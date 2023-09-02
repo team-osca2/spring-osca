@@ -68,7 +68,7 @@ public class SettingController {
     @PostMapping("changeBusinessNumber")
     public RedirectView changeBusinessNumber(String cafeBusinessNumber, Long memberId){
         // 세션에서 가져온 아이디로 수정
-        cafeService.modifyBusinessNum(cafeBusinessNumber,3L);
+        cafeService.modifyBusinessNum(cafeBusinessNumber,2L);
         return new RedirectView("/setting/");
     }
 
