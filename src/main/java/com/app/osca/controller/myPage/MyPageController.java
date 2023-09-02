@@ -36,14 +36,21 @@ public class MyPageController {
     private final MypageStudyScrapSercvice studyScrapSercvice;
     private final MypageCafeScrapService cafeScrapService;
     private final HttpSession session;
-//
+
 //    @RequestMapping("/member")
-//    public RedirectView goToMyPage(Long id, Model model) {
-//        Long memberRole = memberService.getMemberInfo(1L).get().getMemberRole();
-//        if (memberRole == 1) {
-//            return new RedirectView("/mypage/point-charge");
+//    public String goToMyPage(Long id, Model model) {
+//        MemberVO member = memberService.getMemberInfo(1L).orElse(null);
+//        if (member != null) {
+//            int memberRole = memberService.getMemberInfo(1L).get().getMemberRole()
+//            if (memberRole == 1) {
+//                return "mypage/profile-page";
+//            } else {
+//                return "mypage/point-charge";
+//            }
 //        } else {
-//            return new RedirectView("/user/dbgmlwns");
+//            // Handle the case when member information is not found.
+//            // You can redirect to an error page or handle it as needed.
+//            return "error"; // Example: Return an error page
 //        }
 //    }
 
@@ -52,7 +59,7 @@ public class MyPageController {
     public void goToSetting(Model model) {
 //      로그인 부터 테스트 할때는 이 코드로 사용하면 됨
 //      model.addAttribute("memberNickname",memberService.getMemberInfo((Long)session.getAttribute("id")).get().getMemberNickname());
-        model.addAttribute("memberNickname", memberService.getMemberInfo(1L).get().getMemberNickname());
+        model.addAttribute("memberNickname", memberService.getMemberInfo(201L).get().getMemberNickname());
 
         List<StudyScrapDTO> studyList = studyScrapSercvice.getScrapList(1L);
         model.addAttribute("studyLists", studyList);
@@ -133,7 +140,7 @@ public class MyPageController {
         });
 
 
-        return new RedirectView("/user/93");
+        return new RedirectView("/user/dbgmlwns");
     }
 
 //    @PostMapping("remove-skill")

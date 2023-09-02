@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/setting")
 @RequiredArgsConstructor
@@ -17,11 +19,17 @@ public class SettingController {
     private final MypageMemberService memberService;
     private final MypageCafeService cafeService;
 
+    private final HttpSession session;
+
+
     //  =================== 회원 정보 뿌리기 =================== //
     @GetMapping(value = {"", "/"})
     public String goToSetting(Model model) {
-        model.addAttribute("member",memberService.getMemberInfo(3L).get());
-        model.addAttribute("cafeBusinessNumber",cafeService.getBusinessNum(3L));
+//        Long memberId = (Long)session.getAttribute("id");
+        Long memberId = 193L;
+
+        model.addAttribute("member",memberService.getMemberInfo(memberId).get());
+        model.addAttribute("cafeBusinessNumber",cafeService.getBusinessNum(memberId));
         return "mypage/settings";
     }
 
@@ -41,8 +49,11 @@ public class SettingController {
 
     @PostMapping("changeMemberNickname")
     public RedirectView change(String memberNickname, Long id){
+//        Long memberId = (Long)session.getAttribute("id");
+        Long memberId = 201L;
+
         // 세션에서 가져온 아이디로 수정
-        memberService.modifyMemberNickname(memberNickname,3L);
+        memberService.modifyMemberNickname(memberNickname,memberId);
         return new RedirectView("/setting/");
     }
 
@@ -55,7 +66,10 @@ public class SettingController {
     @PostMapping("change-phonenumber")
     public RedirectView changePhoneNumber(String memberPhonenumber, Long id){
         // 세션에서 가져온 아이디로 수정
-        memberService.modifyPhonenumber(memberPhonenumber,3L);
+//        Long memberId = (Long)session.getAttribute("id");
+        Long memberId = 193L;
+
+        memberService.modifyPhonenumber(memberPhonenumber,memberId);
         return new RedirectView("/setting/");
     }
 
@@ -68,7 +82,10 @@ public class SettingController {
     @PostMapping("changeBusinessNumber")
     public RedirectView changeBusinessNumber(String cafeBusinessNumber, Long memberId){
         // 세션에서 가져온 아이디로 수정
-        cafeService.modifyBusinessNum(cafeBusinessNumber,2L);
+//        Long Id = (Long)session.getAttribute("id");
+        Long Id = 193L;
+
+        cafeService.modifyBusinessNum(cafeBusinessNumber,Id);
         return new RedirectView("/setting/");
     }
 

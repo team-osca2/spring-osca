@@ -224,36 +224,8 @@
     </div>
 </div>
 
-<footer class="footer">
-    <div class="footer-inner">
-        <ol style="width: 45%; padding: 0">
-            <b>(주)OH!스카</b>
-            | 서울특별시 강남구 테헤란로 26길 12 제일비전타워 13층 | 대표 : 정해승<br/>
-            개인정보보호책임 : 배정수 | 사업자등록번호 : 815-88-00171<br/>
-            통신판매업신고 : 2015 - 서울강남 - 03148호 | 02-2135-2949<br/>
-            koreais@koreaedugroup.com
-        </ol>
-        <ol>
-            <a th:href="@{/study/}">오늘의 스터디</a>
-        </ol>
-        <ol>
-            <a th:href="@{/cafe}">오늘의 카페</a>
-        </ol>
-        <ol>
-            <a th:href="@{/FAQ/FAQ-main}">FAQ</a>
-        </ol>
-        <ol>
-            <a th:href="@{/introduction}">OH!스카 소개</a>
-        </ol>
-    </div>
-    <div class="footer-media">
-        &nbsp;&nbsp; (주)OH!스카 &nbsp;&nbsp;&nbsp;
-        <a th:href="@{/study/}">오늘의 스터디</a>
-        <a th:href="@{/cafe}">오늘의 카페</a>
-        <a th:href="@{/FAQ/FAQ-main}">FAQ</a>
-        <a th:href="@{/introduction}">OH!스카 소개</a>&nbsp;
-    </div>
-</footer>
+<footer th:replace="~{/fix/footer :: footer}"></footer>
+
 </body>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
