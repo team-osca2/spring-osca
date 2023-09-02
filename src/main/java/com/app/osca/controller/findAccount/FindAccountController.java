@@ -68,6 +68,6 @@ public class FindAccountController {
     @PostMapping("/reset-memberPassword")
     public RedirectView resetPassword(String memberEmail, String memberPassword){
         memberService.setGeneralAccountPassword(memberPassword, memberEmail);
-        return new RedirectView("index");
+        return new RedirectView("/");
     }
 }
