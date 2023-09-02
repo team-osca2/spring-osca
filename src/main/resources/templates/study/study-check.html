@@ -98,12 +98,12 @@
                         <ul class="main-menu-wrapper">
                             <li class="main-menu">
                                 <div class="badge-wrapper side-content-all-weight">
-                                    <span>전체</span>
+                                    <span style="font-weight: normal;">전체</span>
                                 </div>
                             </li>
                             <li class="main-menu">
                                 <div class="badge-wrapper">
-                                    <span>내가 개설한 스터디</span>
+                                    <span style="font-weight: 600;">내가 개설한 스터디</span>
                                 </div>
                             </li>
                             <li class="main-menu">
@@ -285,9 +285,11 @@
 <div class="modal2 hidden">
     <div style="background: white; border-radius: 10px; padding: 30px;">
         <div style="font-size: 16px; margin-bottom: 10px;">수락하시겠습니까?</div>
-        <button class="accept-btn1">확인</button>
-        <button class="cancel-btn1">취소</button>
+        <button class="accept-btn1" onclick="acceptAction()">확인</button>
+        <button class="cancel-btn1" onclick="closeModal()">취소</button>
     </div>
+    <div id="success-message" style="display: none;">정상적으로 처리되었습니다.</div>
+
 </div>
 
 <div class="modal3 hidden">

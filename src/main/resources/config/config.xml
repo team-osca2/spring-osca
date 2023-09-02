@@ -36,5 +36,6 @@
         <typeAlias type="com.app.osca.domain.dto.AdminCafeAdDTO" alias="adminCafeAdDTO"/>
         <typeAlias type="com.app.osca.domain.dto.AdminPaymentDTO" alias="adminPaymentDTO"/>
         <typeAlias type="com.app.osca.domain.dto.AdminReplyDTO" alias="adminReplyDTO"/>
+
     </typeAliases>
 </configuration>

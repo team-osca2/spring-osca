@@ -3,6 +3,7 @@ package com.app.osca.controller.myPage;
 import com.app.osca.domain.GeneralVO;
 import com.app.osca.domain.MemberJobVO;
 import com.app.osca.domain.MemberSkillVO;
+import com.app.osca.domain.MemberVO;
 import com.app.osca.domain.dto.CafeScrapDTO;
 import com.app.osca.domain.dto.MemberSkillDTO;
 import com.app.osca.domain.dto.StudyScrapDTO;
@@ -16,10 +17,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
@@ -39,11 +37,29 @@ public class MyPageController {
     private final MypageCafeScrapService cafeScrapService;
     private final HttpSession session;
 
+//    @RequestMapping("/member")
+//    public String goToMyPage(Long id, Model model) {
+//        MemberVO member = memberService.getMemberInfo(1L).orElse(null);
+//        if (member != null) {
+//            int memberRole = memberService.getMemberInfo(1L).get().getMemberRole()
+//            if (memberRole == 1) {
+//                return "mypage/profile-page";
+//            } else {
+//                return "mypage/point-charge";
+//            }
+//        } else {
+//            // Handle the case when member information is not found.
+//            // You can redirect to an error page or handle it as needed.
+//            return "error"; // Example: Return an error page
+//        }
+//    }
+
+
     @GetMapping("/favourites")
     public void goToSetting(Model model) {
 //      로그인 부터 테스트 할때는 이 코드로 사용하면 됨
 //      model.addAttribute("memberNickname",memberService.getMemberInfo((Long)session.getAttribute("id")).get().getMemberNickname());
-        model.addAttribute("memberNickname", memberService.getMemberInfo(1L).get().getMemberNickname());
+        model.addAttribute("memberNickname", memberService.getMemberInfo(201L).get().getMemberNickname());
 
         List<StudyScrapDTO> studyList = studyScrapSercvice.getScrapList(1L);
         model.addAttribute("studyLists", studyList);
@@ -124,7 +140,7 @@ public class MyPageController {
         });
 
 
-        return new RedirectView("/user/93");
+        return new RedirectView("/user/dbgmlwns");
     }
 
 //    @PostMapping("remove-skill")

@@ -11,12 +11,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/password/*")
 public class PasswordController {
     private final MypageMemberService memberService;
+    private final HttpSession session;
 
     //    비밀번호 검사하기: 일치하면 true, 불일치면 false
     @GetMapping("check-password")
@@ -24,12 +27,14 @@ public class PasswordController {
     public boolean checkPassword(String memberPassword){
 //      이부분 아이디 다 합친 후에 session으로 변경하면 됨!
 //      return memberService.checkMemberPassword((Long)session.getAttribute("id")).equals(memberPassword);
+        Long memberId = 201L;
+
         String encryptedPassword = "";
         final int KEY = 3;
         for (int i = 0; i < memberPassword.length(); i++) {
             encryptedPassword += (char)(memberPassword.charAt(i) * KEY);
         }
-        return memberService.checkMemberPassword(1L).equals(encryptedPassword);
+        return memberService.checkMemberPassword(memberId).equals(encryptedPassword);
     }
 
     @GetMapping("change")
@@ -40,8 +45,10 @@ public class PasswordController {
     //  비밀번호 변경하기
     @PostMapping("change")
     public RedirectView change(String memberPassword,Long id, RedirectAttributes redirectAttributes){
-        memberService.modifyPassword(memberPassword, 1L);
-//      로그아웃 되도록 하기
-        return new RedirectView("/");
+        Long memberId = 201L;
+
+//        Long memberId = (Long)session.getAttribute("id");
+        memberService.modifyPassword(memberPassword, memberId);
+        return new RedirectView("/logout");
     }
 }

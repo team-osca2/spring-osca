@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.osca.mapper.MypageMemberMapper">
 <!--    ========================= mypage/setting =========================-->
-    <!-- 1. 회원의 닉네임, 이메일, 핸드폰 번호 가져오기 -->
+    <!-- 1. 회원의 닉네임, 이메일, 핸드폰 번호, role 가져오기 -->
     <select id="selectById" resultType="memberVO">
-       SELECT ID, MEMBER_NiCKNAME, MEMBER_EMAIL FROM TBL_MEMBER
+       SELECT ID, MEMBER_NiCKNAME, MEMBER_EMAIL, MEMBER_ROLE FROM TBL_MEMBER
        WHERE ID = #{id}
     </select>
 

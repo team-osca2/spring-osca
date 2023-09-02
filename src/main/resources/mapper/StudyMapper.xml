@@ -31,23 +31,23 @@
     <!--        SELECT STUDY_TITLE, STUDY_CONTENTS, STUDY_LOCATION, STUDY_TOTAL, "OPEN", STUDY_BLOCKED, STUDY_DEADLINE_DATE, STUDY_REGIST_DATE, STUDY_UPDATE_DATE, MEMBER_ID FROM TBL_STUDY-->
     <!--    </select>-->
 
-    <select id="selectStudies" resultType="StudyDTO">
-        SELECT  S.ID, STUDY_TITLE, STUDY_CONTENTS, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE, S.MEMBER_ID, MEMBER_NAME
-        FROM (
-        SELECT ROWNUM R, S.ID, STUDY_TITLE, STUDY_CONTENTS, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE, S.MEMBER_ID, MEMBER_NAME
-        FROM(
-        SELECT S.ID, STUDY_TITLE, STUDY_CONTENTS, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE, S.MEMBER_ID, MEMBER_NAME
-        FROM TBL_MEMBER JOIN TBL_STUDY
-        ON M.ID = S.MEMBER_ID
-        ORDER BY DESC)P
-        <![CDATA[
-                WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount}
-            ]]>
-        <include refid="search"/>
-        <![CDATA[
-        ) P WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
-        ]]>
-    </select>
+<!--    <select id="selectStudies" resultType="StudyDTO">-->
+<!--        SELECT  S.ID, STUDY_TITLE, STUDY_CONTENTS, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE, S.MEMBER_ID, MEMBER_NAME-->
+<!--        FROM (-->
+<!--        SELECT ROWNUM R, S.ID, STUDY_TITLE, STUDY_CONTENTS, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE, S.MEMBER_ID, MEMBER_NAME-->
+<!--        FROM(-->
+<!--        SELECT S.ID, STUDY_TITLE, STUDY_CONTENTS, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE, S.MEMBER_ID, MEMBER_NAME-->
+<!--        FROM TBL_MEMBER JOIN TBL_STUDY-->
+<!--        ON M.ID = S.MEMBER_ID-->
+<!--        ORDER BY DESC)P-->
+<!--        <![CDATA[-->
+<!--                WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount}-->
+<!--            ]]>-->
+<!--        <include refid="search"/>-->
+<!--        <![CDATA[-->
+<!--        ) P WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}-->
+<!--        ]]>-->
+<!--    </select>-->
 
     <select id="selectOneStudy">
         SELECT STUDY_TITLE, STUDY_CONTENTS, STUDY_LOCATION, STUDY_TOTAL, "OPEN", STUDY_BLOCKED, STUDY_DEADLINE_DATE, STUDY_REGIST_DATE, STUDY_UPDATE_DATE, MEMBER_ID FROM TBL_STUDY
