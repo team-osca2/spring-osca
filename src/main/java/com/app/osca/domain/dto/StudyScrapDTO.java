@@ -18,7 +18,7 @@ public class StudyScrapDTO {
     private String studyMemberTotalNumber;
     private String studyLocation;
     private String studyReportNo;
-    private String studyApplyDeadline;
+    private String studyDeadlineDate;
     private String studyStatus;
     private String studyBlocked;
 }

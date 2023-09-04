@@ -11,63 +11,12 @@
   </head>
 <!--  오늘의 카페랑 FAQ 부분 경로 추가하기 -->
   <body>
-    <header class="header-wrapper">
-      <section class="header-container">
-        <a href="/" aria-label="logo" class="header-logo">
-          <img src="/images/logo.png" alt="오!스카 로고" style="width: 70px; height: 40px" />
-        </a>
-        <div>
-          <span class="header-line"></span>
-          <a th:href="@{/study/}" class="header-menu">오늘의 스터디</a>
-          <a href="" class="header-menu">오늘의 카페</a>
-          <a href="" class="header-menu">FAQ</a>
-          <a th:href="@{/introduction}" class="header-menu">Oh!스카 소개</a>
-        </div>
-        <div style="flex-grow: 1"></div>
-        <div class="header-aside">
-          <a
-            role="link"
-            color="default"
-            href=""
-            class="header-aside-menu"
-            aria-expanded="false"
-          >
-            <span class="aside-menu-contents">
-              <p variant="body2" class="aside-contents" color="gray900">로그아웃</p>
-            </span>
-          </a>
-          <a
-            role="link"
-            color="default"
-            href=""
-            class="header-aside-menu"
-            aria-expanded="false"
-          >
-            <span class="aside-menu-contents">
-              <p variant="body2" class="aside-contents" color="gray900">마이페이지</p>
-            </span>
-          </a>
-          <div>
-            <div class="header-profile" aria-expanded="false">
-              <a href="/buyer/order-list" class="profile-link">
-                <div class="profile-wrapper">
-                  <div size="32" shape="0" role="article" class="profile-shape">
-                    <img
-                      src="https://kmong.com/img/tools/main_user_gray.png"
-                      alt="avatar"
-                      shape="0"
-                      loading="lazy"
-                      class="profile-img"
-                      style="height: 32px; width: 32px"
-                    />
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </header>
+  <!-- 헤더 시작 -->
+  <div th:if="${session.id == null}"><header th:replace="~{/fix/header :: unlogined-header}"></header></div>
+  <div th:if="${session.id != null && session.memberRole == 2}"><header th:replace="~{/fix/header :: social-logined-header}"></header></div>
+  <div th:if="${session.id != null && session.memberRole == null}"><header th:replace="~{/fix/header :: logined-header}"></header></div>
+
+  <!-- 헤더 끝 -->
 
     <div class="bodyall">
       <div class="body">
@@ -86,16 +35,17 @@
             <section class="aside-bottom">
               <div class="mini">마이 페이지</div>
               <hr orientation="horizontal" class="line" />
-              <a class="menu-list" href="">
+
+              <a class="menu-list" th:href="@{/user/{id}}" >
                 <div class="menu-list-text menu-page-here">내 프로필</div>
               </a>
-              <a class="menu-list" href="">
+              <a class="menu-list" th:href="@{/setting}" >
                 <div class="menu-list-text">계정 관리</div>
               </a>
-              <a class="menu-list" href="">
+              <a class="menu-list" th:href="@{/study/my-study}" >
                 <div class="menu-list-text">내 스터디</div>
               </a>
-              <a class="menu-list" href="">
+              <a class="menu-list" th:href="@{/mypage/favourites}" >
                 <div class="menu-list-text">즐겨찾기</div>
               </a>
             </section>
@@ -103,9 +53,11 @@
           <main class="mypage">
             <div class="mypage-top">
                 <h2 class="mypage-title">마이 페이지</h2>
-                <button class="big-edit" type="button">
-                프로필 등록/수정
+              <a href="/mypage/edit-myprofile" style="text-decoration: none;">
+                <button class="big-edit" type="button" >
+                  프로필 등록/수정
                 </button>
+              </a>
             </div>
             <div class="border">
             <div class="UserProfileContainer-contents">
@@ -158,45 +110,20 @@
         
     </div>
     <div class="flex-left">
-    <button class="mini-edit" type="button" >
+      <a th:href="@{mypage/edit-myprofile}">
+
+      <button class="mini-edit" type="button" >
       프로필 등록/수정
       </button>
+      </a>
     </div>
           </main>
         </div>
       </div>
     </div>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        <ol style="width: 45%; padding: 0">
-          <b>(주)OH!스카</b>
-          | 서울특별시 강남구 테헤란로 26길 12 제일비전타워 13층 | 대표 : 정해승<br />
-          개인정보보호책임 : 배정수 | 사업자등록번호 : 815-88-00171<br />
-          통신판매업신고 : 2015 - 서울강남 - 03148호 | 02-2135-2949<br />
-          koreais@koreaedugroup.com
-        </ol>
-        <ol>
-          <a th:href="@{/study/}">오늘의 스터디</a>
-        </ol>
-        <ol>
-          <a href="">오늘의 카페</a>
-        </ol>
-        <ol>
-          <a href="">FAQ</a>
-        </ol>
-        <ol>
-          <a th:href="@{/introduction}">OH!스카 소개</a>
-        </ol>
-      </div>
-      <div class="footer-media">
-        &nbsp;&nbsp; (주)OH!스카 &nbsp;&nbsp;&nbsp;
-        <a th:href="@{/study/}">오늘의 스터디</a>&nbsp;
-        <a href="">오늘의 카페</a>&nbsp;
-        <a href="">FAQ</a>&nbsp;
-        <a th:href="@{/introduction}">OH!스카 소개</a>&nbsp;
-      </div>
-    </footer>
+  <footer th:replace="~{/fix/footer :: footer}"></footer>
+
   </body>
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>

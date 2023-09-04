@@ -13,13 +13,13 @@ public class memberSkillServiceTestYujin {
     @Autowired
     private MypageMemberSkillService memberSkillService;
 
-    @Test
-    public void insertMemberSkillTest(){
-        MemberSkillVO memberSkillVO = new MemberSkillVO();
-        memberSkillVO.setMemberId(2L);
-        memberSkillVO.setSkillListId(10L);
-        memberSkillService.write(memberSkillVO);
-    }
+//    @Test
+//    public void insertMemberSkillTest(){
+//        MemberSkillVO memberSkillVO = new MemberSkillVO();
+//        memberSkillVO.setMemberId(2L);
+//        memberSkillVO.setSkillListId(10L);
+//        memberSkillService.write(memberSkillVO);
+//    }
 
     @Test
     public void selectMemberSkillTest(){

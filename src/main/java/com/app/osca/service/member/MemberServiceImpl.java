@@ -102,13 +102,13 @@ public class MemberServiceImpl implements MemberService {
 
         phonenumber = phonenumber.replace("-", "");
 
-		String api_key = "NCSF9OW2I1LDLV3Y";
-		String api_secret = "MRF0MFCTQNMO3EWFGFTF5RDWWZNLKJ7S";
+		String api_key = "NCSTBU6HS9YY75AF";
+		String api_secret = "CZGAOFSZLGETXTB5AFHLEZGRIOTPU6AA";
 		Message coolsms = new Message(api_key, api_secret);
 		// 4 params(to, from, type, text) are mandatory. must be filled
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("to", phonenumber);
-		params.put("from", "01054911228");
+		params.put("from", "01025290765");
 		params.put("type", "SMS");
 		params.put("text", "오!스카의 인증번호는 " + randomNumber + " 입니다.");
 		params.put("app_version", "test app 2.2"); // application name and version
@@ -129,13 +129,13 @@ public class MemberServiceImpl implements MemberService {
         List<String> accountList = memberDAO.findByMemberNameAndPhonenumber(memberName, memberPhonenumber);
         String noAccountMsg = "오!스카에 가입된 계정이 없습니다.";
         String allAccountMsg = "오!스카에 가입된 계정은" + accountList.toString() + "입니다.";
-        String api_key = "NCSF9OW2I1LDLV3Y";
-        String api_secret = "MRF0MFCTQNMO3EWFGFTF5RDWWZNLKJ7S";
+        String api_key = "NCSTBU6HS9YY75AF";
+        String api_secret = "CZGAOFSZLGETXTB5AFHLEZGRIOTPU6AA";
         Message coolsms = new Message(api_key, api_secret);
         // 4 params(to, from, type, text) are mandatory. must be filled
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("to", memberPhonenumber);
-        params.put("from", "01054911228");
+        params.put("from", "01025290765");
         params.put("type", "SMS");
         if ( accountList.isEmpty() ) {
             params.put("text", noAccountMsg);
