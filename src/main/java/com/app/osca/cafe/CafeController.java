@@ -55,7 +55,7 @@ public class CafeController {
     public RedirectView saveWrite(CafeVO cafeVO){
         cafeVO.setMemberId(3L);
         cafeAdService.write(cafeVO);
-        return new RedirectView("");
+        return new RedirectView("/cafe/my-cafe");
     }
 
     @GetMapping("/detail/{id}")
